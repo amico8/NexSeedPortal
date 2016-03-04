@@ -13,7 +13,14 @@
 			$this->dbconnect = $db;
 		}
 		public function index(){
-			
+			$sql = 'SELECT * FROM `categories` WHERE 1';
+			$record = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+			$categories = array();
+    		while ($result = mysqli_fetch_assoc($record)) {
+    			$categories[] = $result;
+    		}
+    		//取得結果を返す
+    		return $categories;
 		}
 
 
