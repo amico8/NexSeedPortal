@@ -12,6 +12,9 @@
 			// DB接続設定の値を代入
 			$this->dbconnect = $db;
 		}
+		public function index(){
+			
+		}
 
 
 
