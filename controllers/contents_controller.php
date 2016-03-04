@@ -2,7 +2,7 @@
 	require('models/content.php');
 
 	//コントローラのクラスをインスタンス化
-	$controller = new ContensController();
+	$controller = new ContentsController();
 
 	//アクション名によって、呼び出すメソッドを変える
 	//$action (グローバル変数)は、routes.phpで定義されているもの
