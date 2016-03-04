@@ -8,14 +8,14 @@
 <meta charset="UTF-8">
 
 <!-- CSS Files -->
-<link href="../asset/css/bootstrap.css" rel="stylesheet" media="screen"><link href="../asset/css/font-awesome.css" rel="stylesheet">
-<link href="../asset/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
-<link href="../asset/css/animate.css" rel="stylesheet" media="screen">
-<link href="../asset/css/owl.theme.css" rel="stylesheet">
-<link href="../asset/css/owl.carousel.css" rel="stylesheet">
+<link href="/NexSeedPortal/webroot/asset/css/bootstrap.css" rel="stylesheet" media="screen"><link href="../asset/css/font-awesome.css" rel="stylesheet">
+<link href="/NexSeedPortal/webroot/asset/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+<link href="/NexSeedPortal/webroot/asset/css/animate.css" rel="stylesheet" media="screen">
+<link href="/NexSeedPortal/webroot/asset/css/owl.theme.css" rel="stylesheet">
+<link href="/NexSeedPortal/webroot/asset/css/owl.carousel.css" rel="stylesheet">
 
 <!-- Colors -->
-<link href="../asset/css/css-index.css" rel="stylesheet" media="screen">
+<link href="/NexSeedPortal/webroot/asset/css/css-index.css" rel="stylesheet" media="screen">
 <!-- <link href="css/css-index-green.css" rel="stylesheet" media="screen"> -->
 <!-- <link href="css/css-index-purple.css" rel="stylesheet" media="screen"> -->
 <!-- <link href="css/css-index-red.css" rel="stylesheet" media="screen"> -->
@@ -59,7 +59,7 @@
 </div>
 
 <?php
-	include('views/xxxxx/'. $this->action . '.php');
+	include('views/' . $this->resource. '/' . $this->action . '.php');
  ?>
 
 
@@ -87,12 +87,12 @@
 </footer>
 	
 	<!-- /.javascript files -->
-    <script src="../asset/js/jquery.js"></script>
-    <script src="../asset/js/bootstrap.js"></script>
-    <script src="../asset/js/custom.js"></script>
-    <script src="../asset/js/jquery.sticky.js"></script>
-	<script src="../asset/js/wow.min.js"></script>
-	<script src="../asset/js/owl.carousel.min.js"></script>
+    <script src="/NexSeedPortal/webroot/asset/js/jquery.js"></script>
+    <script src="/NexSeedPortal/webroot/asset/js/bootstrap.js"></script>
+    <script src="/NexSeedPortal/webroot/asset/js/custom.js"></script>
+    <script src="/NexSeedPortal/webroot/asset/js/jquery.sticky.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/wow.min.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/owl.carousel.min.js"></script>
 	<script>
 		new WOW().init();
 	</script>

@@ -19,8 +19,11 @@
 			break;
 	}
 
+<<<<<<< HEAD
 	//$controller->index();
 
+=======
+>>>>>>> 6b2d6f535f5e97cadb55df483979716693743ce0
 	class UsersController {
 		private $action = '';
 		private $resource = '';
