@@ -30,6 +30,7 @@
             $this->viewOptions = $content->index();
 
         //アクション名を設定
+            $this->resource = 'contents';
             $this->action = 'index';
 
         //ビューを呼び出す
