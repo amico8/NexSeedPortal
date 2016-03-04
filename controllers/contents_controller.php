@@ -9,8 +9,8 @@
 
 	switch ($action) {
 		case 'show':
-		$controller->show();
-		break;
+			$controller->show();
+			break;
 
 
 
