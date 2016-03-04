@@ -42,11 +42,11 @@
          </tr>
 
          <tr>
-          <td>Photo</td><td><div class="text-center"><img src="../asset/images/picture.jpg" alt="写真" width="180" height="180"></div></td>
+          <td>Photo</td><td><div class="text-center"><img src="/NexSeedPortal/webroot/asset/images/picture.jpg" alt="写真" width="180" height="180"></div></td>
          </tr>
 
          <tr>
-          <td>Location</td><td><div class="text-center"><img src="../asset/images/map.png" alt="地図" width="240" height="180"></div></td>
+          <td>Location</td><td><div class="text-center"><img src="/NexSeedPortal/webroot/asset/images/map.png" alt="地図" width="240" height="180"></div></td>
          </tr>
 
          <tr>
