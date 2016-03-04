@@ -27,7 +27,7 @@
 		public function show() {
 			// モデルを呼び出す
 			$content = new Content();
-			$this->viewOptions = $content->show();
+			// $this->viewOptions = $content->show();
 
 			// アクション名を設定する
 			$this->resource = 'contents';
