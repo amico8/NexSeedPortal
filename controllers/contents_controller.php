@@ -12,9 +12,16 @@
 		case 'add';
 		$controller->add();
 
+
+		case 'confirm':
+        $controller->confirm();
+            break;
+
+
 		default:
 			break;
 	}
+
 
 	class ContentsController {
 		//プロパティ
@@ -27,8 +34,17 @@
 		$this->action='add';
 		$this->resource='contents';
 		include('views/layout/application.php');
-	}
+
 
 	}
+    public function confirm() {
 
+        // $content = new Content();
+
+        $this->resource = 'contents';
+        $this->action = 'confirm';
+        include('views/layout/application.php');
+	}
+	
+	}
  ?>
