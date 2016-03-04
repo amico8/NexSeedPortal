@@ -48,11 +48,9 @@
 					<h2>Search Information</h2>
 					<div class="btn-section dropdown fadeInLeft">
 						<select class="category" name="category">
-							<option value="1">Category</option>
-							<option value="2">レストラン</option>
-							<option value="3">スーパー</option>
-							<option value="4">商業施設</option>
-							<option value="5">レジャー</option>
+							<?php foreach ($this->viewOptions as $category) { ?>
+							<option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
+							<?php } ?>
 						</select>
 						<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="">
 						<a href="#1st"><input type="button" class="btn-default" value="Search"></a>
