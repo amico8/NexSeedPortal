@@ -25,6 +25,7 @@
 		public function edit() {
 			$content = new Content();
 			// $this->viewOptions = $content->edit();
+			$this->resource = 'contents';
 			$this->action = 'edit';
 
 			include('views/layout/application.php');
