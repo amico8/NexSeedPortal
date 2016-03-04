@@ -18,13 +18,13 @@
 			break;
 	}
 
-	class ContentsController {
+	class ContentsController{
 		//プロパティ
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
 
-    public class index(){
+    public function index(){
     	//モデルを呼び出す
         	$blog = new Blog();
             $this->viewOptions = $blog->index();
