@@ -17,28 +17,26 @@
                         </div>
                         <div class="category">
                             <input type="text" name="storename" id="storename" class="form-control input-lg" placeholder="Store name" value="バリカタラーメン" required/>
-                        </div>
-                        <div class="category">
                             <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" required/>
-                        </div>
-                        <div class="category">
                             <input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="">
                         </div>
                         <div class="abc">
-                        <span>Review:</span>
-                        <p class="abc01">
-                            <input type="radio" name="point" value="1">１
-                            <input type="radio" name="point" value="2">２
-                            <input type="radio" name="point" value="3" checked>３
-                            <input type="radio" name="point" value="4">４
-                            <input type="radio" name="point" value="5">５
-                        </p>
+                            <span>Review:</span>
+                            <p class="abc01">
+                                <input type="radio" name="point" value="1">１
+                                <input type="radio" name="point" value="2">２
+                                <input type="radio" name="point" value="3" checked>３
+                                <input type="radio" name="point" value="4">４
+                                <input type="radio" name="point" value="5">５
+                            </p>
                         </div>
                         <div class="category">
                             <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>懐かしい日本風ラーメンを食べられて良かったけど、値段が微妙。</textarea>
                         </div>
                         <div class="col-sm-4">
-                            <input type="submit" name="submit" value="Back" class="btn01 wow fadeInUp" />
+                            <a href=''>
+                                <input type="button" name="button" value="Back" class="btn01 wow fadeInUp" />
+                            </a>
                         </div>
                         <!-- 確認ボタン -->
                         <div class="col-sm-4 contact-left">
