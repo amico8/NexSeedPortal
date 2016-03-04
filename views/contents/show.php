@@ -8,10 +8,10 @@
                             <p>
                             <div class="col-md-10 contact-left">バリカタラーメンの店舗情報</div>
                             <div class="contact-right">
-                                <a href="edit.html">
+                                <a href="/NexSeedPortal/contents/edit/">
                                 <i class="fa fa-pencil fa-glay"></i>
                                 </a>　
-                                <a href="delete.html">
+                                <a href="/NexSeedPortal/contents/delete/">
                                 <i class="fa fa-trash fa-glay"></i>
                                 </a>
                             </div>
