@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 
 <!-- CSS Files -->
-<link href="/NexSeedPortal/webroot/asset/css/bootstrap.css" rel="stylesheet" media="screen"><link href="../asset/css/font-awesome.css" rel="stylesheet">
+<link href="/NexSeedPortal/webroot/asset/css/bootstrap.css" rel="stylesheet" media="screen"><link href="/NexSeedPortal/webroot/asset/css/font-awesome.css" rel="stylesheet">
 <link href="/NexSeedPortal/webroot/asset/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
 <link href="/NexSeedPortal/webroot/asset/css/animate.css" rel="stylesheet" media="screen">
 <link href="/NexSeedPortal/webroot/asset/css/owl.theme.css" rel="stylesheet">
