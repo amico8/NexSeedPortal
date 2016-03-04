@@ -2,14 +2,14 @@
 	require('models/content.php');
 
 	//コントローラのクラスをインスタンス化
-	$controller = new ContensController();
+	$controller = new ContentsController();
 
 	//アクション名によって、呼び出すメソッドを変える
 	//$action (グローバル変数)は、routes.phpで定義されているもの
 
 	switch ($action) {
 		case 'show':
-		$controller->index();
+		$controller->show();
 		break;
 
 
@@ -30,6 +30,7 @@
 			$this->viewOptions = $content->show();
 
 			// アクション名を設定する
+			$this->resource = 'contents';
 			$this->action = 'show';
 
 			// ビューを呼び出す
