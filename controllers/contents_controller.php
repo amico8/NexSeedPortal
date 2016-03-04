@@ -26,8 +26,8 @@
 
     public function index(){
     	//モデルを呼び出す
-        	$blog = new Blog();
-            $this->viewOptions = $blog->index();
+        	$content = new Content();
+            $this->viewOptions = $content->index();
 
         //アクション名を設定
             $this->action = 'index';
