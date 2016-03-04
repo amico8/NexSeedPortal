@@ -8,6 +8,9 @@
 	//$action (グローバル変数)は、routes.phpで定義されているもの
 
 	switch ($action) {
+		case 'edit':
+			$controller->edit();
+			break;
 
 		default:
 			break;
@@ -18,6 +21,14 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
+
+		public function edit() {
+			$content = new Content();
+			// $this->viewOptions = $content->edit();
+			$this->action = 'edit';
+
+			include('views/layout/application.php');
+		}
 
 
 	}
