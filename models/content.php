@@ -1,6 +1,6 @@
 <?php 
 
-	class Content {
+	class Content{
 
 		//プロパティに設定
 		private $dbconnect = '';
