@@ -2,7 +2,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('../asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax" style="background-image:url('/NexSeedPortal/webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 
 	<div class="overlay">
 		<div class="container">
@@ -41,7 +41,7 @@
 				<div class="new-post col-md-6 wow slideInRight">
 					<h2>Let's Post Your Idea!</h2>
 					<div class="download-cta wow fadeInLeft">
-					<a class="btn-secondary" href="/nexseedportal/contents/add">New Post</a>
+					<a class="btn-secondary" href="/NexSeedPortal/contents/add">New Post</a>
 					</div>
 				</div>
 				<div class="search col-md-6 wow slideInRight">
