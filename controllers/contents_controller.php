@@ -9,8 +9,6 @@
 
 	switch ($action) {
 
-
-
 		default:
 			break;
 	}
@@ -20,7 +18,6 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
-
 
 
 	}
