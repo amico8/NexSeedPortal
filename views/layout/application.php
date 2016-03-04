@@ -59,7 +59,7 @@
 </div>
 
 <?php
-	include('views/xxxxx/'. $this->action . '.php');
+	include('views/' . $this->resource. '/' . $this->action . '.php');
  ?>
 
 
