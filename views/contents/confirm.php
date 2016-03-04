@@ -3,56 +3,53 @@
         <div class="overlay02">
             <div class="container">
                 <div class="row contact-row">
-                    <!-- /.contact form -->
-                    <div class="category col-sm-7 contact-right">
+                    <div class="col-sm-7 contact-right">
+                        <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert('Thank you for your feedback!');">
 
-                        <form method="POST" id="contact-form" class="form-horizontal" action="edit_check.html">
+                <!-- <div class="container"> -->
+                  <!-- <div class="row"> -->
+                   <!-- <div class="col-sm-7 contact-right"> -->
+                          <!-- <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert('Thank you for your feedback!');"> -->
+                        <!-- <input type="hidden" name="action" value="submit"> -->
+                            <div class="well">ご登録内容をご確認ください。</div>
+                                <table class="table">
+                                  <!-- <table class="table table-striped table-condensed"> -->
+                                    <tbody>
+                                      <!-- 登録内容を表示 -->
+                                        <tr class="sample1">
+                                            <td><div class="text-center">Category</div></td>
+                                            <td><div class="text-center">カテゴリ結果</div></td>
+                                        </tr>
+                                        <tr class="sample1">
+                                            <td><div class="text-center">Store Name</div></td>
+                                            <td><div class="text-center">〇〇〇〇〇〇店</div></td>
+                                        </tr>
+                                        <tr class="sample1">
+                                            <td><div class="text-center">Location</div></td>
+                                            <td><div class="text-center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hTfxofnsTqdDj3oPhG39u1O72RdlGiVrJNdkfbd3_guAwlepKw" width="100" height="100"></div></td>
+                                        </tr>
+                                        <tr class="sample1">
+                                            <td><div class="text-center">Photo</div></td>
+                                            <td><div class="text-center"><img src="http://img-cdn.jg.jugem.jp/48e/2649154/20130618_1299355.jpg" width="100" height="100"></div></td>
+                                        </tr>
+                                        <tr class="sample1">
+                                            <td><div class="text-center">Review</div></td>
+                                            <td class="review"><div class="text-center">★★★★★</div></td>
+                                        </tr>
+                                        <tr class="sample1">
+                                            <td><div class="text-center">Comment</div></td>
+                                            <td><div class="text-center">●●●●●●●●</div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                            <div class="btn-section dropdown01">
-                                <select name="category" class="category">
-                                    <option value="category">カテゴリ</option>
-                                    <option value="restaurant" selected>レストラン</option>
-                                    <option value="shop">雑貨屋・お土産屋</option>
-                                    <option value="hobby">遊び</option>
-                                    <option value="life">生活用品</option>
-                                    <option value="beauty">ヘアサロン・スパ</option>
-                                </select>
+                              <!-- 戻るボタン -->
+                            <div class="col-sm-4 contact-right">
+                                <input type="submit" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
                             </div>
-
-                            <div class="category">
-                                <input type="text" name="storename" id="storename" class="form-control input-lg" placeholder="Store name" value="バリカタラーメン" required/>
-                            </div>
-
-                            <div class="category">
-                                <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" required/>
-                            </div>
-
-                            <div class="category">
-                                <input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="">
-                            </div>
-
-                            <div class="abc">
-                                <span>Review:</span>
-                                <p class="abc01">
-                                    <input type="radio" name="point" value="1">１
-                                    <input type="radio" name="point" value="2">２
-                                    <input type="radio" name="point" value="3" checked>３
-                                    <input type="radio" name="point" value="4">４
-                                    <input type="radio" name="point" value="5">５
-                                </p>
-                            </div>
-
-                            <div class="category">
-                                <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp" placeholder="Comment" required>懐かしい日本風ラーメンを食べられて良かったけど、値段が微妙。</textarea>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <!-- <input type="submit" name="submit" value="Back" class="btn01 wow fadeInUp" /> -->
-                                <input type="submit" name="submit" value="Back" class="btn01 wow fadeInUp" />
-                            </div>
-                                <!-- 確認ボタン -->
+                              <!-- 確認ボタン -->
                             <div class="col-sm-4 contact-left">
-                                <input type="submit" name="submit" value="Edit" class="btn wow fadeInUp" />
+                                <input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
                             </div>
                         </form>
                     </div>
