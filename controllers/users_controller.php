@@ -7,41 +7,25 @@
 	//$actionはroutes.phpで定義されているもの
 	switch ($action) {
 		case 'add':
-			$controller->add();
-			break;
-		case 'create':
-			$controller->create();
+			$controller->add($post);
 			break;
 		case 'confirm':
 			$controller->confirm();
+			break;
+		case 'create':
+			$controller->create();
 			break;
 		default:
 			break;
 	}
 
-<<<<<<< HEAD
-	//$controller->index();
-
-=======
->>>>>>> 6b2d6f535f5e97cadb55df483979716693743ce0
 	class UsersController {
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
 
-		public function add() {
+		public function add($post) {
 			$this->action = 'add';
-
-			//ビューを呼び出す
-			include('views/layout/application.php');
-		}
-
-		public function create() {
-			//ここでモデルを呼び出す
-			$user = new User();
-			$this->viewOptions = $user->create();
-
-			$this->action = 'create';
 
 			//ビューを呼び出す
 			include('views/layout/application.php');
@@ -53,6 +37,17 @@
 			$this->viewOptions = $user->confirm();
 
 			$this->action = 'confirm';
+
+			//ビューを呼び出す
+			include('views/layout/application.php');
+		}
+
+		public function create() {
+			//ここでモデルを呼び出す
+			$user = new User();
+			$this->viewOptions = $user->create();
+
+			$this->action = 'create';
 
 			//ビューを呼び出す
 			include('views/layout/application.php');

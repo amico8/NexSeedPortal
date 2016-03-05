@@ -7,15 +7,22 @@
 			$this->dbconnect = $db;
 		}
 
-		public function add() {
-			// $sql = 'SELECT * FROM `users` WHERE `delete_flag`=0 ORDER BY `created` DESC';
-			// $results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error());
+		public function add($post) {
+			$sql = sprintf('SELECT COUNT(*) AS cnt FROM `users` WHERE `email`=%s', 
+			mysqli_real_escape_string($this->dbconnect, $post));
+			$record = mysqli_query($this->dbconnect, $sql);
+		    $table = mysqli_fetch_assoc($record);
 
-			// $rtn = array();
-			// while($result = mysqli_fetch_assoc($results)) {
-			// 	$rtn[] = $result;
-			// }
-			//取得結果を返す
+		    if ($table['cnt'] > 0) {
+		    	$error['email'] = 'duplicate';
+		    } else {
+		    	header('Location: /NexSeedPortal/users/confirm/');
+		    }
+		    exit();
+		}
+
+		public function confirm() {
+			header('Location: /NexSeedPortal/users/create/');
 			return $rtn;
 		}
 
@@ -28,15 +35,6 @@
 		      // mysqli_query($this->dbconnect, $sql) or die(mysqli_error());
 		      // header('Location: /NexSeedPortal/users/index/');
 		      exit();
-		}
-
-		public function confirm() {
-			// $sql = sprintf('SELECT * FROM `users` WHERE `delete_flag`=0 AND `id`=%d', $id);
-			// $results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error());
-
-			// $rtn = mysqli_fetch_assoc($results);
-			// //取得結果を返す
-			return $rtn;
 		}
 
 	}
