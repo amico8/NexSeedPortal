@@ -21,6 +21,7 @@
 						おすすめレストラン、ローカル情報、レジャー情報<br>
 						特に日常生活に関連する情報満載です！<br>
 						よろしくお願いします！</p>
+						<?php var_dump($this->viewOptions); ?>
 					</div>
 
 				</div>
@@ -48,7 +49,7 @@
 					<h2>Search Information</h2>
 					<div class="btn-section dropdown fadeInLeft">
 						<select class="category" name="category">
-							<?php foreach ($this->viewOptions as $category) { ?>
+							<?php foreach ($this->viewOptions['category'] as $category) { ?>
 							<option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
 							<?php } ?>
 						</select>
@@ -83,11 +84,13 @@
 									</tr>
 								</thead>
 								<tbody class="list-body text-overflow">
-									<tr data-href="/nexseedportal/contents/show/{id}">
-										<td data-label="shop">Bo's coffee</td>
-										<td class="review" data-label="review">★★★</td>
-										<td data-label="comment">コーヒーは美味しいけどwifiは普通だと思うんだけどどちらかといえばそうではないかもしれない</td>
+									<?php foreach ($this->viewOptions['contents'] as $content) {?>
+									<tr data-href="/nexseedportal/contents/show/<?php echo $content['content_id']; ?>">
+										<td data-label="shop"><?php echo $content['shop_name']; ?></td>
+										<td class="review" data-label="review"><?php echo $content['review']; ?></td>
+										<td data-label="comment"><?php echo $content['comment']; ?></td>
 									</tr>
+									<?php } ?>
 									<!-- <tr data-href="show.html">
 										<td data-label="shop">STARBUCKS COFFEE</td>
 										<td class="review" data-label="review">★★★★★</td>
