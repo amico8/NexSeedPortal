@@ -12,6 +12,11 @@
 			$controller->edit();
 			break;
 
+		case 'confirm':
+        	$controller->confirm();
+            break;
+
+
 		default:
 			break;
 	}
@@ -29,6 +34,14 @@
 			$this->action = 'edit';
 
 			include('views/layout/application.php');
+		}
+
+		public function confirm() {
+        	$content = new Content();
+	        $this->resource = 'contents';
+	        $this->action = 'confirm';
+
+	        include('views/layout/application.php');
 		}
 
 
