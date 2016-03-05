@@ -37,11 +37,16 @@
                             </tr>
                             <tr>
                                 <td>Photo</td>
-                                <td><div class="text-center"><img src="/NexSeedPortal/webroot/asset/images/picture.jpg" alt="写真" width="180" height="180"></div></td>
+                                <td><div class="text-center"><img src="/NexSeedPortal/webroot/asset/images/picture.jpg" alt="写真" width="500" height="370"></div></td>
                             </tr>
                             <tr>
                                 <td>Location</td>
-                                <td><div class="text-center"><img src="/NexSeedPortal/webroot/asset/images/map.png" alt="地図" width="240" height="180"></div></td>
+                                <td>
+                                    <!-- goolgle map API -->
+                                    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                                    <script src="/NexSeedPortal/webroot/asset/js/gmap.js"></script>
+                                    <div id="gmap"></div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Date</td>
