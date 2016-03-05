@@ -17,7 +17,13 @@
                             </div>
                             <div class="category">
                                 <input type="text" name="storename" id="storename" class="form-control input-lg" placeholder="Store name" value="バリカタラーメン" required/>
-                                <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" required/>
+                                <div class="abc">
+                                    <span>Please Select Your Favorite Location!!</span>
+                                    <!-- goolgle map API -->
+                                    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                                    <script src="/NexSeedPortal/webroot/asset/js/gmap_edit.js"></script>
+                                    <div id="gmap"></div>
+                                </div>
                                 <input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="">
                             </div>
                             <div class="abc">

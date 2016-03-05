@@ -1276,6 +1276,7 @@ table.list td {
 
 .abc{
 	font-size:18px;
+	font-weight: 500;
 	margin-left:30px;
 }
 .abc01{
@@ -1345,4 +1346,12 @@ table.list td {
 */
 .fa-glay {
 	color: #888888;
+}
+
+#gmap {
+	width: 500px;
+	height: 370px;
+	border: 1px solid #e3e3e3;
+	margin-right: auto;
+	margin-left: auto;
 }
