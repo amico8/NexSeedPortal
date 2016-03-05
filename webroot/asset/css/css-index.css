@@ -1283,8 +1283,11 @@ table.list td {
 	width:200px;
 }
 .map01{
-	width:200px; height:200px;
+	/*width:200px; height:200px;*/
 	margin-left:30px;
+	width: 500px; 
+	height: 370px;
+	border: 1px solid Gray;
 }
 .insert_box{
 	font-size:18px !important;
