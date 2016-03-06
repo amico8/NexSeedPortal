@@ -9,10 +9,11 @@
 
 	switch ($action) {
 		case 'show':
-			$controller->show();
+			$controller->show($id);
 			break;
-
-
+		case 'delete':
+			$controller->delete($id);
+			break;
 
 		default:
 			break;
@@ -24,10 +25,10 @@
 		private $resource = '';
 		private $viewOptions = '';
 
-		public function show() {
+		public function show($id) {
 			// モデルを呼び出す
 			$content = new Content();
-			// $this->viewOptions = $content->show();
+			$this->viewOptions = $content->show($id);
 
 			// アクション名を設定する
 			$this->resource = 'contents';
@@ -35,6 +36,13 @@
 
 			// ビューを呼び出す
 			include('views/layout/application.php');
+		}
+
+		public function delete($id) {
+			$content = new content();
+			$content->delete($id);
+
+			header('Location: /NexSeedPortal/contents/index');
 		}
 
 

@@ -4,14 +4,15 @@
             <div class="container">
                 <div class="row contact-row">
                     <div class="col-md-9 contact-right">
+                    <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
                         <div class="well2">
                             <p>
-                            <div class="col-md-10 contact-left">バリカタラーメンの店舗情報</div>
+                            <div class="col-md-10 contact-left"><?php echo $this->viewOptions['shop_name']; ?>の店舗情報</div>
                             <div class="contact-right">
-                                <a href="/NexSeedPortal/contents/edit/">
+                                <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>">
                                 <i class="fa fa-pencil fa-glay"></i>
                                 </a>　
-                                <a href="/NexSeedPortal/contents/delete/">
+                                <a href="/NexSeedPortal/contents/delete/<?php echo $id; ?>" onclick="return confirm('Are you sure you want to delete?');">
                                 <i class="fa fa-trash fa-glay"></i>
                                 </a>
                             </div>
@@ -21,42 +22,74 @@
                         <table class="table table-condensed">
                             <tr>
                                 <td>Store Name</td>
-                                <td><div class="text-center">バリカタラーメン</div></td>
+                                <td>
+                                    <div class="text-center">
+                                        <?php echo $this->viewOptions['shop_name']; ?>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Category</td>
-                                <td><div class="text-center">レストラン</div></td>
+                                <td>
+                                    <div class="text-center">
+                                        <?php echo $this->viewOptions['category_name']; ?>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Review</td>
-                                <td class="review"><div class="text-center">★★★</div></td>
+                                <td class="review">
+                                    <div class="text-center">
+                                        <?php echo $this->viewOptions['review']; ?>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Comment</td>
-                                <td><div class="text-center">懐かしい日本風ラーメンを食べられて良かったけど、値段が微妙。</div></td>
+                                <td>
+                                    <div class="text-center">
+                                        <?php echo $this->viewOptions['comment']; ?>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Photo</td>
-                                <td><div class="text-center"><img src="/NexSeedPortal/webroot/asset/images/picture.jpg" alt="写真" width="500" height="370"></div></td>
+                                <td>
+                                    <div class="text-center">
+                                        <?php echo $this->viewOptions['picture_path']; ?>
+                                        <img src="/NexSeedPortal/webroot/asset/images/picture.jpg" alt="写真" width="500" height="370">
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Location</td>
                                 <td>
                                     <!-- goolgle map API -->
                                     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                                    <script src="/NexSeedPortal/webroot/asset/js/gmap.js"></script>
+                                    <?php require('webroot/asset/js/gmap.php'); ?>
                                     <div id="gmap"></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Date</td>
-                                <td><div class="text-center">2016-02-24 14:06:41</div></td>
+                                <td>
+                                    <div class="text-center">
+                                        <?php echo $this->viewOptions['created']; ?>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Reviewer</td>
-                                <td><div class="text-center">Y.Kitamura</div></td>
+                                <td>
+                                    <div class="text-center">
+                                        <?php echo $this->viewOptions['user_name']; ?>
+                                    </div>
+                                </td>
                             </tr>
                         </table>
+                    <?php else: ?>
+                        <p>This post couldn't find out. Please check your URL. Thank you.</p>
+                    <?php endif; ?>
                             <br />
                     </div>
                 </div>
