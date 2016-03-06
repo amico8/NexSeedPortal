@@ -9,7 +9,7 @@
 
 	switch ($action) {
 		case 'edit':
-			$controller->edit();
+			$controller->edit($id);
 			break;
 
 		case 'confirm':
@@ -27,9 +27,9 @@
 		private $resource = '';
 		private $viewOptions = '';
 
-		public function edit() {
+		public function edit($id) {
 			$content = new Content();
-			// $this->viewOptions = $content->edit();
+			$this->viewOptions = $content->edit($id);
 			$this->resource = 'contents';
 			$this->action = 'edit';
 

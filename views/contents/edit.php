@@ -4,6 +4,7 @@
             <div class="container">
                 <div class="row contact-row">
                     <div class="category col-sm-7 contact-right">
+                    <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
                         <form method="POST" id="contact-form" class="form-horizontal" action="edit_check.html">
                             <div class="btn-section dropdown01">
                                 <select name="category" class="category">
@@ -16,12 +17,12 @@
                                 </select>
                             </div>
                             <div class="category">
-                                <input type="text" name="storename" id="storename" class="form-control input-lg" placeholder="Store name" value="バリカタラーメン" required/>
+                                <input type="text" name="storename" id="storename" class="form-control input-lg" placeholder="Store name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
                                 <div class="abc">
                                     <span>Please Select Your Favorite Location!!</span>
                                     <!-- goolgle map API -->
                                     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                                    <script src="/NexSeedPortal/webroot/asset/js/gmap_edit.js"></script>
+                                    <?php require('webroot/asset/js/gmap_edit.php'); ?>
                                     <div id="gmap"></div>
                                 </div>
                                 <input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="">
@@ -37,7 +38,7 @@
                                 </p>
                             </div>
                             <div class="category">
-                                <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>懐かしい日本風ラーメンを食べられて良かったけど、値段が微妙。</textarea>
+                                <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->viewOptions['comment']; ?></textarea>
                             </div>
                             <div class="col-sm-4">
                                 <a href='/NexSeedPortal/contents/show'>
@@ -49,6 +50,9 @@
                                 <input type="submit" name="submit" value="Edit" class="btn wow fadeInUp" />
                             </div>
                         </form>
+                    <?php else: ?>
+                        <p>This post couldn't found out. Please check your URL.</br>Thank you.</p>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>
