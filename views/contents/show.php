@@ -88,7 +88,7 @@
                             </tr>
                         </table>
                     <?php else: ?>
-                        <p>This post couldn't find out. Please check your URL. Thank you.</p>
+                        <p>This post couldn't find out. Please check your URL.</br>Thank you.</p>
                     <?php endif; ?>
                             <br />
                     </div>
