@@ -37,7 +37,7 @@
 		}
 
 		public function confirm() {
-        	$content = new Content();
+        	// $content = new Content();
 	        $this->resource = 'contents';
 	        $this->action = 'confirm';
 

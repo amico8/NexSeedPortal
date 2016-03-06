@@ -40,7 +40,7 @@
                                 <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>懐かしい日本風ラーメンを食べられて良かったけど、値段が微妙。</textarea>
                             </div>
                             <div class="col-sm-4">
-                                <a href='/NexSeedPortal/content/show'>
+                                <a href='/NexSeedPortal/contents/show'>
                                     <input type="button" name="button" value="Back" class="btn01 wow fadeInUp" />
                                 </a>
                             </div>
