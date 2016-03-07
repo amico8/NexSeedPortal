@@ -26,10 +26,12 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
+		private $categories = '';
 
 		public function edit($id) {
 			$content = new Content();
-			$this->viewOptions = $content->edit($id);
+			$this->viewOptions = $content->selectcontents($id);
+			$this->categories = $content->selectcategories();
 			$this->resource = 'contents';
 			$this->action = 'edit';
 

@@ -9,11 +9,9 @@
                             <div class="btn-section dropdown01">
                                 <select name="category" class="category">
                                     <option value="category">カテゴリ</option>
-                                    <option value="restaurant" selected>レストラン</option>
-                                    <option value="shop">雑貨屋・お土産屋</option>
-                                    <option value="hobby">遊び</option>
-                                    <option value="life">生活用品</option>
-                                    <option value="beauty">ヘアサロン・スパ</option>
+                                <?php foreach ($this->categories as $category): ?>
+                                    <option value="<?php echo $category['category_id'];?>"><?php echo $category['category_name']; ?></option>
+                                <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="category">
