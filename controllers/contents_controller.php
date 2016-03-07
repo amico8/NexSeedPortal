@@ -11,12 +11,15 @@
 
 		case 'add';
 		$controller->add();
-
+			break;
 
 		case 'confirm':
-        $controller->confirm();
+			if($id == 0) {
+				$controller->addConfirm();
+			} else {
+				$controller->editConfirm($id);
+			}
             break;
-
 
 		default:
 			break;
@@ -37,13 +40,19 @@
 
 
 	}
-    public function confirm() {
-
+    public function addConfirm() {
         // $content = new Content();
-
         $this->resource = 'contents';
-        $this->action = 'confirm';
+        $this->action = 'add_confirm';
         include('views/layout/application.php');
+
+	}
+    public function editConfirm($id) {
+	    // $content = new Content();
+	    $this->resource = 'contents';
+	    $this->action = 'edit_confirm';
+	    include('views/layout/application.php');
+
 	}
 	
 	}
