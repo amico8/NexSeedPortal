@@ -36,6 +36,8 @@
     		$maxp = mysqli_fetch_assoc($records);
     		$maxpage = ceil($maxp['cnt'] /5);
     		$page = min($page,$maxpage);
+    		$return['page'][] = $page;
+    		$return['maxpage'][] = $maxpage;
 
     		$start = ($page-1)*5;
             $start = max(0,$start);
@@ -53,7 +55,8 @@
     		// 	$return['contents'][$i]['review'] = str_replace(4,"★★★★", $return['contents'][$i]['review']);
     		// 	$return['contents'][$i]['review'] = str_replace(5,"★★★★★", $return['contents'][$i]['review']);
     		// }
-    		for ($i=0; $i <5 ; $i++) {
+    		$numbers = count($return['contents']);
+    		for ($i=0; $i < $numbers ; $i++) {
     			$number = $return['contents'][$i]['review'];
     			$return['contents'][$i]['review'] = "";
     			for ($j=0; $j < $number ; $j++) {

@@ -91,34 +91,20 @@
 										<td data-label="comment"><?php echo $content['comment']; ?></td>
 									</tr>
 									<?php } ?>
-									<!-- <tr data-href="show.html">
-										<td data-label="shop">STARBUCKS COFFEE</td>
-										<td class="review" data-label="review">★★★★★</td>
-										<td data-label="comment">コーヒーは美味しい、wifiは普通、サービスは最高だと思うんだけどどちらかといえばそうではないかもしれない</td>
-									</tr>
-									<tr data-href="show.html">
-										<td data-label="shop">coffee dream</td>
-										<td class="review" data-label="review">★★★★★</td>
-										<td data-label="comment">コーヒーは普通だけどwifiは爆速だと思うんだけどどちらかといえばそうではないかもしれない</td>
-									</tr>
-									<tr data-href="show.html">
-										<td data-label="shop">xxxxxxxx</td>
-										<td class="review" data-label="review">★</td>
-										<td data-label="comment">good</td>
-									</tr>
-									<tr data-href="show.html">
-										<td data-label="shop">xxxxxxxx</td>
-										<td class="review" data-label="review">★</td>
-										<td data-label="comment">good</td>
-									</tr> -->
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 				<div class="btn-section">
-					<a href="" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-					<a href="" class="btn-default" style="float:right">Previous</a>
+					<?php if($this->viewOptions['page'][0] == 1) {?>
+						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				    <?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
+						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+					<?php }else{ ?>
+						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
