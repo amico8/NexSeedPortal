@@ -30,8 +30,8 @@
 
 		public function edit($id) {
 			$content = new Content();
-			$this->viewOptions = $content->selectcontents($id);
-			$this->categories = $content->selectcategories();
+			$this->viewOptions = $content->selectContents($id);
+			$this->categories = $content->selectCategories();
 			$this->resource = 'contents';
 			$this->action = 'edit';
 
