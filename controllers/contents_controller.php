@@ -11,6 +11,11 @@
 		case 'show':
 			$controller->show($id);
 			break;
+
+		case 'edit':
+			$controller->edit($id);
+			break;
+
 		case 'delete':
 			$controller->delete($id);
 			break;
@@ -24,6 +29,7 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
+		private $categories = '';
 
 		public function show($id) {
 			// モデルを呼び出す
@@ -35,6 +41,16 @@
 			$this->action = 'show';
 
 			// ビューを呼び出す
+			include('views/layout/application.php');
+		}
+
+		public function edit($id) {
+			$content = new Content();
+			$this->viewOptions = $content->selectContents($id);
+			$this->categories = $content->selectCategories();
+			$this->resource = 'contents';
+			$this->action = 'edit';
+
 			include('views/layout/application.php');
 		}
 
