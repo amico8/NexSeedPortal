@@ -46,13 +46,20 @@
             while ($recordsets = mysqli_fetch_assoc($recordset)) {
     			$return['contents'][] = $recordsets;
     		}
+    		// for ($i=0; $i <5 ; $i++) {
+    		// 	$return['contents'][$i]['review'] = str_replace(1,"★", $return['contents'][$i]['review']);
+    		// 	$return['contents'][$i]['review'] = str_replace(2,"★★", $return['contents'][$i]['review']);
+    		// 	$return['contents'][$i]['review'] = str_replace(3,"★★★", $return['contents'][$i]['review']);
+    		// 	$return['contents'][$i]['review'] = str_replace(4,"★★★★", $return['contents'][$i]['review']);
+    		// 	$return['contents'][$i]['review'] = str_replace(5,"★★★★★", $return['contents'][$i]['review']);
+    		// }
     		for ($i=0; $i <5 ; $i++) {
-    			$return['contents'][$i]['review'] = str_replace(1,"★", $return['contents'][$i]['review']);
-    			$return['contents'][$i]['review'] = str_replace(2,"★★", $return['contents'][$i]['review']);
-    			$return['contents'][$i]['review'] = str_replace(3,"★★★", $return['contents'][$i]['review']);
-    			$return['contents'][$i]['review'] = str_replace(4,"★★★★", $return['contents'][$i]['review']);
-    			$return['contents'][$i]['review'] = str_replace(5,"★★★★★", $return['contents'][$i]['review']);
-    		 }
+    			$number = $return['contents'][$i]['review'];
+    			$return['contents'][$i]['review'] = "";
+    			for ($j=0; $j < $number ; $j++) {
+    				$return['contents'][$i]['review'] = $return['contents'][$i]['review']."★";
+    			}
+    		}
     		return $return;
 }
 
