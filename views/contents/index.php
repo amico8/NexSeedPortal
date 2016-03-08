@@ -38,7 +38,7 @@
 	<div class="container">
 		<div class="row">
 			<!-- /.intro content -->
-			<form method="get" action="" role="form" name="search">
+			<form method="post" action="/NexSeedPortal/contents/index/" role="form" name="search">
 				<div class="new-post col-md-6 wow slideInRight">
 					<h2>Let's Post Your Idea!</h2>
 					<div class="download-cta wow fadeInLeft">
@@ -49,12 +49,13 @@
 					<h2>Search Information</h2>
 					<div class="btn-section dropdown fadeInLeft">
 						<select class="category" name="category">
+							<option name="id" value="">Category (not necessary)</option>
 							<?php foreach ($this->viewOptions['category'] as $category) { ?>
-							<option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
+							<option name="id" value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
 							<?php } ?>
 						</select>
 						<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="">
-						<a href="#1st"><input type="button" class="btn-default" value="Search"></a>
+						<a href="/NexSeedPortal/contents/index/"><input type="submit" class="btn-default" value="Search"></a>
 					</div>
 				</div>
 			</form>
@@ -84,13 +85,14 @@
 									</tr>
 								</thead>
 								<tbody class="list-body text-overflow">
-									<?php foreach ($this->viewOptions['contents'] as $content) {?>
+									<?php if (isset($this->viewOptions['contents'])&&!empty($this->viewOptions['contents'])) {
+									foreach ($this->viewOptions['contents'] as $content) {?>
 									<tr data-href="/nexseedportal/contents/show/<?php echo $content['content_id']; ?>">
 										<td data-label="shop"><?php echo $content['shop_name']; ?></td>
 										<td class="review" data-label="review"><?php echo $content['review']; ?></td>
 										<td data-label="comment"><?php echo $content['comment']; ?></td>
 									</tr>
-									<?php } ?>
+									<?php }} ?>
 								</tbody>
 							</table>
 						</div>

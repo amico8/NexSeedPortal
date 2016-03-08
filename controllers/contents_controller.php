@@ -9,7 +9,7 @@
 
 	switch ($action) {
 		case 'index';
-		    $controller -> index($id);
+		    $controller -> index($id,$post);
 		    break;
 
 
@@ -24,10 +24,10 @@
 		private $resource = '';
 		private $viewOptions = '';
 
-    public function index($id){
+    public function index($id,$post){
     	//モデルを呼び出す
         	$content = new Content();
-            $this->viewOptions = $content->index($id);
+            $this->viewOptions = $content->index($id,$post);
 
         //アクション名を設定
             $this->resource = 'contents';
