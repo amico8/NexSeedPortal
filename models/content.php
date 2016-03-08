@@ -35,7 +35,7 @@
     		if(isset($post['category'])&&!empty($post['category'])){
     			if (isset($post['search'])&&!empty($post['search'])) {
     				//カテゴリ検索とあいまい検索の両方を行うときのSQL文
-    				$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE `delete_flag`=0 AND `category_id`=%s AND `shop_name`="%%%s%%" AND `comment`="%%%s%%"',
+    				$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`category_id`=%s OR `shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
     				      mysqli_real_escape_string($this->dbconnect,$post['category']),
     				      mysqli_real_escape_string($this->dbconnect,$post['search']),
     				      mysqli_real_escape_string($this->dbconnect,$post['search']));
@@ -47,7 +47,7 @@
     		}
     		//あいまい検索したときの件数取得のSQL文
     		elseif(isset($post['search'])&&!empty($post['search'])){
-    				$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE `delete_flag`=0 AND `shop_name`="%%%s%%" AND `comment`="%%%s%%"',
+    				$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
     				      mysqli_real_escape_string($this->dbconnect,$post['search']),
     				      mysqli_real_escape_string($this->dbconnect,$post['search']));
     		}
@@ -68,8 +68,8 @@
             if(isset($post['category'])&&!empty($post['category'])){
     			if (isset($post['search'])&&!empty($post['search'])) {
     				//カテゴリ検索とあいまい検索の両方を行うときの投稿取得SQL文
-    				$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents` WHERE `delete_flag`=0 
-    					             AND `category_id`=%s AND `shop_name`="%%%s%%" AND `comment`="%%%s%%" ORDER BY created DESC LIMIT %d,5',
+    				$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents` WHERE 
+    					             (`category_id`=%s OR `shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0 ORDER BY created DESC LIMIT %d,5',
     					    mysqli_real_escape_string($this->dbconnect,$post['category']),
     				        mysqli_real_escape_string($this->dbconnect,$post['search']),
     				        mysqli_real_escape_string($this->dbconnect,$post['search']),$start);
@@ -82,7 +82,7 @@
     		}elseif(isset($post['search'])&&!empty($post['search'])){
     			//あいまい検索のみするときの投稿取得SQL文
     			$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents`
-                                           WHERE `delete_flag`=0 AND `shop_name`="%%%s%%" AND `comment`="%%%s%%" ORDER BY created DESC LIMIT %d,5',
+                                           WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag` = 0 ORDER BY created DESC LIMIT %d,5',
                         mysqli_real_escape_string($this->dbconnect,$post['search']),
     				    mysqli_real_escape_string($this->dbconnect,$post['search']),$start);
     		}
@@ -107,6 +107,7 @@
     	    }else{
     	    	$return['comment'][] = "該当する結果は存在しません。";
     	    }
+    	    //状況確認ように$returnに$postを入れておく
     	    $return['post'] = $post;
     		return $return;
 		}

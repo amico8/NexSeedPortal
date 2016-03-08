@@ -51,7 +51,7 @@
 						<select class="category" name="category">
 							<option name="id" value="">Category (not necessary)</option>
 							<?php foreach ($this->viewOptions['category'] as $category) { ?>
-							<option name="id" value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
+							<option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
 							<?php } ?>
 						</select>
 						<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="">
@@ -99,13 +99,41 @@
 					</div>
 				</div>
 				<div class="btn-section">
-					<?php if($this->viewOptions['page'][0] == 1) {?>
-						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-				    <?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
-						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+					<?php if(isset($this->viewOptions['post'])&&!empty($this->viewOptions['post'])){ ?>
+					<!-- 検索中のページング -->
+						<?php if($this->viewOptions['page'][0] == 1) {?>
+							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+								<input type="submit" class="btn-default" style="float:right" value="&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+							</form>
+						<?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
+							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" role="form" name="post">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+								<input type="submit" class="btn-default" style="float:right" value="Previous">
+							</form>
+						<?php }else{ ?>
+							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+								<input type="submit" class="btn-default" style="float:right" value="&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+							</form>
+							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" role="form" name="post">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+								<input type="submit" class="btn-default" style="float:right" value="Previous">
+							</form>
+						<?php } ?>
 					<?php }else{ ?>
-						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-						<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+						<?php if($this->viewOptions['page'][0] == 1) {?>
+							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				    	<?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
+							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+						<?php }else{ ?>
+							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+						<?php } ?>
 					<?php } ?>
 				</div>
 			</div>
