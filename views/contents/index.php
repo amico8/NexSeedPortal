@@ -55,7 +55,13 @@
 							<?php } ?>
 						</select>
 						<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="">
-						<a href="/NexSeedPortal/contents/index/"><input type="submit" class="btn-default" value="Search"></a>
+						<?php if (isset($this->viewOptions['post'])&&!empty($this->viewOptions['post'])&&empty($this->viewOptions['contents'])) { ?>
+							<p class="error">*検索結果がありませんでした。</p>
+							<a href="/NexSeedPortal/contents/index/"><input type="submit" class="btn-default" value="Search"></a>
+							<a href="/NexSeedPortal/contents/index/"><input type="button" class="btn-default" value="Back"></a>
+						<?php }else{ ?>
+							<a href="/NexSeedPortal/contents/index/"><input type="submit" class="btn-default" value="Search"></a>
+						<?php } ?>
 					</div>
 				</div>
 			</form>
@@ -64,6 +70,8 @@
 </div>
 
 <!-- /.feature section -->
+<?php if (isset($this->viewOptions['post'])&&!empty($this->viewOptions['post'])&&empty($this->viewOptions['contents'])) { ?>
+<?php }else{ ?>
 <div id="feature">
 	<div class="container">
 		<div class="text-center">
@@ -140,3 +148,4 @@
 		</div>
 	</div>
 </div>
+<?php } ?>

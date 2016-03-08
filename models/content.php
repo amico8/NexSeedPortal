@@ -104,9 +104,10 @@
     					$return['contents'][$i]['review'] = $return['contents'][$i]['review']."★";
     				}
     			}
-    	    }else{
-    	    	$return['comment'][] = "該当する結果は存在しません。";
     	    }
+    	    // else{
+    	    	// $return['comment'][] = "該当する結果は存在しません。";
+    	    // }
     	    //状況確認ように$returnに$postを入れておく
     	    $return['post'] = $post;
     		return $return;
