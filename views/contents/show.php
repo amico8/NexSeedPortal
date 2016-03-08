@@ -40,7 +40,12 @@
                                 <td>Review</td>
                                 <td class="review">
                                     <div class="text-center">
-                                        <?php echo $this->viewOptions['review']; ?>
+                                        <?php 
+                                            $i = $this->viewOptions['review'];
+                                            for ($i; $i>0; $i--) {
+                                                echo "★";
+                                            }
+                                        ?>
                                     </div>
                                 </td>
                             </tr>

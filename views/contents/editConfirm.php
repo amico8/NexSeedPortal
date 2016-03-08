@@ -63,7 +63,12 @@
                                         <td><div class="text-center">Review</div></td>
                                         <td class="review">
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_POST['review']); ?>
+                                                <?php 
+                                                    $i = $_POST['review'];
+                                                    for ($i; $i>0; $i--) {
+                                                        echo "★";
+                                                    }
+                                                ?>
                                             </div>
                                         </td>
                                     </tr>
