@@ -42,7 +42,7 @@
 		public function selectCategories() {
 			$sql = 'SELECT * FROM `categories` WHERE 1';
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			$category = array();
+			$categories = array();
 			while(1){
 				$result = mysqli_fetch_assoc($results);
 					if ($result == false) {

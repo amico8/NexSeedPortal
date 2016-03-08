@@ -20,6 +20,10 @@
 			$controller->delete($id);
 			break;
 
+		case 'edit_confirm':
+			$controller->edit_confirm($id);
+			break;
+
 		default:
 			break;
 	}
@@ -50,6 +54,15 @@
 			$this->categories = $content->selectCategories();
 			$this->resource = 'contents';
 			$this->action = 'edit';
+
+			include('views/layout/application.php');
+		}
+
+		public function edit_confirm($id) {
+			$content = new Content();
+			$this->categories = $content->selectCategories();
+			$this->resource = 'contents';
+			$this->action = 'edit_confirm';
 
 			include('views/layout/application.php');
 		}

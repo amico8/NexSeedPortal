@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
     google.maps.event.addDomListener(window, 'load', function()
         {
             // La Guardia Flats2の経緯度
@@ -28,6 +28,11 @@
                 // マーカーをセット
                 markerObj.setMap(mapObj);
                 alert("経度:" + e.latLng.lat() + "  緯度:" + e.latLng.lng());
+                var lat = document.getElementById("lng");
+                var lng = document.getElementById("lat");
+                lng.innerHTML = "<input type='hidden' name='lng' id='lng' value='" + e.latLng.lng() + "'>";
+                lat.innerHTML = "<input type='hidden' name='lat' id='lat' value='" + e.latLng.lat() + "'>";
             })
         });
 </script>
+
