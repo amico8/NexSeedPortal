@@ -40,8 +40,14 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_POST['lat']) ?></br>
-                                                <?php echo htmlspecialchars($_POST['lng']) ?>
+                                                <?php echo htmlspecialchars($_POST['lat']); ?></br>
+                                                <?php echo htmlspecialchars($_POST['lng']); ?></br>
+                                                <?php echo $this->session['edit']['category_id']; ?></br>
+                                                <?php echo $this->session['edit']['category_name']; ?></br>
+                                                <?php echo $this->session['edit']['shop_name']; ?></br>
+                                                <?php echo $this->session['edit']['review']; ?></br>
+                                                <?php echo $this->session['edit']['comment']; ?></br>
+                                                <?php var_dump($this->session); ?>
                                             </div>
                                         </td>
                                     </tr>

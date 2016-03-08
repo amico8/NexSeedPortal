@@ -18,6 +18,9 @@
     if(isset($_POST)&&!empty($_POST)){
     	$post = $_POST;
     }
+    //セッションを挿入
+    session_start();
+    $_SESSION['edit'] = $post;
     // echo ("routes.phpにきました。");
     //コントローラの呼び出し
     require('controllers/'.$resource.'_controller.php');

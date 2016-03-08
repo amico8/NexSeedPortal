@@ -5,7 +5,7 @@
                 <div class="row contact-row">
                     <div class="category col-sm-7 contact-right">
                     <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
-                        <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/edit_confirm/<?php echo $id; ?>">
+                        <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/editConfirm/<?php echo $id; ?>">
                             <div class="btn-section dropdown01">
                                 <select name="category_id" class="category" required>
                                         <option value="category">Category</option>

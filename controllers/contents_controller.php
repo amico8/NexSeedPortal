@@ -20,8 +20,8 @@
 			$controller->delete($id);
 			break;
 
-		case 'edit_confirm':
-			$controller->edit_confirm($id);
+		case 'editConfirm':
+			$controller->editConfirm($id);
 			break;
 
 		default:
@@ -34,6 +34,8 @@
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
+		private $session = array();
+		private $fileName = '';
 
 		public function show($id) {
 			// モデルを呼び出す
@@ -58,9 +60,11 @@
 			include('views/layout/application.php');
 		}
 
-		public function edit_confirm($id) {
+		public function editConfirm($id) {
 			$content = new Content();
 			$this->categories = $content->selectCategories();
+			$this->session = $_SESSION['edit'];
+
 			$this->resource = 'contents';
 			$this->action = 'edit_confirm';
 
