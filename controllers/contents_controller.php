@@ -66,7 +66,7 @@
 			$this->session = $_SESSION['edit'];
 
 			$this->resource = 'contents';
-			$this->action = 'edit_confirm';
+			$this->action = 'editConfirm';
 
 			include('views/layout/application.php');
 		}
