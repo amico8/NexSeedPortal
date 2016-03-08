@@ -18,6 +18,10 @@
     if(isset($_POST)&&!empty($_POST)){
     	$post = $_POST;
     }
+    session_start();
+    $_SESSION['add'] = $post;
+    // var_dump($SESSION['add']);
+
     // echo ("routes.phpにきました。");
     //コントローラの呼び出し
     require('controllers/'.$resource.'_controller.php');

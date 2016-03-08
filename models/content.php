@@ -13,7 +13,8 @@
 			$this->dbconnect = $db;
 		}
 
-
+		// ↓ 試しに書いてみてるだけ。後ほど修正予定
+		
 		public function addConfirm($id,$post){
 		
 		$sql = sprintf('INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES ("%d","%d","%s","%d","%d",null,"%d","%s",0,now())',
@@ -26,8 +27,8 @@
 			mysqli_real_escape_string($this->dbconnect, $post['review']),
 			mysqli_real_escape_string($this->dbconnect, $post['comment']),
 			mysqli_real_escape_string($this->dbconnect, $post['delete_flag']),
-			mysqli_real_escape_string($this->dbconnect, $post['created'])
-			// $id
+			mysqli_real_escape_string($this->dbconnect, $post['created']),
+			$id
 		);
 		
 			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
@@ -35,9 +36,15 @@
 		    // これ以下のコードを無駄に処理しないように終了する
 		    exit();
 		}
+	}
 
 ?>
 
 
-
+  $sql = sprintf('INSERT INTO members SET nick_name = "%s" , email = "%s" , password = "%s" , picture_path = "%s" ,created = now() ',   
+  mysqli_real_escape_string($db, $_SESSION['join']['nick_name']),
+  mysqli_real_escape_string($db, $_SESSION['join']['email']),
+  mysqli_real_escape_string($db, sha1($_SESSION['join']['password'])),
+  mysqli_real_escape_string($db, $_SESSION['join']['picture_path']) //⬅️最後なので,いらない
+  );
 

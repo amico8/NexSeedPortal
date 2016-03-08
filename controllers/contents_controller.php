@@ -15,7 +15,7 @@
 
 		case 'confirm':
 			if($id == 0) {
-				$controller->addConfirm();
+				$controller->addConfirm($_SESSION['add']);
 			} else {
 				$controller->editConfirm($id);
 			}
@@ -31,6 +31,7 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
+		private $session = array();
 
 	public function add(){
 
@@ -40,10 +41,13 @@
 
 
 	}
-    public function addConfirm() {
+    public function addConfirm($post) {
+    	// var_dump($session);
         // $content = new Content();
         $this->resource = 'contents';
         $this->action = 'add_confirm';
+		$this->session = $post;
+		echo $this->session['Category'];
         include('views/layout/application.php');
 
 	}
