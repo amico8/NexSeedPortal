@@ -11,6 +11,7 @@
 
 		case 'add';
 		$controller->add();
+		 break;
 
 
 		case 'confirm':

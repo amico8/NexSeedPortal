@@ -76,6 +76,12 @@
 							<!-- 写真 -->
 						<div class="category">
 				           	<input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="">
+				           	 <?php if (isset($post['picture_path']) && $post['picture_path'] == 'type'): ?>
+			                <p class="post">* 写真などは「.gif」「.jpg」の画像を指定してください。</p>
+			              <?php endif; ?>
+			              <?php if(!empty($post)): ?>
+			                <p class="post">* 恐れ入りますが、画像を改めて指定してください。</p>
+			              <?php endif; ?>
 				        </div>
 				          </form>
 								<!-- 評価 -->
@@ -105,7 +111,7 @@
 							<a href = "/NexSeedPortal/contents/add_check">
 							<input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
 						</div>
-						 </form>
+						</form>
 					</div>
 				</div>
 			</div>
