@@ -37,15 +37,16 @@
                                         <td>
                                             <!-- goolgle map API -->
                                             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                                            <?php require('webroot/asset/js/gmap.php'); ?>
+
+                                            <!-- ここにphpで書かれたrequire関数が後で入る エラーが出て進まなくなるので一時的にコード削除 後ほど追加予定 -->
+                                            
                                             <div id="gmap"></div>
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_POST['lat']); ?></br>
-                                                <?php echo htmlspecialchars($_POST['lng']); ?></br>
-                                                <?php echo $this->session['comment']; ?></br>
-                                                <?php var_dump($this->session); ?>
+                                            
+                                            <!-- ここに地図のコードが後で入る -->
+                                            
                                             </div>
                                         </td>
                                         </tr>
