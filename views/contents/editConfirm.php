@@ -40,9 +40,7 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_POST['lat']); ?></br>
-                                                <?php echo htmlspecialchars($_POST['lng']); ?></br>
-                                                <?php echo $this->session['comment']; ?></br>
+                                                <?php echo $this->session['picture_path']; ?>
                                                 <?php var_dump($this->session); ?>
                                             </div>
                                         </td>
@@ -51,7 +49,16 @@
                                         <td><div class="text-center">Photo</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_POST['picture_path']; ?>.jpg" width="100" height="100">
+                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->session['picture_path']; ?>" width="100" height="100">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center">
+                                                <pre><?php echo $this->session['shop_name']; ?></pre>
+                                                <pre><?php echo $this->session['comment']; ?></pre>
+                                                <pre><?php echo $this->session['lng']; ?></pre>
+                                                <pre><?php echo $this->session['lat']; ?></pre>
+                                                <pre><?php echo $this->session['review']; ?></pre>
                                             </div>
                                         </td>
                                     </tr>

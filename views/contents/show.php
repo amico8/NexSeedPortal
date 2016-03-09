@@ -62,7 +62,7 @@
                                 <td>
                                     <div class="text-center">
                                         <?php echo $this->viewOptions['picture_path']; ?>
-                                        <img src="/NexSeedPortal/webroot/asset/images/picture.jpg" alt="写真" width="500" height="370">
+                                        <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" alt="写真" width="500" height="370">
                                     </div>
                                 </td>
                             </tr>
