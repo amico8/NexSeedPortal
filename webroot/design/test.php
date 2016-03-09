@@ -51,7 +51,7 @@
 						 </select>
 							<!-- 店の名前 -->
 						<div class="category">
-							<input type="text" name="Store Name" placeholder="Store Name" class="form-control input-lg" value="ダイコクドラッグ 寝屋川駅前店">
+							<input type="text" name="StoreName" placeholder="Store Name" class="form-control input-lg" value="ダイコクドラッグ 寝屋川駅前店">
 						</div>
 							<!-- 場所の写真 -->
 						<div class="category">
