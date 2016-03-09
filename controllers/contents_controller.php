@@ -31,9 +31,11 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
+		private $categories = '';
 
 	public function add(){
-
+		$content = new Content();
+		$this->categories = $content->selectCategories();
 		$this->action='add';
 		$this->resource='contents';
 		include('views/layout/application.php');

@@ -10,10 +10,13 @@
 						<div class="btn-section dropdown01">
 						 <select class="" name="Category">
 							<option value="1">Category</option>
-							<option value="2">レストラン</option>
-							<option value="3">スーパー</option>
-							<option value="4">商業施設</option>
-							<option value="5">レジャー</option>
+							<?php foreach ($this->categories as $category): ?>
+                                    <?php if ($category['category_id'] == $this->viewOptions['category_id']):?>
+                                        <option value="<?php echo $category['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
+                                    <?php else: ?>
+                                        <option value="<?php echo $category['category_id'];?>"><?php echo $category['category_name']; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
 						</div>
 						 </select>
 							<!-- 店の名前 -->
@@ -103,14 +106,13 @@
               			</div>
 							<!-- 戻るボタン -->
 						<div class="col-sm-4 contact-right">
-							<a href = "/NexSeedPortal/contents/index">
 							<input type="submit" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
 						</div>
 							<!-- 確認ボタン -->
 						<div class="col-sm-4 contact-left">
-							<a href = "/NexSeedPortal/contents/add_check">
-							<input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
+							<input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp"/>
 						</div>
+
 						</form>
 					</div>
 				</div>
