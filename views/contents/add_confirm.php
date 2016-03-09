@@ -17,14 +17,12 @@
                                     <tbody>
                                       <!-- 登録内容を表示 -->
                                         <tr class="sample1">
-                                            <!-- <td><div class="text-center">Category</div></td> -->
-                                            <!-- <td><div class="text-center">カテゴリ結果</div></td> -->
                                             <td><div class="text-center">Category</div></td>
                                             <td><div class="text-center"><?php echo $this->session['Category']; ?></div></td>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Store Name</div></td>
-                                            <td><div class="text-center">〇〇〇〇〇〇店</div></td>
+                                            <td><div class="text-center"><?php echo $this->session['Store Name']; ?></div></td>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Location</div></td>
@@ -38,8 +36,8 @@
                                                     google.maps.event.addDomListener(window, 'load', function()
                                                     {
                                                         // La Guardia Flats2の経緯度
-                                                        var lng = 123.90381932258606;
-                                                        var lat = 10.329200473939935;
+                                                        var lng = <?php echo $this->session['Location']; ?>
+                                                        var lat = <?php echo $this->session['Location']; ?>
                                                         var latlng = new google.maps.LatLng(lat, lng);
                                                         var mapOptions = {
                                                             zoom: 15,
@@ -74,22 +72,24 @@
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Photo</div></td>
-                                            <td><div class="text-center"><img src="http://img-cdn.jg.jugem.jp/48e/2649154/20130618_1299355.jpg" width="100" height="100"></div></td>
+                                            <td><div class="text-center"><img src="<?php echo $this->session['Photo']; ?>" width="100" height="100"></div></td>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Review</div></td>
-                                            <td class="review"><div class="text-center">★★★★★</div></td>
+                                            <td class="review"><div class="text-center"><?php echo $this->session['review']; ?></div></td>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Comment</div></td>
-                                            <td><div class="text-center">●●●●●●●●</div></td>
+                                            <td><div class="text-center"><?php echo $this->session['comment']; ?></div></td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                               <!-- 戻るボタン -->
                             <div class="col-sm-4 contact-right">
+                            <a href='/NexSeedPortal/contents/show/<?php echo $id; ?>'>
                                 <input type="submit" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
+                            </a>
                             </div>
                               <!-- 確認ボタン -->
                             <div class="col-sm-4 contact-left">

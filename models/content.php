@@ -41,10 +41,10 @@
 ?>
 
 
-  $sql = sprintf('INSERT INTO members SET nick_name = "%s" , email = "%s" , password = "%s" , picture_path = "%s" ,created = now() ',   
+ <!--  $sql = sprintf('INSERT INTO members SET nick_name = "%s" , email = "%s" , password = "%s" , picture_path = "%s" ,created = now() ',   
   mysqli_real_escape_string($db, $_SESSION['join']['nick_name']),
   mysqli_real_escape_string($db, $_SESSION['join']['email']),
   mysqli_real_escape_string($db, sha1($_SESSION['join']['password'])),
   mysqli_real_escape_string($db, $_SESSION['join']['picture_path']) //⬅️最後なので,いらない
   );
-
+ -->
