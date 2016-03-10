@@ -5,7 +5,7 @@
 				<div class="row contact-row">
 					<!-- /.contact form -->
 					<div class="col-sm-7 contact-right">
-						<form method="POST" id="contact-form" class="form-horizontal" action="" onSubmit="alert('Thank you for your feedback!');">
+						<form method="post" id="contact-form" class="form-horizontal" action=""  enctype="multipart/form-data" onSubmit="alert('Thank you for your feedback!');">
 							<!-- カテゴリ -->
 						<div class="btn-section dropdown01">
 						 <select class="" name="Category">
@@ -21,7 +21,10 @@
 						 </select>
 							<!-- 店の名前 -->
 						<div class="category">
-							<input type="text" name="Store Name" placeholder="Store Name" class="form-control input-lg" value="">
+							<input type="text" name="Store Name" placeholder="Store Name" class="form-control input-lg" value="" required>
+							<?php if(isset($erorr['Store_Name']) && $erorr['Store_Name'] == 'blank'): ?>
+			                <p class="post">* 名前を入れてください。</p>
+			              <?php endif; ?>
 						</div>
 							<!-- 場所の写真 -->
 						<!-- <div class="category">
@@ -78,15 +81,15 @@
 
 							<!-- 写真 -->
 						<div class="category">
-				           	<input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="">
-				           	 <?php if (isset($post['picture_path']) && $post['picture_path'] == 'type'): ?>
+				           	<input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="" >
+				           	 <?php if (isset($error['picture_path']) && $error['picture_path'] == 'type'): ?>
 			                <p class="post">* 写真などは「.gif」「.jpg」の画像を指定してください。</p>
 			              <?php endif; ?>
 			              <?php if(!empty($post)): ?>
 			                <p class="post">* 恐れ入りますが、画像を改めて指定してください。</p>
 			              <?php endif; ?>
 				        </div>
-				          </form>
+				          
 								<!-- 評価 -->
 						<div class="abc">
                 		<span>Review:</span>
@@ -102,15 +105,15 @@
 							 <!-- コメント -->
 
 						<div class="category">
-              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required></textarea>
+              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message fadeInUp"  placeholder="Comment" required></textarea>
               			</div>
 							<!-- 戻るボタン -->
 						<div class="col-sm-4 contact-right">
-							<input type="submit" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
+							<a href="/NexSeedPortal/contents/index/"><input type="button" name="bitton" value="Back"class="btn01 btn-success fadeInUp" /></a>
 						</div>
 							<!-- 確認ボタン -->
 						<div class="col-sm-4 contact-left">
-							<input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp"/>
+							<input type="submit" name="submit" value="Post" class="btn btn-success fadeInUp">
 						</div>
 
 						</form>

@@ -1,4 +1,6 @@
 <?php
+
+    session_start();
     //$GETパラメータ取得
     //explode関数:第二引数の文字列を第一引数で分割し、配列で返す関数
     $params = explode('/', $_GET['url']);
@@ -16,8 +18,13 @@
     //POST送信されたらtitle,bodyを取得
     // if (isset($_POST['title'])&&isset($_POST['body'])) {
     if(isset($_POST)&&!empty($_POST)){
-    	$post = $_POST;
+        $post = $_POST;
     }
+    
+    $_SESSION['add'] = $post;
+    // $_SESSION['edit'] = $post;
+    // var_dump($SESSION['add']);
+
     // echo ("routes.phpにきました。");
     //コントローラの呼び出し
     require('controllers/'.$resource.'_controller.php');

@@ -1,3 +1,4 @@
+<?php// var_dump($_SEESION); ?>
 <div id="contact">
     <div class="contact fullscreen parallax">
         <div class="overlay02">
@@ -17,8 +18,10 @@
                                     <tbody>
                                       <!-- 登録内容を表示 -->
                                         <tr class="sample1">
+                                            <!-- <td><div class="text-center">Category</div></td> -->
+                                            <!-- <td><div class="text-center">カテゴリ結果</div></td> -->
                                             <td><div class="text-center">Category</div></td>
-                                            <td><div class="text-center">カテゴリ結果</div></td>
+                                            <td><div class="text-center"><?php echo $this->session['Category']; ?></div></td>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Store Name</div></td>
