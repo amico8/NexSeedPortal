@@ -13,7 +13,26 @@
 			$this->dbconnect = $db;
 		}
 
+
 		// ↓ 修正中
+
+		public function selectCategories() {
+					$sql = 'SELECT * FROM `categories` WHERE 1';
+					$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+					$categories = array();
+					while(1){
+						$result = mysqli_fetch_assoc($results);
+							if ($result == false) {
+								break;
+							}
+							$categories[] = $result;
+					}
+					//取得結果を返す
+					return $categories;
+		}
+
+		// ↓ 試しに書いてみてるだけ。後ほど修正予定
+
 		
 		public function addConfirm($id,$post){
 		
@@ -53,11 +72,3 @@
 
 ?>
 
-
- <!--  $sql = sprintf('INSERT INTO members SET nick_name = "%s" , email = "%s" , password = "%s" , picture_path = "%s" ,created = now() ',   
-  mysqli_real_escape_string($db, $_SESSION['join']['nick_name']),
-  mysqli_real_escape_string($db, $_SESSION['join']['email']),
-  mysqli_real_escape_string($db, sha1($_SESSION['join']['password'])),
-  mysqli_real_escape_string($db, $_SESSION['join']['picture_path']) //⬅️最後なので,いらない
-  );
- -->
