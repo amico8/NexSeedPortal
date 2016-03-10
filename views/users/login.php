@@ -30,20 +30,24 @@
 				<div class="col-md-5">
 					<div class="signup-header wow fadeInUp">
 						<h3 class="form-title text-center">Let's HACK!</h3>
-						<form class="form-header" action="/NexSeedPortal/contents/index" role="form" method="POST" id="#"><!-- 
+						<form class="form-header" action="" role="form" method="POST" id="#"><!-- 
 						<input type="hidden" name="u" value="503bdae81fde8612ff4944435">
 						<input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">
 								<input class="form-control input-lg" name="email" id="name" type="email" placeholder="Email address" required>
-					            <?php if(isset($error['login']) && $error['login'] == 'blank'): ?>
+					            <?php if(isset($this->error['login']) && $this->error['login'] == 'blank'): ?>
 					            	<p class="error">* メールアドレスとパスワードをご記入ください。</p>
-					            <?php endif; ?>
-					            <?php if(isset($error['failed']) && $error['failed'] == 'blank'): ?>
-				            		<p class="error">* ログインに失敗しました。正しくご記入ください。</p>
+					            <?php elseif(isset($this->error['login']) && $this->error['login'] == 'noexist'): ?>
+				            		<p class="error">* 入力したメールアドレスは存在しません。</p>
 				            	<?php endif; ?>
 							</div>
 							<div class="form-group">
 								<input class="form-control input-lg" name="password" id="email" type="password" placeholder="Password" required>
+								<?php if(isset($this->error['login']) && $this->error['login'] == 'length'): ?>
+				            		<p class="error">* パスワードは４文字から１６文字で入力してください。</p>
+					            <?php elseif(isset($this->error['login']) && $this->error['login'] == 'failed'): ?>
+				            		<p class="error">* パスワードが間違っています。</p>
+				            	<?php endif; ?>
 							</div>
 							<div class="form-group last">
 									<!-- チェックボックス追加 -->

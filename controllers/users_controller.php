@@ -38,6 +38,7 @@
 			$this->viewOptions = $user->login($post);
 			$this->resource = 'users';
 			$this->action = 'login';
+			$this->error = $user->error;
 
 			//ビューを呼び出す
 			include('views/layout/application.php');
@@ -54,6 +55,7 @@
 				$post = $user->rewrite;
 			}
 
+			//変数の引き渡しはコントローラーの役割であってる？
 			if(isset($post) && !empty($post)) {
 			    $this->name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
 			    $this->email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');

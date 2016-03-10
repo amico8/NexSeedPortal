@@ -19,28 +19,42 @@
 
 			if (!empty($post)) {
 		    	if ($post['email'] != '' && $post['password'] != '') {
-			    	$sql = sprintf('SELECT * FROM users WHERE email="%s" AND password="%s"',
-			        mysqli_real_escape_string($this->dbconnect, $post['email']),
-			        mysqli_real_escape_string($this->dbconnect, sha1($post['password']))
-		        	);
-		      		$record = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-		      		if ($table = mysqli_fetch_assoc($record)) {
-			        	//ログイン成功
-			        	$_SESSION['user_id'] = $table['user_id'];
-			        	$_SESSION['time'] = time();
-			        	if ($post['save'] == 'on') {
-				          	setcookie('email', $post['email'], time()+60*60*24*14);
-				          	setcookie('password', $post['password'], time()+60*60*24*14);
-			        	}
-			        	header('Location: /NexSeedPortal/user/check/');
-			        	exit();
-			      	} else {
-			        	$error['login'] = 'failed';
-			      	}
+			    	$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
+			        	mysqli_real_escape_string($this->dbconnect, $post['email'])
+			    	);
+				    $record = mysqli_query($this->dbconnect, $sql);
+				    $table = mysqli_fetch_assoc($record);
+				    if ($table['cnt'] == 0) {
+				        $error['login'] = 'noexist';
+				    } elseif (strlen($post['password']) < 4 || strlen($post['password']) > 16) {
+				    	$error['login'] = 'length';
+				    } else {
+				    	$sql = sprintf('SELECT * FROM users WHERE email="%s" AND password="%s"',
+				        	mysqli_real_escape_string($this->dbconnect, $post['email']),
+				        	mysqli_real_escape_string($this->dbconnect, sha1($post['password']))
+			        	);
+			      		$record = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+			      		if ($table = mysqli_fetch_assoc($record)) {
+				        	//ログイン成功
+				        	$_SESSION['user_id'] = $table['user_id'];
+				        	$_SESSION['time'] = time();
+				        	if ($post['save'] == 'on') {
+					          	setcookie('email', $post['email'], time()+60*60*24*14);
+					          	setcookie('password', $post['password'], time()+60*60*24*14);
+				        	}
+				        	header('Location: /NexSeedPortal/contents/index');
+				        	exit();
+				      	} else {
+				        	$error['login'] = 'failed';
+				      	}
+				    }
 		    	} else {
 		      		$error['login'] = 'blank';
 		    	}
+
+				$this->error = $error;
 			}
+
 		}
 
 		public function add($post) {
