@@ -33,7 +33,7 @@
 		private $viewOptions = '';
 		private $categories = '';
 		private $session = array();
-		private $categories = '';
+		// private $categories = '';
 
 	public function add(){
 		$content = new Content();
