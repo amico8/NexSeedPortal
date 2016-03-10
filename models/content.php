@@ -72,8 +72,6 @@
 
 ?>
 
-<<<<<<< HEAD
-=======
 
  <!--  $sql = sprintf('INSERT INTO members SET nick_name = "%s" , email = "%s" , password = "%s" , picture_path = "%s" ,created = now() ',   
   mysqli_real_escape_string($db, $_SESSION['join']['nick_name']),
@@ -82,4 +80,3 @@
   mysqli_real_escape_string($db, $_SESSION['join']['picture_path']) //⬅️最後なので,いらない
   );
  -->
->>>>>>> 85a7d92032ff0d72d5a1e94ff20590231f273ab1
