@@ -38,7 +38,7 @@
 				<div class="row contact-row">
 					<!-- /.contact form -->
 					<div class="col-sm-7 contact-right">
-						<form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm" onSubmit="alert('Thank you for your feedback!');">
+						<form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm">
 							<!-- カテゴリ -->
 						<div class="btn-section dropdown01">
 						 <select class="" name="Category">
@@ -51,7 +51,7 @@
 						 </select>
 							<!-- 店の名前 -->
 						<div class="category">
-							<input type="text" name="Store Name" placeholder="Store Name" class="form-control input-lg" value="">
+							<input type="text" name="StoreName" placeholder="Store Name" class="form-control input-lg" value="ダイコクドラッグ 寝屋川駅前店">
 						</div>
 							<!-- 場所の写真 -->
 						<div class="category">
@@ -87,7 +87,7 @@
 							 <!-- コメント -->
 
 						<div class="category">
-              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。</textarea>
+              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>なんでも安い。</textarea>
               			</div>
 							<!-- 戻るボタン -->
 						<div class="col-sm-4 contact-right">
