@@ -51,7 +51,7 @@
 									    <div class="form-group">
 									        <div class="col-xs-7">
 									            <label class="checkbox-inline">
-									                <input type="checkbox" name="">Auto Login
+									                <input type="checkbox" name="save">Auto Login
 									            </label>
 									        </div>
 									    </div>

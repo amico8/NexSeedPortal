@@ -8,6 +8,7 @@
 
 		}
 		public $error = '';
+		public $rewrite = '';
 
 		public function login($post) {
 			if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
@@ -44,9 +45,6 @@
 
 		public function add($post) {
 			$error = array();
-			$name = '';
-			$email = '';
-			$password = '';
 			if ($post == '') {
 				$post = $_POST;
 			}
@@ -89,10 +87,7 @@
 			}
 
 			if (isset($_REQUEST['action']) && $_REQUEST['action']=='rewrite') {
-			    $post = $_SESSION['join'];
-			    $name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
-			    $email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');
-			    $password = htmlspecialchars($post['password1'], ENT_QUOTES, 'UTF-8');
+			    $this->rewrite = $_SESSION['join'];
 			    $error['rewrite'] = true;
 			}
 			$this->error = $error;

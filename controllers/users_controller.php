@@ -50,6 +50,9 @@
 			$this->resource = 'users';
 			$this->action = 'index';
 			$this->error = $user->error;
+			if (isset($user->rewrite) && !empty($user->rewrite)) {
+				$post = $user->rewrite;
+			}
 
 			if(isset($post) && !empty($post)) {
 			    $this->name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
