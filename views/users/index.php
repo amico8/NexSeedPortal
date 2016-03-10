@@ -3,16 +3,16 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('../../webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax" style="background-image:url('/NexSeedPortal/webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 	<div class="overlay">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7">
 
 					<!-- /.main title -->
-						<h1 class="wow fadeInLeft">
-						NexSeed Portal Site New Open!!
-						</h1>
+					<h1 class="wow fadeInLeft">
+					NexSeed Portal Site New Open!!
+					</h1>
 
 					<!-- /.header paragraph -->
 					<div class="landing-text wow fadeInUp">
@@ -30,41 +30,41 @@
 				<div class="col-md-5">
 					<div class="signup-header wow fadeInUp">
 						<h3 class="form-title text-center">Get Started!</h3>
-						<form class="form-header" action="confirm" role="form" method="POST" id="#">
+						<form class="form-header" action="" role="form" method="POST" id="#">
 						<!-- <input type="hidden" name="u" value="503bdae81fde8612ff4944435"> -->
 						<!-- <input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">
 								<!-- <h3>Name</h3> -->
-								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php echo $name; ?>" required>
-				            	<?php if(isset($error['name']) && $error['name']=='blank'){ ?>
+								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php echo $this->name; ?>" required>
+				            	<?php if(isset($this->error['name']) && $this->error['name']=='blank'){ ?>
 				            		<p class="error">*名前を入力してください</p>
 				            	<?php } ?>
 							</div>
 							<div class="form-group">
 								<!-- <h3>Email</h3> -->
-								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php echo $email; ?>" required>
-				            	<?php if(isset($error['email']) && $error['email']=='blank'){ ?>
+								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php echo $this->email; ?>" required>
+				            	<?php if(isset($this->error['email']) && $this->error['email']=='blank'){ ?>
 				            		<p class="error">*メールアドレスを入力してください</p>
-				            	<?php } elseif(isset($error['email']) && $error['email']=='duplicate') { ?>
+				            	<?php } elseif(isset($this->error['email']) && $this->error['email']=='duplicate') { ?>
 				             		<p class="error">*指定されたメールアドレスは既に登録されています</p>
             					<?php } ?>
 							</div>
 							<div class="form-group">
 								<!-- <h3>Password</h3> -->
-								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php echo $password1; ?>" required>
-				            	<?php if(isset($error['password'])){ ?>
-				            		<?php if($error['password']=='blank'){ ?>
+								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php echo $this->password; ?>" required>
+				            	<?php if(isset($this->error['password'])){ ?>
+				            		<?php if($this->error['password']=='blank'){ ?>
 				            			<p class="error">*パスワードを入力してください</p>
-				            		<?php } elseif ($error['password']=='length') { ?>
+				            		<?php } elseif ($this->error['password']=='length') { ?>
 				            			<p class="error">*パスワードは４文字から１６文字で入力してください</p>
 				            		<?php } ?>
 				            	<?php } ?>
 							</div>
 							<div class="form-group">
 								<!-- <h3>Password(for check)</h3> -->
-								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php echo $password2; ?>" required>
-								<?php if(isset($error['password'])){ ?>
-				            		<?php if($error['password']=='incorrect'){ ?>
+								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php echo $this->password; ?>" required>
+								<?php if(isset($this->error['password'])){ ?>
+				            		<?php if($this->error['password']=='incorrect'){ ?>
 				            			<p class="error">*２つのパスワードが一致しません</p>
 				            		<?php } ?>
 				            	<?php } ?>
@@ -76,6 +76,6 @@
 					</div>
 				</div>
 			</div>
-		</div> 
-	</div> 
+		</div>
+	</div>
 </div>

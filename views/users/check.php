@@ -16,7 +16,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('../../asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax" style="background-image:url('/NexSeedPortal/webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 	<div class="overlay">
 		<div class="container">
 			<div class="row">
@@ -42,7 +42,7 @@
 				<div class="col-md-5">
 					<div class="signup-header wow fadeInUp">
 						<h3 class="form-title text-center">Check Your Profile!</h3>
-						<form class="form-header" action="" role="form" method="POST" id="#">
+						<form class="form-header" action="create" role="form" method="POST" id="#">
 						<!-- <input type="hidden" name="u" value="503bdae81fde8612ff4944435"> -->
 						<!-- <input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">

@@ -3,7 +3,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('../../webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax" style="background-image:url('/NexSeedPortal/webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 
 	<div class="overlay">
 		<div class="container">
@@ -34,7 +34,7 @@
 						<input type="hidden" name="u" value="503bdae81fde8612ff4944435">
 						<input type="hidden" name="id" value="bfdba52708">
 							<div class="form-group">
-								<input class="form-control input-lg" name="MERGE1" id="name" type="text" placeholder="Email address" required>
+								<input class="form-control input-lg" name="email" id="name" type="email" placeholder="Email address" required>
 					            <?php if(isset($error['login']) && $error['login'] == 'blank'): ?>
 					            	<p class="error">* メールアドレスとパスワードをご記入ください。</p>
 					            <?php endif; ?>
@@ -43,7 +43,7 @@
 				            	<?php endif; ?>
 							</div>
 							<div class="form-group">
-								<input class="form-control input-lg" name="MERGE0" id="email" type="email" placeholder="Password" required>
+								<input class="form-control input-lg" name="password" id="email" type="password" placeholder="Password" required>
 							</div>
 							<div class="form-group last">
 									<!-- チェックボックス追加 -->
@@ -56,9 +56,9 @@
 									        </div>
 									    </div>
 									</form>
-								<a href="/NexSeedPortal/users/index/"><input type="botton" class="btn btn-warning btn-block btn-lg" value="Register" style="margin-left:5px; float:left;"></a>
+								<a href="/NexSeedPortal/users/add"><input type="botton" class="btn btn-warning btn-block btn-lg" value="Register" style="margin-left:5px; float:left;"></a>
  								<!-- <input type="submit" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;"> -->
- 								<a href="/NexSeedPortal/users/login/"><input type="botton" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;"></a>
+ 								<a href="/NexSeedPortal/contents/index"><input type="botton" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;"></a>
 							</div>
 						</form>
 					</div>

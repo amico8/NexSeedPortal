@@ -23,14 +23,20 @@
 	}
 
 	class UsersController {
-		private $action = '';
-		private $resource = '';
-		private $viewOptions = '';
+			private $action = '';
+			private $resource = '';
+			private $viewOptions = '';
+
+			private $name = '';
+			private $email = '';
+			private $password = '';
+			private $error = '';
 
 		public function login($post) {
 			//ここでモデルを呼び出す
 			$user = new User();
 			$this->viewOptions = $user->login($post);
+			$this->resource = 'users';
 			$this->action = 'login';
 
 			//ビューを呼び出す
@@ -38,7 +44,18 @@
 		}
 
 		public function add($post) {
-			$this->action = 'add';
+			//ここでモデルを呼び出す
+			$user = new User();
+			$this->viewOptions = $user->add($post);
+			$this->resource = 'users';
+			$this->action = 'index';
+			$this->error = $user->error;
+
+			if(isset($post) && !empty($post)) {
+			    $this->name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
+			    $this->email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');
+			    $this->password = htmlspecialchars($post['password1'], ENT_QUOTES, 'UTF-8');
+			}
 
 			//ビューを呼び出す
 			include('views/layout/application.php');
@@ -48,7 +65,8 @@
 			//ここでモデルを呼び出す
 			$user = new User();
 			$this->viewOptions = $user->confirm($post);
-			$this->action = 'confirm';
+			$this->resource = 'users';
+			$this->action = 'check';
 
 			//ビューを呼び出す
 			include('views/layout/application.php');
@@ -58,7 +76,8 @@
 			//ここでモデルを呼び出す
 			$user = new User();
 			$this->viewOptions = $user->create($post);
-			$this->action = 'create';
+			$this->resource = 'users';
+			$this->action = 'login';
 
 			//ビューを呼び出す
 			include('views/layout/application.php');
