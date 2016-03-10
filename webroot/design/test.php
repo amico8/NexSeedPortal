@@ -1,3 +1,13 @@
+<?php 
+
+if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
+  $_POST = $_SESSION['add'];
+  $error['rewrite'] = true;
+}
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -41,12 +51,12 @@
 						<form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm">
 							<!-- カテゴリ -->
 						<div class="btn-section dropdown01">
-						 <select class="" name="Category">
-							<option value="1">Category</option>
-							<option value="2">レストラン</option>
-							<option value="3">スーパー</option>
-							<option value="4">商業施設</option>
-							<option value="5">レジャー</option>
+						 <select class="" name="category_id">
+							<option value="5">Category</option>
+							<option value="6">レストラン</option>
+							<option value="7">スーパー</option>
+							<option value="8">商業施設</option>
+							<option value="9">レジャー</option>
 						</div>
 						 </select>
 							<!-- 店の名前 -->
@@ -55,11 +65,15 @@
 						</div>
 							<!-- 場所の写真 -->
 						<div class="category">
-							<input type="text" name="Location" placeholder="Location" class="form-control input-lg" value="">
 							<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    						<script type="text/javascript" src="js/jquery.js"></script>
-   							<script type="text/javascript" src="js/map.js"></script>
-   							<div id="map" class="map01"></div>
+							<?php require('../asset/js/gmap_edit.php'); ?>
+   							<div id="gmap" style="width: 100px; height: 100px; border: 1px solid Gray;"></div>
+   							<div id="lng">
+   								<input type="hidden" name="lng" id="lng" value="123.90381932258606">
+   							</div>
+   							<div id="lat">
+   								<input type="hidden" name="lat" id="lat" value="10.329200473939935">
+   							</div>
 						</div>
 						<!-- <div align="right" style="float: right">
 							<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -87,7 +101,15 @@
 							 <!-- コメント -->
 
 						<div class="category">
-              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>なんでも安い。</textarea>
+              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>
+              					<?php 
+              						if(isset($_POST['comment'])){
+              							echo "こめんとがあったよ！";
+              						} else {
+              							echo "こめんとないよ！";
+              						}
+              					 ?>
+              				</textarea>
               			</div>
 							<!-- 戻るボタン -->
 						<div class="col-sm-4 contact-right">
