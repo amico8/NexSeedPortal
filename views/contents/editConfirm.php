@@ -87,7 +87,7 @@
                             </table>
                         <!-- 戻るボタン -->
                         <div class="col-sm-4 contact-right">
-                            <input type="submit" name="submit" value="Back" class="btn01 btn-success wow fadeInUp" />
+                            <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>?action=rewrite"><input type="button" name="submit" value="Back" class="btn01 btn-success wow fadeInUp" /></a>
                         </div>
                         <div class="col-sm-4 contact-left">
                             <input type="submit" name="submit" value="Update" class="btn btn-success wow fadeInUp"/>

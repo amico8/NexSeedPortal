@@ -11,6 +11,7 @@
     $action = $params[1];
     $id = 0;
     $post = array();
+    $get = array();
 
     //idがあった場合idも取得する
     if (isset($params[2])) {
@@ -22,10 +23,15 @@
     	$post = $_POST;
     }
 
-    if(isset($_FILES) && !empty($_FILES)) {
-        $fileName = $_FILES['picture_path']['name'];
-        var_dump($fileName);
+    if(isset($_GET) && !empty($_GET)) {
+        $get = $_GET;
     }
+
+    if(isset($_FILES['picture_path']['name']) && !empty($_FILES['picture_path']['name'])) {
+        $files = $_FILES['picture_path']['name'];
+    }
+
+
 
     // if (!empty($fileName)) {
     //     $ext = substr($fileName, -3);
@@ -36,12 +42,7 @@
 
     $_SESSION['edit'] = $post;
     // 画像をアップロードする
-    if (isset($fileName) && !empty($fileName)) {
-        $picture_path = date('YmdHis') . $fileName;
-        move_uploaded_file($_FILES['picture_path']['tmp_name'], 'NexSeedPortal/webroot/asset/images/post_images/' . $picture_path);
-        $_SESSION['edit']['picture_path'] = $picture_path;
-        header('Location: /NexSeedPortal/contents/editConfirm/'.$id);
-    }
+    
     // check.phpへ遷移
     // header('Location: check.php');
 

@@ -53,7 +53,13 @@
                                 </p>
                             </div>
                             <div class="category">
-                                <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->viewOptions['comment']; ?></textarea>
+                                <?php //var_dump($this->session); ?>
+                                <?php //var_dump($get); ?>
+                                <?php if (isset($this->session['comment'])): ?>
+                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->session['comment']; ?></textarea>
+                                <?php else: ?>
+                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->viewOptions['comment']; ?></textarea>
+                                <?php endif; ?>
                             </div>
                             <div class="col-sm-4">
                                 <a href='/NexSeedPortal/contents/show/<?php echo $id; ?>'>

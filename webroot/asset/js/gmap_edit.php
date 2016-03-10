@@ -28,8 +28,8 @@
                 // マーカーをセット
                 markerObj.setMap(mapObj);
                 alert("経度:" + e.latLng.lat() + "  緯度:" + e.latLng.lng());
-                var lat = document.getElementById("lng");
-                var lng = document.getElementById("lat");
+                var lng = document.getElementById("lng");
+                var lat = document.getElementById("lat");
                 lng.innerHTML = "<input type='hidden' name='lng' id='lng' value='" + e.latLng.lng() + "'>";
                 lat.innerHTML = "<input type='hidden' name='lat' id='lat' value='" + e.latLng.lat() + "'>";
             })
