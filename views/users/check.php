@@ -2,7 +2,7 @@
     function check(){
         if (confirm('入力いただいた内容を登録しますがよろしいですか。')){
         	//okボタンを押した時
-        	location.href = 'login.php';
+        	//location.href = 'login.php';
             return true;
         } else {
             return false;
@@ -42,7 +42,8 @@
 				<div class="col-md-5">
 					<div class="signup-header wow fadeInUp">
 						<h3 class="form-title text-center">Check Your Profile!</h3>
-						<form class="form-header" action="create" role="form" method="POST" id="#">
+						<form class="form-header" action="" role="form" method="POST" id="#">
+        					<input type="hidden" name="action" value="submit">
 						<!-- <input type="hidden" name="u" value="503bdae81fde8612ff4944435"> -->
 						<!-- <input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">
@@ -66,7 +67,7 @@
 							<!-- <div class="form-group last"> -->
 							<!-- <a href="index.html?action=rewrite">&laquo;&nbsp;書き直す</a> | -->
 							<div class="form-group last">
-							<a href="index.html?action=rewrite"><input type="button" class="btns btn-warning btn-block btn-lg" value="Back!" style="margin-left:5px; float:left;"></a>
+							<a href="/NexSeedPortal/users/add?action=rewrite"><input type="button" class="btns btn-warning btn-block btn-lg" value="Back!" style="margin-left:5px; float:left;"></a>
  							<input type="submit" onclick="check()" class="btn btn-warning btn-block btn-lg" value="Sign Up!" style="margin-left:5px; float:left;">
 							</div>
 						</form>

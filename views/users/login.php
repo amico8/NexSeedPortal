@@ -30,9 +30,9 @@
 				<div class="col-md-5">
 					<div class="signup-header wow fadeInUp">
 						<h3 class="form-title text-center">Let's HACK!</h3>
-						<form class="form-header" action="" role="form" method="POST" id="#">
+						<form class="form-header" action="/NexSeedPortal/contents/index" role="form" method="POST" id="#"><!-- 
 						<input type="hidden" name="u" value="503bdae81fde8612ff4944435">
-						<input type="hidden" name="id" value="bfdba52708">
+						<input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">
 								<input class="form-control input-lg" name="email" id="name" type="email" placeholder="Email address" required>
 					            <?php if(isset($error['login']) && $error['login'] == 'blank'): ?>
@@ -58,7 +58,7 @@
 									</form>
 								<a href="/NexSeedPortal/users/add"><input type="botton" class="btn btn-warning btn-block btn-lg" value="Register" style="margin-left:5px; float:left;"></a>
  								<!-- <input type="submit" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;"> -->
- 								<a href="/NexSeedPortal/contents/index"><input type="botton" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;"></a>
+ 								<input type="submit" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;">
 							</div>
 						</form>
 					</div>

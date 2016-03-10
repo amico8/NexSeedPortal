@@ -69,7 +69,6 @@
 			    } elseif ($post['password1'] != $post['password2']) {
 			    	$error['password'] = 'incorrect';
 			    }
-			    $this->error = $error;
 
 			    if (empty($error)) {
 			    	//重複アカウントのチェック
@@ -88,17 +87,22 @@
 
 			    }
 			}
-		}
-
-		public function confirm($post) {
-			$_SESSION['join'] = $post;
 
 			if (isset($_REQUEST['action']) && $_REQUEST['action']=='rewrite') {
 			    $post = $_SESSION['join'];
-			    $name = htmlspecialchars($post['nname'], ENT_QUOTES, 'UTF-8');
+			    $name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
 			    $email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');
 			    $password = htmlspecialchars($post['password1'], ENT_QUOTES, 'UTF-8');
 			    $error['rewrite'] = true;
+			}
+			$this->error = $error;
+		}
+
+		public function confirm($post) {
+			if(isset($post) && !empty($post)) {
+				//$_SESSION['join'] = $post;
+				header('Location: /NexSeedPortal/users/create/');
+				exit();
 			}
 		}
 
