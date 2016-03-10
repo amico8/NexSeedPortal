@@ -32,6 +32,7 @@
 		private $resource = '';
 		private $viewOptions = '';
 		private $session = array();
+		private $categories = '';
 
 	public function add(){
 
@@ -39,15 +40,15 @@
 		$this->resource='contents';
 		include('views/layout/application.php');
 
-
 	}
-    public function addConfirm($post) {
+    public function addConfirm($id) {
     	// var_dump($session);
-        // $content = new Content();
+        $content = new Content();
+        $this->categories = $content->selectCategories();
         $this->resource = 'contents';
         $this->action = 'add_confirm';
-		$this->session = $post;
-		echo $this->session['Category'];
+		// $this->session = $post;
+		// echo $this->session['Category'];
         include('views/layout/application.php');
 
 	}
