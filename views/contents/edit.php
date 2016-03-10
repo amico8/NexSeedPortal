@@ -33,7 +33,7 @@
                                         <input type="hidden" name="lat" id="lat" value="<?php echo $this->viewOptions['lat']; ?>">
                                     </div>
                                 </div>
-                                <input type="file" name="picture_path" class="form-control input-lg">
+                                <input type="file" name="Photo" class="form-control input-lg">
                                 <?php //if (isset($error['picture_path']) && $error['picture_path'] == 'type') { ?>
                                   <!-- <p class="error">* 写真などは「.gif」または「.jpg」の画像を指定してください</p> -->
                                 <?php //} elseif (!empty($error)) { ?>

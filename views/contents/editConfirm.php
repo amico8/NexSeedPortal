@@ -40,7 +40,7 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo $this->session['picture_path']; ?>
+                                                <?php //echo $this->session['picture_path']; ?>
                                                 <?php var_dump($this->session); ?>
                                             </div>
                                         </td>
@@ -49,7 +49,7 @@
                                         <td><div class="text-center">Photo</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->session['picture_path']; ?>" width="100" height="100">
+                                                <!-- <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php //echo $this->session['picture_path']; ?>" width="100" height="100"> -->
                                             </div>
                                         </td>
                                         <td>

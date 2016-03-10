@@ -13,7 +13,7 @@
 			break;
 
 		case 'edit':
-			$controller->edit($id,$get);
+			$controller->edit($id);
 			break;
 
 		case 'delete':
@@ -21,7 +21,7 @@
 			break;
 
 		case 'editConfirm':
-			$controller->editConfirm($id, $files);
+			$controller->editConfirm($id, $post);
 			break;
 
 		default:
@@ -52,12 +52,14 @@
 			include('views/layout/application.php');
 		}
 
-		public function edit($id,$get) {
+		public function edit($id) {
 			$content = new Content();
 			$this->viewOptions = $content->selectContents($id);
 			$this->categories = $content->selectCategories();
 			$this->resource = 'contents';
 			$this->action = 'edit';
+			
+
 			// $this->session = $_SESSION['edit'];
 			// if (isset($this->get['action']) && $this->get['action'] == 'rewrite') {
 			//   $this->get = $this->session;
@@ -67,22 +69,21 @@
 			include('views/layout/application.php');
 		}
 
-		public function editConfirm($id,$files) {
+		public function editConfirm($id, $post) {
 			$content = new Content();
 			$this->categories = $content->selectCategories();
-			$this->session = $_SESSION['edit'];
+			$this->session = $post;
 			//ここに書く！！画像アップロード！！
 			//エラーが出たら、エラーの値をreturn値で表示し、それをedit.phpに表示する
 			//エラーの表示は番号で分ける
-		    if(isset($files) && !empty($files)) {
-		        $fileName = $files;
-		        var_dump($fileName);
-		    }
-		    if (isset($fileName) && !empty($fileName)) {
-		        $picture_path = date('YmdHis') . $fileName;
-		        move_uploaded_file($files['picture_path']['tmp_name'], 'NexSeedPortal/webroot/asset/images/post_images/' . $picture_path);
-		        $this->session['edit']['picture_path'] = $picture_path;
-		    }
+			// if (!empty($post)) {
+			// 	$fileName = $files['picture_path']['name'];
+			// 	//エラーが無かったら処理する
+			// 	$picture_path = date('YmdHis') . $fileName;
+			// 	move_uploaded_file($files['picture_path']['tmp_name'], '../webroot/asset/images/post_images'. $picture_path)
+			// 	$_SESSION['edit']['picture_path'] = $picture_path;
+			// 	$this->session = $_SESSION['edit']['picture_path'];
+			// }
 
 			$this->resource = 'contents';
 			$this->action = 'editConfirm';
