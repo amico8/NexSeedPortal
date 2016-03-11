@@ -129,7 +129,7 @@
 		// ↓ 試しに書いてみてるだけ。後ほど修正予定
 
 		
-		public function addConfirm($id,$post){
+		// public function addConfirm($id,$post){
 		
 		// $sql = sprintf('INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES ("%d","%d","%s","%d","%d",null,"%d","%s",0,now())',
 		// 	mysqli_real_escape_string($this->dbconnect, $post['category_id']),
@@ -144,11 +144,12 @@
 		// 	mysqli_real_escape_string($this->dbconnect, $post['created']),
 		// 	$id
 		// );
-			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-	    	header('Location: ');
+			// mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+	  //  header('Location: ');
 		    // これ以下のコードを無駄に処理しないように終了する
-		    exit();
-		}
+		    // exit();
+		// }
+
 
 	// 	public function selectCategories(){
 	// 		$sql = 'SELECT * FROM `categories` WHERE 1';
@@ -163,6 +164,21 @@
 	// 		}
 	// 		return $categories;
 	// 	}
+
+		// public function selectCategories(){
+		// 	$sql = 'SELECT * FROM `categories` WHERE 1';
+		// 	$results =mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+		// 	$categories = array();
+		// 	while(1){
+		// 		$result = mysqli_fetch_assoc($results);
+		// 			if ($result == false){
+		// 				break;
+		// 			}
+		// 			$categories[] = $result;
+		// 	}
+		// 	return $categories;
+		// }
+
 	}
 
 ?>

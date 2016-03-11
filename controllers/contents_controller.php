@@ -12,12 +12,14 @@
 		    $controller -> index($id,$post);
 		    break;
 
-		case 'add';
+		case 'add':
 		$controller->add();
 			break;
 
-		case 'add_confirm':
+		case 'confirm':
 			if($id == 0) {
+				// $sessionAdd = $_SESSION['add'];
+				// var_dump($_SESSION['add']);
 				$controller->addConfirm($_SESSION['add']);
 			} else {
 				$controller->editConfirm($id);
@@ -86,7 +88,7 @@
 
 
 	}
-    public function addConfirm($id) {
+    public function addConfirm($session) {
     	// var_dump($session);
         $content = new Content();
         $this->categories = $content->selectCategories();

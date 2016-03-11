@@ -90,7 +90,12 @@
 
                               <!-- 戻るボタン -->
                             <div class="col-sm-4 contact-right">
+
                                 <input type="submit" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
+                            <a href='/NexSeedPortal/contents/add'>
+                                <input type="button" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
+                            </a>
+
                             </div>
                               <!-- 確認ボタン -->
                             <div class="col-sm-4 contact-left">
