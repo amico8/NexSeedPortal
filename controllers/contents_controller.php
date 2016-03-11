@@ -1,6 +1,18 @@
 <?php
+	session_start();
 	require('models/content.php');
 
+	//ログインチェックを実装
+	require('function.php');
+	require('dbconnect.php');
+	if (isset($post['email'])&&!empty($post['email'])) {
+		login($post,$db);
+	}else if (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
+		login2($_SESSION,$db);
+	}
+	else{
+		header('Location: /NexSeedPortal/users/login/');
+	}
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
 
@@ -9,7 +21,7 @@
 
 	switch ($action) {
 		case 'index';
-		    $controller -> index($id,$post);
+		    $controller->index($id,$post);
 		    break;
 
 
@@ -23,6 +35,9 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
+
+		private $loginaction = '';
+
 
     public function index($id,$post){
     	//モデルを呼び出す
