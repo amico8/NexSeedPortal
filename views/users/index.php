@@ -35,14 +35,14 @@
 						<!-- <input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">
 								<!-- <h3>Name</h3> -->
-								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php echo $this->name; ?>" required>
+								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php echo htmlspecialchars($_SESSION['join']['name']); ?>" required>
 				            	<?php if(isset($this->error['name']) && $this->error['name']=='blank'){ ?>
 				            		<p class="error">*名前を入力してください</p>
 				            	<?php } ?>
 							</div>
 							<div class="form-group">
 								<!-- <h3>Email</h3> -->
-								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php echo $this->email; ?>" required>
+								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php echo htmlspecialchars($_SESSION['join']['email']); ?>" required>
 				            	<?php if(isset($this->error['email']) && $this->error['email']=='blank'){ ?>
 				            		<p class="error">*メールアドレスを入力してください</p>
 				            	<?php } elseif(isset($this->error['email']) && $this->error['email']=='duplicate') { ?>
@@ -51,21 +51,21 @@
 							</div>
 							<div class="form-group">
 								<!-- <h3>Password</h3> -->
-								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php echo $this->password; ?>" required>
+								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php echo htmlspecialchars($_SESSION['join']['password1']); ?>" required>
 				            	<?php if(isset($this->error['password'])){ ?>
 				            		<?php if($this->error['password']=='blank'){ ?>
 				            			<p class="error">*パスワードを入力してください</p>
 				            		<?php } elseif ($this->error['password']=='length') { ?>
-				            			<p class="error">*パスワードは４文字から１６文字で入力してください</p>
+				            			<p class="error">*パスワードは4文字以上16文字以下で入力してください</p>
 				            		<?php } ?>
 				            	<?php } ?>
 							</div>
 							<div class="form-group">
 								<!-- <h3>Password(for check)</h3> -->
-								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php echo $this->password; ?>" required>
+								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php echo htmlspecialchars($_SESSION['join']['password2']); ?>" required>
 								<?php if(isset($this->error['password'])){ ?>
 				            		<?php if($this->error['password']=='incorrect'){ ?>
-				            			<p class="error">*２つのパスワードが一致しません</p>
+				            			<p class="error">*パスワードが一致しません</p>
 				            		<?php } ?>
 				            	<?php } ?>
 							</div>

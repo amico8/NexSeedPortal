@@ -59,8 +59,9 @@
 
 		public function add($post) {
 			$error = array();
-			if ($post == '') {
-				$post = $_POST;
+			if ($post == '' && isset($_SESSION) && !empty($_SESSION)) {
+			    $this->rewrite = $_SESSION['join'];
+			    $error['rewrite'] = true;
 			}
 
 			if(isset($post) && !empty($post)) {

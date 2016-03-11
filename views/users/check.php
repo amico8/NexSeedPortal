@@ -67,7 +67,7 @@
 							<!-- <div class="form-group last"> -->
 							<!-- <a href="index.html?action=rewrite">&laquo;&nbsp;書き直す</a> | -->
 							<div class="form-group last">
-							<a href="/NexSeedPortal/users/add?action=rewrite"><input type="button" class="btns btn-warning btn-block btn-lg" value="Back!" style="margin-left:5px; float:left;"></a>
+							<a href="/NexSeedPortal/users/add"><input type="button" class="btns btn-warning btn-block btn-lg" value="Back!" style="margin-left:5px; float:left;"></a>
  							<input type="submit" onclick="check()" class="btn btn-warning btn-block btn-lg" value="Sign Up!" style="margin-left:5px; float:left;">
 							</div>
 						</form>
