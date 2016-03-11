@@ -73,7 +73,7 @@
 
                               <!-- 戻るボタン -->
                             <div class="col-sm-4 contact-right">
-                            <a href='/NexSeedPortal/webroot/design/test.php?action=rewrite'>
+                            <a href='/NexSeedPortal/contents/add'>
                                 <input type="button" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
                             </a>
                             </div>
