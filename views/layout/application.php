@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 
 <!-- CSS Files -->
-<link href="/NexSeedPortal/webroot/asset/css/bootstrap.css" rel="stylesheet" media="screen"><link href="../asset/css/font-awesome.css" rel="stylesheet">
+<link href="/NexSeedPortal/webroot/asset/css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="/NexSeedPortal/webroot/asset/css/font-awesome.css" rel="stylesheet">
 <link href="/NexSeedPortal/webroot/asset/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
 <link href="/NexSeedPortal/webroot/asset/css/animate.css" rel="stylesheet" media="screen">
 <link href="/NexSeedPortal/webroot/asset/css/owl.theme.css" rel="stylesheet">
@@ -39,7 +40,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button> -->
-				<a class="navbar-brand site-name" href="#"><img src="../asset/images/nex.png" alt="logo"></a>
+				<a class="navbar-brand site-name" href="#"><img src="/NexSeedPortal/webroot/asset/images/nex.png" alt="logo"></a>
 				<ul class="nav navbar-nav">
 				<li>
 					<div class="navbar-brand2">Welcome xxxxx！</div>
