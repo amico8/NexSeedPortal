@@ -53,7 +53,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button> -->
-				<a class="navbar-brand site-name" href="NexSeedPortal/contents/index"><img src="/NexSeedPortal/webroot/asset/images/nex.png" alt="logo"></a>
+				<a class="navbar-brand site-name" href="/NexSeedPortal/contents/index"><img src="/NexSeedPortal/webroot/asset/images/nex.png" alt="logo"></a>
 				<ul class="nav navbar-nav">
 				<li>
 					<div class="navbar-brand2">a</div>

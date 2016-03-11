@@ -8,6 +8,9 @@
 	//$action (グローバル変数)は、routes.phpで定義されているもの
 
 	switch ($action) {
+		case 'index';
+		    $controller -> index($id,$post);
+		    break;
 
 		case 'add';
 		$controller->add();
@@ -34,6 +37,16 @@
 		private $categories = '';
 		private $session = array();
 		// private $categories = '';
+		public function index($id,$post){
+    	//モデルを呼び出す
+        	$content = new Content();
+            $this->viewOptions = $content->index($id,$post);
+        //アクション名を設定
+            $this->resource = 'contents';
+            $this->action = 'index';
+        //ビューを呼び出す
+            require('views/layout/application.php');
+    }
 
 	public function add(){
 		$content = new Content();
@@ -52,7 +65,7 @@
 			$fileName = $_FILES['Photo']['name'];
 			  if (!empty($fileName)) {
 			    $ext = substr($fileName, -3);
-			    if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'GIF' && $ext != 'GIF' && $ext != 'PNG') {
+			    if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG') {
 			      $error['picture_path'] = 'type';
 			    }
 			  }
