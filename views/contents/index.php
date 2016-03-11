@@ -60,7 +60,7 @@
 							<?php } ?>
 						</select>
 						<?php if (isset($this->viewOptions['post']['search'])&&!empty($this->viewOptions['post']['search'])) { ?>
-							<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="Search word:<?php echo $this->viewOptions['post']['search']; ?>">
+							<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="<?php echo $this->viewOptions['post']['search']; ?>">
 						<?php }else{ ?>
 							<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="">
 						<?php } ?>
@@ -104,7 +104,7 @@
 								<tbody class="list-body text-overflow">
 									<?php if (isset($this->viewOptions['contents'])&&!empty($this->viewOptions['contents'])) {
 									foreach ($this->viewOptions['contents'] as $content) {?>
-									<tr data-href="/nexseedportal/contents/show/<?php echo $content['content_id']; ?>">
+									<tr data-href="/NexSeedPortal/contents/show/<?php echo $content['content_id']; ?>">
 										<td data-label="shop"><?php echo $content['shop_name']; ?></td>
 										<td class="review" data-label="review"><?php echo $content['review']; ?></td>
 										<td data-label="comment"><?php echo $content['comment']; ?></td>
@@ -116,7 +116,7 @@
 					</div>
 				</div>
 				<div class="btn-section">
-					<?php if(isset($this->viewOptions['post'])&&!empty($this->viewOptions['post'])){ ?>
+					<?php if(isset($this->viewOptions['post']['category'])&&!empty($this->viewOptions['post']['category'])){ ?>
 					<!-- 検索中のページング -->
 						<?php if($this->viewOptions['page'][0] == 1) {?>
 							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
