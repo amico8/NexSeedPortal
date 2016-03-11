@@ -12,6 +12,7 @@
 			// DB接続設定の値を代入
 			$this->dbconnect = $db;
 		}
+
 		public function index($id,$post){
 			//DBからカテゴリを取得
 			$sql = 'SELECT * FROM `categories` WHERE 1';
@@ -110,6 +111,8 @@
     	    // }
     	    //状況確認ように$returnに$postを入れておく
     	    $return['post'] = $post;
+    	    $return['session'] = $_SESSION;
+    	    // $return['session'] = $session;
     		return $return;
 		}
 
