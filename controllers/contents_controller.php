@@ -78,7 +78,7 @@
 			    $_SESSION['join'] = $_POST;
 			    $_SESSION['join']['picture_path'] = $picture_path;
 			    // check.phpへ遷移
-			    header('Location: add_confirm');
+			    header('Location: confirm');
 			    // これより以下のコードを処理しないようにexit()で抜ける
 			    exit();
 			  }

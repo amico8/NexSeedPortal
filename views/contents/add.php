@@ -5,7 +5,7 @@
 				<div class="row contact-row">
 					<!-- /.contact form -->
 					<div class="col-sm-7 contact-right">
-						<form method="post" id="contact-form" class="form-horizontal" action=""  enctype="multipart/form-data" onSubmit="alert('Thank you for your feedback!');">
+						<form method="post" id="contact-form" class="form-horizontal" action=""  enctype="multipart/form-data">
 							<!-- カテゴリ -->
 						<div class="btn-section dropdown01">
 						 <select class="" name="Category">
@@ -94,11 +94,11 @@
 						<div class="abc">
                 		<span>Review:</span>
                 			<p class="abc01">
-                   			<input type="radio" name="point" value="1">１
-                    		<input type="radio" name="point" value="2">２
-                    		<input type="radio" name="point" value="3" checked>３
-                    		<input type="radio" name="point" value="4">４
-                    		<input type="radio" name="point" value="5">５
+                   			<label>1<input type="radio" name="point" value="1"></label>
+                    		<label>2<input type="radio" name="point" value="2"></label>
+                    		<label>3<input type="radio" name="point" value="3" checked></label>
+                    		<label>4<input type="radio" name="point" value="4"></label>
+                    		<label>5<input type="radio" name="point" value="5"></label>
                 			</p>
               			</div>
 						<!-- </tr> -->
@@ -113,7 +113,7 @@
 						</div>
 							<!-- 確認ボタン -->
 						<div class="col-sm-4 contact-left">
-							<input type="submit" name="submit" value="Post" class="btn btn-success fadeInUp">
+							<input type="submit" name="submit" value="Confirm" class="btn btn-success fadeInUp">
 						</div>
 
 						</form>
