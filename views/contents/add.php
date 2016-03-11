@@ -21,7 +21,7 @@
 						 </select>
 							<!-- 店の名前 -->
 						<div class="category">
-							<input type="text" name="Store Name" placeholder="Store Name" class="form-control input-lg" value="" required>
+							<input type="text" name="StoreName" placeholder="Store Name" class="form-control input-lg" value="" required>
 							<?php if(isset($erorr['Store_Name']) && $erorr['Store_Name'] == 'blank'): ?>
 			                <p class="post">* 名前を入れてください。</p>
 			              <?php endif; ?>
