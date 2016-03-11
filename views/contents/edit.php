@@ -33,7 +33,7 @@
                                         <input type="hidden" name="lat" id="lat" value="<?php echo $this->viewOptions['lat']; ?>">
                                     </div>
                                 </div>
-                                <input type="file" name="Photo" class="form-control input-lg">
+                                <input type="file" name="picture_path" class="form-control input-lg">
                                 <?php //if (isset($error['picture_path']) && $error['picture_path'] == 'type') { ?>
                                   <!-- <p class="error">* 写真などは「.gif」または「.jpg」の画像を指定してください</p> -->
                                 <?php //} elseif (!empty($error)) { ?>
@@ -55,8 +55,8 @@
                             <div class="category">
                                 <?php //var_dump($this->session); ?>
                                 <?php //var_dump($get); ?>
-                                <?php if (isset($this->session['comment'])): ?>
-                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->session['comment']; ?></textarea>
+                                <?php if (isset($this->post['comment'])): ?>
+                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->post['comment']; ?></textarea>
                                 <?php else: ?>
                                     <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->viewOptions['comment']; ?></textarea>
                                 <?php endif; ?>

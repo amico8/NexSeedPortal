@@ -23,6 +23,14 @@
 			return $result;
 		}
 
+		public function edit($id) {
+			// if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
+			// 	$this->rewrite = $_SESSION['edit'];
+			// 	$error['rewrite'] = true;
+			// }
+
+		}
+
 		public function delete($id) {
 			$sql = 'UPDATE `contents` SET `delete_flag`=1 WHERE `content_id`='.$id;
 			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));

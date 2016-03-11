@@ -14,7 +14,7 @@
                                         <td>
                                             <div class="text-center">
                                                 <?php foreach ($this->categories as $category) {
-                                                        if($_POST['category_id'] == $category['category_id']) {
+                                                        if($this->post['category_id'] == $category['category_id']) {
                                                             echo $category['category_name'];
                                                         }
                                                     }
@@ -26,7 +26,7 @@
                                         <td><div class="text-center">Store Name</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_POST['shop_name']); ?>
+                                                <?php echo htmlspecialchars($this->post['shop_name']); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -41,7 +41,7 @@
                                         <td>
                                             <div class="text-center">
                                                 <?php //echo $this->session['picture_path']; ?>
-                                                <?php var_dump($this->session); ?>
+                                                <?php var_dump($this->post); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -54,11 +54,11 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <pre><?php echo $this->session['shop_name']; ?></pre>
-                                                <pre><?php echo $this->session['comment']; ?></pre>
-                                                <pre><?php echo $this->session['lng']; ?></pre>
-                                                <pre><?php echo $this->session['lat']; ?></pre>
-                                                <pre><?php echo $this->session['review']; ?></pre>
+                                                <pre><?php echo $this->post['shop_name']; ?></pre>
+                                                <pre><?php echo $this->post['comment']; ?></pre>
+                                                <pre><?php echo $this->post['lng']; ?></pre>
+                                                <pre><?php echo $this->post['lat']; ?></pre>
+                                                <pre><?php echo $this->post['review']; ?></pre>
                                             </div>
                                         </td>
                                     </tr>
@@ -67,7 +67,7 @@
                                         <td class="review">
                                             <div class="text-center">
                                                 <?php 
-                                                    $i = $_POST['review'];
+                                                    $i = $this->post['review'];
                                                     for ($i; $i>0; $i--) {
                                                         echo "★";
                                                     }
@@ -79,7 +79,7 @@
                                         <td><div class="text-center">Comment</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_POST['comment']); ?>
+                                                <?php echo htmlspecialchars($this->post['comment']); ?>
                                             </div>
                                         </td>
                                     </tr>
