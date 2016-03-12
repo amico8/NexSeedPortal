@@ -43,6 +43,7 @@
                                                 <?php //echo $this->session['picture_path']; ?>
                                                 <?php var_dump($this->files); ?>
                                                 <?php var_dump($_SESSION['edit']); ?>
+                                                <?php var_dump($this->session); ?>
                                                 <?php var_dump($this->post); ?>
                                             </div>
                                         </td>
