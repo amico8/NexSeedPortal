@@ -13,15 +13,15 @@
 			break;
 
 		case 'edit':
-			$controller->edit($id);
+			$controller->edit($id, $sessionEdit);
 			break;
 
 		case 'delete':
 			$controller->delete($id);
 			break;
 
-		case 'editConfirm':
-			$controller->editConfirm($id, $files, $post, $sessionEdit);
+		case 'confirm':
+			$controller->editConfirm($id, $post, $fileName, $files);
 			break;
 
 		default:
@@ -36,7 +36,7 @@
 		private $categories = '';
 		private $files = array();
 		private $post = array();
-		private $rewrite = '';
+		private $session = array();
 
 
 		public function show($id) {
@@ -52,10 +52,11 @@
 			include('views/layout/application.php');
 		}
 
-		public function edit($id) {
+		public function edit($id, $sessionEdit) {
 			$content = new Content();
 			$this->viewOptions = $content->selectContents($id);
 			$this->categories = $content->selectCategories();
+			$this->session = $sessionEdit;
 			$this->resource = 'contents';
 			$this->action = 'edit';
 			// $this->error = $content->error;
@@ -74,7 +75,7 @@
 			include('views/layout/application.php');
 		}
 
-		public function editConfirm($id, $files, $post, $sessionEdit) {
+		public function editConfirm($id, $post, $fileName, $files) {
 			 $content = new Content();
 			// var_dump($files);
 			$this->categories = $content->selectCategories();
@@ -82,14 +83,13 @@
 			//ここに書く！！画像アップロード！！
 			//エラーが出たら、エラーの値をreturn値で表示し、それをedit.phpに表示する
 			//エラーの表示は番号で分ける
-			// if (!empty($post)) {
-			// 	$fileName = $files['picture_path']['name'];
-			// 	//エラーが無かったら処理する
-			// 	$picture_path = date('YmdHis') . $fileName;
-			// 	move_uploaded_file($files['picture_path']['tmp_name'], '../webroot/asset/images/post_images'. $picture_path)
-			// 	$sessionEdit['picture_path'] = $picture_path;
-			// 	$this->files = $sessionEdit['picture_path'];
-			// }
+			if (isset($fileName)) {
+				//エラーが無かったら処理する
+				$picture_path = date('YmdHis') . $fileName;
+				move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
+				$files = $picture_path;
+				$this->files = $files;
+			}
 
 			$this->resource = 'contents';
 			$this->action = 'editConfirm';

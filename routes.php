@@ -13,6 +13,8 @@
     $post = array();
     $get = array();
     $files = array();
+    $fileName = '';
+    $sessionEdit = array();
 
     //idがあった場合idも取得する
     if (isset($params[2])) {
@@ -22,14 +24,19 @@
     // if (isset($_POST['title'])&&isset($_POST['body'])) {
     if(isset($_POST)&&!empty($_POST)){
     	$post = $_POST;
+        $_SESSION['edit'] = $post;
+        $sessionEdit = $_SESSION['edit'];
     }
 
     if(isset($_FILES['picture_path']['name']) && !empty($_FILES['picture_path']['name'])) {
-        $files = $_FILES['picture_path']['name'];
-        var_dump($files);
+        $fileName = $_FILES['picture_path']['name'];
+        var_dump($fileName);
+        $files = $_FILES['picture_path'];
 
     }
     
+    
+    // $sessionEdit = $_SESSION['edit'];
 
 
     // if (!empty($fileName)) {
@@ -39,8 +46,7 @@
     //     }
     // }
 
-    $_SESSION['edit'] = $post;
-    $sessionEdit = $_SESSION['edit'];
+    
     // 画像をアップロードする
     
     // check.phpへ遷移

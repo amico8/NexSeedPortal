@@ -5,7 +5,7 @@
                 <div class="row contact-row">
                     <div class="category col-sm-7 contact-right">
                     <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
-                        <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/editConfirm/<?php echo $id; ?>" enctype="multipart/form_data">
+                        <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm/<?php echo $id; ?>" enctype="multipart/form-data">
                             <div class="btn-section dropdown01">
                                 <select name="category_id" class="category" required>
                                         <option value="category">Category</option>
@@ -19,7 +19,12 @@
                                 </select>
                             </div>
                             <div class="category">
-                                <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
+                                <?php var_dump($this->session); ?>
+                                <?php if (isset($this->session) && !empty($this->session)): ?>
+                                    <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->session['shop_name']; ?>" required/>
+                                <?php else: ?>
+                                    <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
+                                <?php endif; ?>
                                 <div class="abc">
                                     <span>Please Select Your Favorite Location!!</span>
                                     <!-- goolgle map API -->

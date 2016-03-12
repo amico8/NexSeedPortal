@@ -41,6 +41,8 @@
                                         <td>
                                             <div class="text-center">
                                                 <?php //echo $this->session['picture_path']; ?>
+                                                <?php var_dump($this->files); ?>
+                                                <?php var_dump($_SESSION['edit']); ?>
                                                 <?php var_dump($this->post); ?>
                                             </div>
                                         </td>
@@ -49,16 +51,7 @@
                                         <td><div class="text-center">Photo</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <!-- <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php //echo $this->session['picture_path']; ?>" width="100" height="100"> -->
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <pre><?php echo $this->post['shop_name']; ?></pre>
-                                                <pre><?php echo $this->post['comment']; ?></pre>
-                                                <pre><?php echo $this->post['lng']; ?></pre>
-                                                <pre><?php echo $this->post['lat']; ?></pre>
-                                                <pre><?php echo $this->post['review']; ?></pre>
+                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->files; ?>" width="250" height="250">
                                             </div>
                                         </td>
                                     </tr>
@@ -87,7 +80,7 @@
                             </table>
                         <!-- 戻るボタン -->
                         <div class="col-sm-4 contact-right">
-                            <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>?action=rewrite"><input type="button" name="submit" value="Back" class="btn01 btn-success wow fadeInUp" /></a>
+                            <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>"><input type="button" name="submit" value="Back" class="btn01 btn-success wow fadeInUp" /></a>
                         </div>
                         <div class="col-sm-4 contact-left">
                             <input type="submit" name="submit" value="Update" class="btn btn-success wow fadeInUp"/>
