@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row contact-row">
                     <div class="col-md-8 contact-right">
-                        <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/show/<?php echo $id; ?>" onSubmit="alert('Thank you for your feedback!');">
+                        <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/update/<?php echo $id; ?>">
                             <input type="hidden" name="action" value="submit">
                         <div class="well">ご登録内容をご確認ください。</div>
                             <table class="table table-condensed">
@@ -14,7 +14,7 @@
                                         <td>
                                             <div class="text-center">
                                                 <?php foreach ($this->categories as $category) {
-                                                        if($this->post['category_id'] == $category['category_id']) {
+                                                        if($_SESSION['edit']['category_id'] == $category['category_id']) {
                                                             echo $category['category_name'];
                                                         }
                                                     }
@@ -26,7 +26,7 @@
                                         <td><div class="text-center">Store Name</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($this->post['shop_name']); ?>
+                                                <?php echo htmlspecialchars($_SESSION['edit']['shop_name']); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -42,9 +42,10 @@
                                             <div class="text-center">
                                                 <?php //echo $this->session['picture_path']; ?>
                                                 <?php var_dump($this->files); ?>
+                                                <?php var_dump($files); ?>
                                                 <?php var_dump($_SESSION['edit']); ?>
-                                                <?php var_dump($this->session); ?>
                                                 <?php var_dump($this->post); ?>
+                                                <?php var_dump($this->session); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -52,7 +53,11 @@
                                         <td><div class="text-center">Photo</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->files; ?>" width="250" height="250">
+                                                <?php if (isset($fileName) && !empty($fileName)): ?>
+                                                    <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->files; ?>" width="250" height="250">
+                                                <?php else: ?>
+                                                    Image has not been selected.
+                                                <?php endif; ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -61,7 +66,7 @@
                                         <td class="review">
                                             <div class="text-center">
                                                 <?php 
-                                                    $i = $this->post['review'];
+                                                    $i = $_SESSION['edit']['review'];
                                                     for ($i; $i>0; $i--) {
                                                         echo "★";
                                                     }
@@ -73,7 +78,7 @@
                                         <td><div class="text-center">Comment</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($this->post['comment']); ?>
+                                                <?php echo htmlspecialchars($_SESSION['edit']['comment']); ?>
                                             </div>
                                         </td>
                                     </tr>

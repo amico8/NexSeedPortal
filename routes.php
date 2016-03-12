@@ -12,9 +12,9 @@
     $id = 0;
     $post = array();
     $get = array();
-    $files = array();
+    $files = '';
     $fileName = '';
-    $sessionEdit = array();
+    $sessionEdit = '';
 
     //idがあった場合idも取得する
     if (isset($params[2])) {
@@ -25,12 +25,16 @@
     if(isset($_POST)&&!empty($_POST)){
     	$post = $_POST;
         $_SESSION['edit'] = $post;
-        $sessionEdit = $_SESSION['edit'];
     }
+
+    if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])) {
+        $sessionEdit = $_SESSION['edit'];
+        
+    }
+
 
     if(isset($_FILES['picture_path']['name']) && !empty($_FILES['picture_path']['name'])) {
         $fileName = $_FILES['picture_path']['name'];
-        var_dump($fileName);
         $files = $_FILES['picture_path'];
 
     }

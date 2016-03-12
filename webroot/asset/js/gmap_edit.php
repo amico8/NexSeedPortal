@@ -2,8 +2,13 @@
     google.maps.event.addDomListener(window, 'load', function()
         {
             // La Guardia Flats2の経緯度
-            var lng = <?php echo $this->viewOptions['lng']; ?>;
-            var lat = <?php echo $this->viewOptions['lat']; ?>;
+            <?php if (isset($this->session) && !empty($this->session)): ?>
+                var lng = <?php echo $this->session['lng']; ?>;
+                var lat = <?php echo $this->session['lat']; ?>;
+            <?php else: ?>
+                var lng = <?php echo $this->viewOptions['lng']; ?>;
+                var lat = <?php echo $this->viewOptions['lat']; ?>;
+            <?php endif; ?>
             var latlng = new google.maps.LatLng(lat, lng);
 
             var mapOptions = {
@@ -27,7 +32,7 @@
                 markerObj.position = e.latLng;
                 // マーカーをセット
                 markerObj.setMap(mapObj);
-                alert("経度:" + e.latLng.lat() + "  緯度:" + e.latLng.lng());
+                // alert("経度:" + e.latLng.lat() + "  緯度:" + e.latLng.lng());
                 var lng = document.getElementById("lng");
                 var lat = document.getElementById("lat");
                 lng.innerHTML = "<input type='hidden' name='lng' id='lng' value='" + e.latLng.lng() + "'>";

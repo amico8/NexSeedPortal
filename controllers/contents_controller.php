@@ -24,6 +24,10 @@
 			$controller->editConfirm($id, $post, $fileName, $files);
 			break;
 
+		case 'update':
+			$controller->update($id, $files, $sessionEdit);
+			break;
+
 		default:
 			break;
 	}
@@ -34,7 +38,7 @@
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
-		private $files = array();
+		private $files = '';
 		private $post = array();
 		private $session = array();
 
@@ -59,18 +63,6 @@
 			$this->session = $sessionEdit;
 			$this->resource = 'contents';
 			$this->action = 'edit';
-			// $this->error = $content->error;
-			// $this->post = $content->edit($id);
-			// if (isset($content->rewrite) && !empty($content->rewrite)) {
-			// 	$this->post = $content->rewrite;
-			// }
-			
-
-			// $this->session = $_SESSION['edit'];
-			// if (isset($this->get['action']) && $this->get['action'] == 'rewrite') {
-			//   $this->get = $this->session;
-			//   $error['rewrite'] = true;
-			// }
 
 			include('views/layout/application.php');
 		}
@@ -102,6 +94,13 @@
 			$content->delete($id);
 
 			header('Location: /NexSeedPortal/contents/index');
+		}
+
+		public function update($id, $files, $sessionEdit) {
+			$content = new Content();
+			$content->update($id, $files, $sessionEdit);
+
+			header('Location: /NexSeedPortal/contents/show/'.$id);
 		}
 
 

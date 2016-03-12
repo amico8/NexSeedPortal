@@ -10,10 +10,18 @@
                                 <select name="category_id" class="category" required>
                                         <option value="category">Category</option>
                                 <?php foreach ($this->categories as $category): ?>
-                                    <?php if ($category['category_id'] == $this->viewOptions['category_id']):?>
-                                        <option value="<?php echo $category['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
+                                    <?php if (isset($this->session) && !empty($this->session)): ?>
+                                        <?php if ($this->session['category_id'] == $category['category_id']): ?>
+                                            <option value="<?php echo $this->session['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
+                                        <?php else: ?>
+                                            <option value="<?php echo $category['category_id'];?>"><?php echo $category['category_name']; ?></option>
+                                        <?php endif; ?>
                                     <?php else: ?>
-                                        <option value="<?php echo $category['category_id'];?>"><?php echo $category['category_name']; ?></option>
+                                        <?php if ($category['category_id'] == $this->viewOptions['category_id']):?>
+                                            <option value="<?php echo $category['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
+                                        <?php else: ?>
+                                            <option value="<?php echo $category['category_id'];?>"><?php echo $category['category_name']; ?></option>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                                 </select>
@@ -31,12 +39,21 @@
                                     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
                                     <?php require('webroot/asset/js/gmap_edit.php'); ?>
                                     <div id="gmap"></div>
-                                    <div id="lng">
-                                        <input type="hidden" name="lng" id="lng" value="<?php echo $this->viewOptions['lng']; ?>">
-                                    </div>
-                                    <div id="lat">
-                                        <input type="hidden" name="lat" id="lat" value="<?php echo $this->viewOptions['lat']; ?>">
-                                    </div>
+                                    <?php if (isset($this->session) && !empty($this->session)): ?>
+                                        <div id="lng">
+                                            <input type="hidden" name="lng" id="lng" value="<?php echo $this->session['lng']; ?>">
+                                        </div>
+                                        <div id="lat">
+                                            <input type="hidden" name="lat" id="lat" value="<?php echo $this->session['lat']; ?>">
+                                        </div>
+                                    <?php else: ?>
+                                        <div id="lng">
+                                            <input type="hidden" name="lng" id="lng" value="<?php echo $this->viewOptions['lng']; ?>">
+                                        </div>
+                                        <div id="lat">
+                                            <input type="hidden" name="lat" id="lat" value="<?php echo $this->viewOptions['lat']; ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                                 <input type="file" name="picture_path" class="form-control input-lg">
                                 <?php //if (isset($error['picture_path']) && $error['picture_path'] == 'type') { ?>
@@ -49,10 +66,18 @@
                                 <span>Review:</span>
                                 <p class="abc01">
                                     <?php for ($i=1; $i<=5; $i++):?>
-                                        <?php if($i == $this->viewOptions['review']): ?>
-                                            <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" checked required/>
+                                        <?php if(isset($this->session) && !empty($this->session)): ?>
+                                            <?php if($i == $this->session['review']): ?>
+                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" checked required/>
+                                            <?php else: ?>
+                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" required/>
+                                            <?php endif; ?>
                                         <?php else: ?>
-                                            <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" required/>
+                                            <?php if($i == $this->viewOptions['review']): ?>
+                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" checked required/>
+                                            <?php else: ?>
+                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" required/>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     <?php endfor; ?>
                                 </p>
@@ -60,8 +85,8 @@
                             <div class="category">
                                 <?php //var_dump($this->session); ?>
                                 <?php //var_dump($get); ?>
-                                <?php if (isset($this->post['comment'])): ?>
-                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->post['comment']; ?></textarea>
+                                <?php if (isset($this->session) && !empty($this->session)): ?>
+                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->session['comment']; ?></textarea>
                                 <?php else: ?>
                                     <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->viewOptions['comment']; ?></textarea>
                                 <?php endif; ?>
