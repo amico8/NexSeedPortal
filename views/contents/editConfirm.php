@@ -2,12 +2,12 @@
     <div class="contact fullscreen parallax">
         <div class="overlay02">
             <div class="container">
-                <div class="row contact-row">
+                <div class="wow fadeInUp row contact-row">
                     <div class="col-md-8 contact-right">
                         <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/update/<?php echo $id; ?>">
                             <input type="hidden" name="action" value="submit">
-                        <div class="well">ご登録内容をご確認ください。</div>
-                            <table class="table table-condensed">
+                        <div class="wow fadeInUp well">ご登録内容をご確認ください。</div>
+                            <table class="wow fadeInUp table table-condensed">
                                 <tbody>
                                     <tr>
                                         <td><div class="text-center">Category</div></td>
@@ -41,11 +41,11 @@
                                         <td>
                                             <div class="text-center">
                                                 <?php //echo $this->session['picture_path']; ?>
-                                                <?php var_dump($this->files); ?>
-                                                <?php var_dump($files); ?>
-                                                <?php var_dump($_SESSION['edit']); ?>
-                                                <?php var_dump($this->post); ?>
-                                                <?php var_dump($this->session); ?>
+                                                <?php //var_dump($this->files); ?>
+                                                <?php //var_dump($files); ?>
+                                                <?php //var_dump($_SESSION['edit']); ?>
+                                                <?php //var_dump($this->post); ?>
+                                                <?php //var_dump($this->session); ?>
                                             </div>
                                         </td>
                                     </tr>

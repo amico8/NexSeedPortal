@@ -2,8 +2,7 @@
     <div class="contact fullscreen parallax">
         <div class="overlay02">
             <div class="container">
-                <div class="row contact-row">
-                    <div class="category col-sm-7 contact-right">
+                <div class="col-sm-7 contact-right wow fadeInUp row contact-row">
                     <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
                         <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm/<?php echo $id; ?>" enctype="multipart/form-data">
                             <div class="btn-section dropdown01">
@@ -27,7 +26,7 @@
                                 </select>
                             </div>
                             <div class="category">
-                                <?php var_dump($this->session); ?>
+                                <?php //var_dump($this->session); ?>
                                 <?php if (isset($this->session) && !empty($this->session)): ?>
                                     <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->session['shop_name']; ?>" required/>
                                 <?php else: ?>
@@ -104,7 +103,6 @@
                     <?php else: ?>
                         <p>This post couldn't found out. Please check your URL.</br>Thank you.</p>
                     <?php endif; ?>
-                    </div>
                 </div>
             </div>
         </div>
