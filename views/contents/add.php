@@ -5,7 +5,7 @@
 				<div class="row contact-row">
 					<!-- /.contact form -->
 					<div class="col-sm-7 contact-right">
-						<form method="post" id="contact-form" class="form-horizontal" action=""  enctype="multipart/form-data">
+						<form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm"  enctype="multipart/form-data">
 							<!-- カテゴリ -->
 						<div class="btn-section dropdown01">
 						 <select class="" name="Category">

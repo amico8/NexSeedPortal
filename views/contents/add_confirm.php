@@ -22,7 +22,7 @@
                                             <td><div class="text-center">Category</div></td>
                                             <td><div class="text-center">
                                                 <?php foreach ($this->categories as $category) {
-                                                        if($_POST['category_id'] == $category['category_id']) {
+                                                        if($_POST['Category'] == $category['category_id']) {
                                                             echo $category['category_name'];
                                                         }
                                                     }
@@ -49,7 +49,7 @@
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Photo</div></td>
-                                            <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_POST['picture_path']; ?>.jpg" width="100" height="100">
+                                            <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_POST['Photo']; ?>.jpg" width="100" height="100">
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Review</div></td>
