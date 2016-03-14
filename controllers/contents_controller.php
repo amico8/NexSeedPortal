@@ -9,8 +9,7 @@
 		login($post,$db);
 	}else if (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
 		login2($_SESSION,$db);
-	}
-	else{
+	}else{
 		header('Location: /NexSeedPortal/users/login/');
 	}
 	//コントローラのクラスをインスタンス化
@@ -39,18 +38,16 @@
 		private $loginaction = '';
 
 
-    public function index($id,$post){
-    	//モデルを呼び出す
-        	$content = new Content();
-            $this->viewOptions = $content->index($id,$post);
-
-        //アクション名を設定
-            $this->resource = 'contents';
-            $this->action = 'index';
-
-        //ビューを呼び出す
-            require('views/layout/application.php');
-    }
+		public function index($id,$post){
+    		//モデルを呼び出す
+    	    	$content = new Content();
+    	        $this->viewOptions = $content->index($id,$post);
+    	    //アクション名を設定
+    	        $this->resource = 'contents';
+    	        $this->action = 'index';
+    	    //ビューを呼び出す
+    	        require('views/layout/application.php');
+    	}
 
 
 	}

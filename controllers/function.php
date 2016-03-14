@@ -1,6 +1,7 @@
 <?php
+//最初にログインするときにログイン処理を行う関数
 function login($post,$db){
-	$error = array();
+    $error = array();
     if (isset($post)&&!empty($post)) {
         if ($post['email'] !='' && $post['password'] != '') {
             $sql = sprintf('SELECT * FROM `users` WHERE `email` = "%s" AND `password` = "%s"',
@@ -26,6 +27,7 @@ function login($post,$db){
     }
 }
 
+//ログイン後にページ遷移したときにログインチェックを行う関数
 function login2($session,$db){
 	if (isset($session['user_id']) && $session['created'] + 3600 > time()) {
     	$sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d AND `user_name` = "%s"',
