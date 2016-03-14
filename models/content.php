@@ -18,7 +18,7 @@
 			$sql = 'SELECT * FROM `categories` WHERE 1';
 			$record = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
 			$categories = array();
-    		while ($result = mysqli_fetch_assoc($record)) {
+            while ($result = mysqli_fetch_assoc($record)) {
     			$return['category'][] = $result;
     		}
 
@@ -62,7 +62,7 @@
     		$page = min($page,$maxpage);
     		$return['maxpage'][] = $maxpage;
 
-    		$start = ($page-1)*5;
+            $start = ($page-1)*5;
             $start = max(0,$start);
 
             // $contents = array();
@@ -98,21 +98,14 @@
     		}
     		if(isset($return['contents'])&&!empty($return['contents'])){
     			$numbers = count($return['contents']);
-    			for ($i=0; $i < $numbers ; $i++) {
+    			for ($i = 0; $i < $numbers ; $i++) {
     				$number = $return['contents'][$i]['review'];
     				$return['contents'][$i]['review'] = "";
-    				for ($j=0; $j < $number ; $j++) {
+    				for ($j = 0; $j < $number ; $j++) {
     					$return['contents'][$i]['review'] = $return['contents'][$i]['review']."★";
     				}
     			}
     	    }
-    	    // else{
-    	    	// $return['comment'][] = "該当する結果は存在しません。";
-    	    // }
-    	    //状況確認ように$returnに$postを入れておく
-    	    $return['post'] = $post;
-    	    $return['session'] = $_SESSION;
-    	    // $return['session'] = $session;
     		return $return;
 		}
 
