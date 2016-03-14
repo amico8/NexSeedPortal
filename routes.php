@@ -26,14 +26,6 @@
         $_SESSION['edit'] = $post;
     }
 
-    if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])) {
-        // var_dump($_SESSION['edit']);
-        $sessionEdit = $_SESSION['edit'];
-        
-    }
-
-
-
     if(isset($_FILES['picture_path']['name']) && !empty($_FILES['picture_path']['name'])) {
         $fileName = $_FILES['picture_path']['name'];
         $files = $_FILES['picture_path'];
@@ -41,13 +33,19 @@
                 $picture_path = date('YmdHis') . $fileName;
                 move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
                 $files = $picture_path;
-                $sessionEdit += array('picture_path'=>$files);
             }
-        
         // var_dump($sessionEdit);
     }
-    
-    
+
+    if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])) {
+        // var_dump($_SESSION['edit']);
+        $_SESSION['edit'] += array('picture_path'=>$files);
+        $sessionEdit = $_SESSION['edit'];
+    }
+
+
+
+
 
     //コントローラの呼び出し
     require('controllers/'.$resource.'_controller.php');

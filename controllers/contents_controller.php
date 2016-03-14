@@ -21,7 +21,7 @@
 			break;
 
 		case 'confirm':
-			$controller->editConfirm($id, $post, $fileName, $files);
+			$controller->editConfirm($id, $post, $fileName, $files, $sessionEdit);
 			break;
 
 		case 'update':
@@ -40,7 +40,6 @@
 		private $categories = '';
 		private $files = '';
 		private $post = array();
-		private $session = array();
 
 
 		public function show($id) {
@@ -60,14 +59,13 @@
 			$content = new Content();
 			$this->viewOptions = $content->selectContents($id);
 			$this->categories = $content->selectCategories();
-			$this->session = $sessionEdit;
 			$this->resource = 'contents';
 			$this->action = 'edit';
 
 			include('views/layout/application.php');
 		}
 
-		public function editConfirm($id, $post, $fileName, $files) {
+		public function editConfirm($id, $post, $fileName, $files, $sessionEdit) {
 			if (!empty($fileName)) {
 		    	$ext = substr($fileName, -3);
 		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
@@ -98,6 +96,15 @@
 			include('views/layout/application.php');
 		}
 
+		public function update($id, $sessionEdit) {
+			var_dump($sessionEdit);
+			$content = new Content();
+			$content->update($id, $sessionEdit);
+
+			header('Location: /NexSeedPortal/contents/show/'.$id);
+		}
+
+
 		public function delete($id) {
 			$content = new content();
 			$content->delete($id);
@@ -105,15 +112,7 @@
 			header('Location: /NexSeedPortal/contents/index');
 		}
 
-		public function update($id, $sessionEdit) {
-			var_dump($sessionEdit);
-			$content = new Content();
-			$content->update($id, $sessionEdit);
-
-			// header('Location: /NexSeedPortal/contents/show/'.$id);
-			include('views/layout/application.php');
-		}
-
+		
 
 
 	}

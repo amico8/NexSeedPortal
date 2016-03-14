@@ -9,9 +9,9 @@
                                 <select name="category_id" class="category" required>
                                         <option value="">Category</option>
                                 <?php foreach ($this->categories as $category): ?>
-                                    <?php if (isset($this->session) && !empty($this->session)): ?>
-                                        <?php if ($this->session['category_id'] == $category['category_id']): ?>
-                                            <option value="<?php echo $this->session['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
+                                    <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
+                                        <?php if ($sessionEdit['category_id'] == $category['category_id']): ?>
+                                            <option value="<?php echo $sessionEdit['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
                                         <?php else: ?>
                                             <option value="<?php echo $category['category_id'];?>"><?php echo $category['category_name']; ?></option>
                                         <?php endif; ?>
@@ -26,9 +26,9 @@
                                 </select>
                             </div>
                             <div class="category">
-                                <?php var_dump($this->session); ?>
-                                <?php if (isset($this->session) && !empty($this->session)): ?>
-                                    <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->session['shop_name']; ?>" required/>
+                                <?php var_dump($sessionEdit); ?>
+                                <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
+                                    <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $sessionEdit['shop_name']; ?>" required/>
                                 <?php else: ?>
                                     <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
                                 <?php endif; ?>
@@ -38,12 +38,12 @@
                                     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
                                     <?php require('webroot/asset/js/gmap_edit.php'); ?>
                                     <div id="gmap"></div>
-                                    <?php if (isset($this->session) && !empty($this->session)): ?>
+                                    <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
                                         <div id="lng">
-                                            <input type="hidden" name="lng" id="lng" value="<?php echo $this->session['lng']; ?>">
+                                            <input type="hidden" name="lng" id="lng" value="<?php echo $sessionEdit['lng']; ?>">
                                         </div>
                                         <div id="lat">
-                                            <input type="hidden" name="lat" id="lat" value="<?php echo $this->session['lat']; ?>">
+                                            <input type="hidden" name="lat" id="lat" value="<?php echo $sessionEdit['lat']; ?>">
                                         </div>
                                     <?php else: ?>
                                         <div id="lng">
@@ -76,8 +76,8 @@
                                 <span>Review:</span>
                                 <p class="abc01">
                                     <?php for ($i=1; $i<=5; $i++):?>
-                                        <?php if(isset($this->session) && !empty($this->session)): ?>
-                                            <?php if($i == $this->session['review']): ?>
+                                        <?php if(isset($sessionEdit) && !empty($sessionEdit)): ?>
+                                            <?php if($i == $sessionEdit['review']): ?>
                                                 <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" checked required/>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <?php else: ?>
                                                 <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" required/>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -93,8 +93,8 @@
                                 </p>
                             </div>
                             <div class="category">
-                                <?php if (isset($this->session) && !empty($this->session)): ?>
-                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->session['comment']; ?></textarea>
+                                <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
+                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $sessionEdit['comment']; ?></textarea>
                                 <?php else: ?>
                                     <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->viewOptions['comment']; ?></textarea>
                                 <?php endif; ?>

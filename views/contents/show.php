@@ -7,7 +7,7 @@
                     <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
                         <div class="well2">
                             <p>
-                            <div class="col-xs-10 contact-left"><?php echo $this->viewOptions['shop_name']; ?>の店舗情報</div>
+                            <div class="col-xs-10 contact-left"><?php echo $this->viewOptions['shop_name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;'s Information</div>
                             <div class="contact-right">
                                 <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>">
                                 <i class="fa fa-pencil fa-glay"></i>
@@ -62,8 +62,11 @@
                                     <td>Photo</td>
                                     <td>
                                         <div class="text-center">
-                                            <?php echo $this->viewOptions['picture_path']; ?>
-                                            <img src="/NexSeedPortal/webroot/asset/images/post_images/show_image.jpg<?php echo $this->viewOptions['picture_path']; ?>" class="img-responsive" alt="写真" >
+                                            <?php if (isset($this->viewOptions['picture_path']) && !empty($this->viewOptions['picture_path'])): ?>
+                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="" alt="写真" >
+                                            <?php else: ?>
+                                                No Image
+                                            <?php endif; ?>
                                         </div>
                                     </td>
                                 </tr>
@@ -80,7 +83,7 @@
                                     <td>Date</td>
                                     <td>
                                         <div class="text-center">
-                                            <?php echo $this->viewOptions['created']; ?>
+                                            <?php echo $this->viewOptions['modified']; ?>
                                         </div>
                                     </td>
                                 </tr>

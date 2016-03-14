@@ -19,18 +19,15 @@
 			);
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			$result = mysqli_fetch_assoc($results);
+			unset($_SESSION['edit']);
+			unset($_SESSION['error']);
 			//取得結果を返す
 			return $result;
-		}
 
-		public function delete($id) {
-			$sql = 'UPDATE `contents` SET `delete_flag`=1 WHERE `content_id`='.$id;
-			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 		}
 
 		public function update($id, $sessionEdit) {
-			var_dump($sessionEdit);
-			$sql = sprintf('UPDATE `contents` SET `category_id`= %d, `shop_name`="%s",`lat`=%d,`lng`=%d,`picture_path`="%s",`review`=%d,`comment`="%s" WHERE `content_id` = %d',
+			$sql = sprintf('UPDATE `contents` SET `category_id`= %d, `shop_name`="%s",`lat`=%.20f,`lng`=%.20f,`picture_path`="%s",`review`=%d,`comment`="%s" WHERE `content_id` = %d',
 			mysqli_real_escape_string($this->dbconnect, $sessionEdit['category_id']),
 			mysqli_real_escape_string($this->dbconnect, $sessionEdit['shop_name']),
 			mysqli_real_escape_string($this->dbconnect, $sessionEdit['lat']),
@@ -40,12 +37,16 @@
 			mysqli_real_escape_string($this->dbconnect, $sessionEdit['comment']),
 			mysqli_real_escape_string($this->dbconnect, $id)
 			);
-			echo $sql;
-			// $result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			unset($sessionEdit);
+			$result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+			// echo $sql;
+			unset($_SESSION['edit']);
 			unset($_SESSION['error']);
 		}
 
+		public function delete($id) {
+			$sql = 'UPDATE `contents` SET `delete_flag`=1 WHERE `content_id`='.$id;
+			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+		}
 
 		public function selectContents($id) {
 			$sql = sprintf('SELECT c.category_name, co.* FROM `categories` c, `contents` co WHERE `delete_flag` = 0 AND c.category_id=co.category_id AND co.content_id=%d',
@@ -55,7 +56,6 @@
 			$result = mysqli_fetch_assoc($results);
 			//取得結果を返す
 			return $result;
-
 		}
 
 		public function selectCategories() {
