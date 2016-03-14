@@ -39,7 +39,12 @@ function login2($session,$db){
         }
 	}else{
     	header('Location: /NexSeedPortal/users/login');
-    	// exit();
 	}
 }
+
+//htmlspecialcharsの短縮
+function h($value) {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
 ?>

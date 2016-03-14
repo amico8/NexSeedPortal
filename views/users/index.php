@@ -3,7 +3,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('/NexSeedPortal/webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax top-image">
 	<div class="overlay">
 		<div class="container">
 			<div class="row">
@@ -15,7 +15,7 @@
 					</h1>
 
 					<!-- /.header paragraph -->
-					<div class="landing-text wow fadeInUp">
+					<div class="landing-text wow fadeInUp" data-img-width="2000" data-img-height="1333" data-diff="100">
 						<p>留学生活を有意義にするために、是非このサイトをご活用下さい。<br>
 						皆さんが作り上げていくポータルサイトです。<br>
 						使い方は自由自在！！<br>
@@ -32,7 +32,6 @@
 						<h3 class="form-title text-center">Get Started!</h3>
 						<form class="form-header" action="" role="form" method="POST" id="#">
 							<div class="form-group">
-								<!-- <h3>Name</h3> -->
 								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php
 								if (isset($_SESSION['join'])) {
 									echo htmlspecialchars($_SESSION['join']['name']);
@@ -42,7 +41,6 @@
 				            	<?php } ?>
 							</div>
 							<div class="form-group">
-								<!-- <h3>Email</h3> -->
 								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php
 								if (isset($_SESSION['join'])) {
 									echo htmlspecialchars($_SESSION['join']['email']);
@@ -54,7 +52,6 @@
             					<?php } ?>
 							</div>
 							<div class="form-group">
-								<!-- <h3>Password</h3> -->
 								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php
 								if (isset($_SESSION['join'])) {
 									echo htmlspecialchars($_SESSION['join']['password1']);
@@ -68,7 +65,6 @@
 				            	<?php } ?>
 							</div>
 							<div class="form-group">
-								<!-- <h3>Password(for check)</h3> -->
 								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php
 								if (isset($_SESSION['join'])) {
 									echo htmlspecialchars($_SESSION['join']['password2']);
@@ -80,7 +76,7 @@
 				            	<?php } ?>
 							</div>
 							<div class="form-group last">
- 								<input type="submit" class="btn btn-warning btn-block btn-lg" value="Next!" style="margin-left:5px; float:left;">
+ 								<input type="submit" class="btn btn-warning btn-block btn-lg btn-reg-l" value="Next!">
 							</div>
 						</form>
 					</div>

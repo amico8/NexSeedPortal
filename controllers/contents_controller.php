@@ -1,17 +1,16 @@
 <?php
-	session_start();
+	//session_start();
 	require('models/content.php');
 	//ログインチェックを実装
 	require('function.php');
 	require('dbconnect.php');
-	//if (isset($post['email'])&&!empty($post['email'])) {
-	if (isset($_SESSION['email'])&&!empty($_SESSION['email'])) {
-		//login($post,$db);
-		login($_SESSION,$db);
+	if (isset($post['email'])&&!empty($post['email'])) {
+		login($post,$db);
 	}else if (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
 		login2($_SESSION,$db);
 	}else{
-		header('Location: /NexSeedPortal/users/login/');
+            echo '関数にすら入れない!!';
+		//header('Location: /NexSeedPortal/users/login/');
 	}
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();

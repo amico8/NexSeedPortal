@@ -8,6 +8,7 @@
 		}
 		public $error = '';
 		public $rewrite = '';
+
 		public function login($post) {
 			if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
 			    $post['email'] = $_COOKIE['email'];
@@ -39,6 +40,7 @@
 					          	setcookie('email', $post['email'], time()+60*60*24*14);
 					          	setcookie('password', $post['password'], time()+60*60*24*14);
 				        	}
+				        	$_SESSION['post'] = $post;
 				        	header('Location: /NexSeedPortal/contents/index');
 				        	exit();
 				      	} else {
@@ -51,6 +53,7 @@
 				$this->error = $error;
 			}
 		}
+
 		public function add($post) {
 			$error = array();
 			if ($post == '' && isset($_SESSION) && !empty($_SESSION)) {
@@ -96,27 +99,26 @@
 			}
 			$this->error = $error;
 		}
+
 		public function confirm($post) {
 			if(isset($post) && !empty($post)) {
-				//$_SESSION['join'] = $post;
 				header('Location: /NexSeedPortal/users/create/');
 				exit();
 			}
 		}
+
 		public function create() {
-			//if (!empty($post)) {
-			    //登録処理
-			    $sql = sprintf('INSERT INTO users SET user_name="%s", email="%s", password="%s", created=now()',
-			    	mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['name']),
-			    	mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['email']),
-			    	mysqli_real_escape_string($this->dbconnect, sha1($_SESSION['join']['password1']))
-			    );
-			    mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			    //登録したので、セッション情報を破棄
-			    unset($_SESSION['join']);
-			    header('Location: /NexSeedPortal/users/login/');
-			    exit();
-			//}
+			//登録処理
+			$sql = sprintf('INSERT INTO users SET user_name="%s", email="%s", password="%s", created=now()',
+			    mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['name']),
+			    mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['email']),
+			    mysqli_real_escape_string($this->dbconnect, sha1($_SESSION['join']['password1']))
+			);
+			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+			//登録したので、セッション情報を破棄
+			unset($_SESSION['join']);
+			header('Location: /NexSeedPortal/users/login/');
+			exit();
 		}
 	}
  ?>

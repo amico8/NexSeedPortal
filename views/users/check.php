@@ -16,7 +16,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('/NexSeedPortal/webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax top-image" data-img-width="2000" data-img-height="1333" data-diff="100">
 	<div class="overlay">
 		<div class="container">
 			<div class="row">
@@ -48,25 +48,20 @@
 								<div class="insert_box">
 								    <?php echo htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES, 'UTF-8'); ?>
 							    </div>
-								<!-- <input class="form-control input-lg" name="name" type="text" placeholder="Name" required> -->
 							</div>
 							<div class="form-group">
 								<div class="insert_box">
 								    <?php echo htmlspecialchars($_SESSION['join']['email'], ENT_QUOTES, 'UTF-8'); ?>
 							    </div>
-								<!-- <input class="form-control input-lg" name="email" type="email" placeholder="Email address" required> -->
 							</div>
 							<div class="form-group">
 								<div class="insert_box">
 								    [表示されません]
 							    </div>
-								<!-- <input class="form-control input-lg" name="password" type="password" placeholder="Password" required> -->
 							</div>
-							<!-- <div class="form-group last"> -->
-							<!-- <a href="index.html?action=rewrite">&laquo;&nbsp;書き直す</a> | -->
 							<div class="form-group last">
-							<a href="/NexSeedPortal/users/add"><input type="button" class="btns btn-warning btn-block btn-lg" value="Back!" style="margin-left:5px; float:left;"></a>
- 							<input type="submit" onclick="check()" class="btn btn-warning btn-block btn-lg" value="Sign Up!" style="margin-left:5px; float:left;">
+							<a href="/NexSeedPortal/users/add"><input type="button" class="btns btn-warning btn-block btn-lg btn-reg-l" value="Back!"></a>
+ 							<input type="submit" onclick="check()" class="btn btn-warning btn-block btn-lg  btn-reg-r" value="Sign Up!">
 							</div>
 						</form>
 					</div>

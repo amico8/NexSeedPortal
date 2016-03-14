@@ -3,7 +3,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('/NexSeedPortal/webroot/asset/images/top_image.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax top-image" data-img-width="2000" data-img-height="1333" data-diff="100">
 
 	<div class="overlay">
 		<div class="container">
@@ -49,18 +49,15 @@
 							</div>
 							<div class="form-group last">
 									<!-- チェックボックス追加 -->
-									<form class="form-horizontal">
-									    <div class="form-group">
-									        <div class="col-xs-7">
-									            <label class="checkbox-inline">
-									                <input type="checkbox" name="save">Auto Login
-									            </label>
-									        </div>
+									<div class="form-group">
+									    <div class="col-xs-7">
+									        <label class="checkbox-inline">
+									            <input type="checkbox" name="save">Auto Login
+									        </label>
 									    </div>
-									</form>
-								<a href="/NexSeedPortal/users/add"><input type="botton" class="btn btn-warning btn-block btn-lg" value="Register" style="margin-left:5px; float:left;"></a>
- 								<!-- <input type="submit" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;"> -->
- 								<input type="submit" class="btn btn-warning btn-block btn-lg" value="Login" style="margin-left:5px; float:left;">
+									</div>
+								<a href="/NexSeedPortal/users/add"><input type="button" class="btn btn-warning btn-block btn-lg btn-reg-l" value="Register"></a>
+ 								<input type="submit" class="btn btn-warning btn-block btn-lg btn-reg-r" value="Login">
 							</div>
 						</form>
 					</div>

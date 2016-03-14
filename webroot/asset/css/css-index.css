@@ -1346,3 +1346,21 @@ table.list td {
 .fa-glay {
 	color: #888888;
 }
+
+/*
+	背景画像使用時
+*/
+.top-image {
+	background-image: url('../images/top_image.jpg');
+}
+
+/*
+	ログイン、ユーザ登録関連のボタン設定
+*/
+.btn-reg-l {
+	margin-left:5px;
+	float:left;
+}
+.btn-reg-r {
+	float:right;
+}
