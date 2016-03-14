@@ -5,7 +5,6 @@
                 <div class="wow fadeInUp row contact-row">
                     <div class="col-md-8 contact-right">
                         <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/update/<?php echo $id; ?>">
-                            <input type="hidden" name="action" value="submit">
                         <div class="wow fadeInUp well">ご登録内容をご確認ください。</div>
                             <table class="wow fadeInUp table table-condensed">
                                 <tbody>
@@ -26,7 +25,7 @@
                                         <td><div class="text-center">Store Name</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_SESSION['edit']['shop_name']); ?>
+                                                <?php echo htmlspecialchars($_SESSION['edit']['shop_name'], ENT_QUOTES, 'UTF-8'); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -40,12 +39,7 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <?php //echo $this->session['picture_path']; ?>
-                                                <?php //var_dump($this->files); ?>
-                                                <?php //var_dump($files); ?>
-                                                <?php //var_dump($_SESSION['edit']); ?>
-                                                <?php //var_dump($this->post); ?>
-                                                <?php //var_dump($this->session); ?>
+                                                <?php var_dump($sessionEdit); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -78,7 +72,7 @@
                                         <td><div class="text-center">Comment</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <?php echo htmlspecialchars($_SESSION['edit']['comment']); ?>
+                                                <?php echo htmlspecialchars($_SESSION['edit']['comment'], ENT_QUOTES, 'UTF-8'); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -89,7 +83,7 @@
                             <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>"><input type="button" name="submit" value="Back" class="btn01 btn-success wow fadeInUp" /></a>
                         </div>
                         <div class="col-sm-4 contact-left">
-                            <input type="submit" name="submit" value="Update" class="btn btn-success wow fadeInUp"/>
+                            <a href="/NexSeedPortal/contents/update/<?php echo $id; ?>"><input type="button" name="submit" value="Update" class="btn btn-success wow fadeInUp"/></a>
                         </div>
                         </form>
                     </div>

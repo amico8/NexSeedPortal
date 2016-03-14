@@ -25,7 +25,7 @@
 			break;
 
 		case 'update':
-			$controller->update($id, $files, $sessionEdit);
+			$controller->update($id, $sessionEdit);
 			break;
 
 		default:
@@ -73,19 +73,24 @@
 		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
 		      		$_SESSION['error'] = '1';
 		      		header('Location: /NexSeedPortal/contents/edit/'. $id);
+		    	} else {
+		    		$_SESSION['error'] = '2';
 		    	}
+		  	} else {
+		  		$_SESSION['error'] = '3';
 		  	}
 			$content = new Content();
 			$this->categories = $content->selectCategories();
 			$this->post = $post;
+			$this->files = $files;
 			//ここに書く！！画像アップロード！！
 			//エラーが出たら、エラーの値をreturn値で表示し、それをedit.phpに表示する
-			if (isset($fileName)) {
-				$picture_path = date('YmdHis') . $fileName;
-				move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
-				$files = $picture_path;
-				$this->files = $files;
-			}
+			// if (isset($fileName)) {
+			// 	$picture_path = date('YmdHis') . $fileName;
+			// 	move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
+			// 	$files = $picture_path;
+			// 	$this->files = $files;
+			// }
 
 			$this->resource = 'contents';
 			$this->action = 'editConfirm';
@@ -100,12 +105,13 @@
 			header('Location: /NexSeedPortal/contents/index');
 		}
 
-		public function update($id, $files, $sessionEdit) {
+		public function update($id, $sessionEdit) {
 			var_dump($sessionEdit);
 			$content = new Content();
-			$content->update($id, $files, $sessionEdit);
+			$content->update($id, $sessionEdit);
 
-			header('Location: /NexSeedPortal/contents/show/'.$id);
+			// header('Location: /NexSeedPortal/contents/show/'.$id);
+			include('views/layout/application.php');
 		}
 
 

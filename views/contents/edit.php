@@ -65,8 +65,12 @@
                             <div class="abc">
                                 <span>Photo:</span>
                                 <label><input type="file" name="picture_path" class="input-lg"></label>
-                                <?php if (isset($_SESSION['error']) && $_SESSION['error'] == 1): ?>
-                                    <p>※画像の拡張子は".jpg"または".png"または".gif"のファイルを選択して下さい。</p>
+                                <?php if (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == '1'): ?>
+                                    <p class="danger">※画像の拡張子は".jpg"または".png"または".gif"のファイルを選択して下さい。</p>
+                                <?php elseif (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == '2'): ?>
+                                    <p class="danger">※恐れ入りますがもう一度画像ファイルを選択して下さい。</p>
+                                <?php elseif (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == '3'): ?>
+                                    <?php false; ?>
                                 <?php endif; ?>
                                 <br/>
                                 <span>Review:</span>
