@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row contact-row">
                     <div class="col-sm-7 contact-right">
-                        <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert('Thank you for your feedback!');">
+                        <form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/create">
 
                 <!-- <div class="container"> -->
                   <!-- <div class="row"> -->
@@ -66,7 +66,7 @@
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Comment</div></td>
-                                            <td><div class="text-center"><?php echo $_POST['comment']; ?></div></td>
+                                            <td><div class="text-center"><?php echo htmlspecialchars($_POST['comment']); ?></div></td>
                                         </tr>
                                     </tbody>
                                 </table>

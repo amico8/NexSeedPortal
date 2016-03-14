@@ -26,6 +26,11 @@
 			}
             break;
 
+        case 'create':
+			$controller->create($post);
+			break;
+
+
 		default:
 			break;
 	}
@@ -99,6 +104,20 @@
         include('views/layout/application.php');
 
 	}
+
+    public function create($post) {
+		// var_dump($session);
+	    $content = new Content();
+	    // echo "createきたよ";
+		$content->create($post);
+	    $this->resource = 'contents';
+	    $this->action = 'add_confirm';
+		$this->session = $post;
+		// echo $this->session['Category'];
+	    // include('views/layout/application.php');
+	    header('Location: /NexSeedPortal/contents/index');
+	}
+
     public function editConfirm($id) {
 	    // $content = new Content();
 	    $this->resource = 'contents';

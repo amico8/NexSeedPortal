@@ -51,7 +51,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 						<form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm">
 							<!-- カテゴリ -->
 						<div class="btn-section dropdown01">
-						 <select class="" name="category_id">
+						 <select class="" name="Category">
 							<option value="5">Category</option>
 							<option value="6">レストラン</option>
 							<option value="7">スーパー</option>
