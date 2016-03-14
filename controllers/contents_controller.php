@@ -20,7 +20,7 @@
 	//$action (グローバル変数)は、routes.phpで定義されているもの
 
 	switch ($action) {
-		case 'index';
+		case 'index':
 		    $controller->index($id,$post);
 		    break;
 
