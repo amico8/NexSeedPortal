@@ -30,11 +30,9 @@
 				<div class="col-md-5">
 					<div class="signup-header wow fadeInUp">
 						<h3 class="form-title text-center">Let's HACK!</h3>
-						<form class="form-header" action="" role="form" method="POST" id="#"><!-- 
-						<input type="hidden" name="u" value="503bdae81fde8612ff4944435">
-						<input type="hidden" name="id" value="bfdba52708"> -->
+						<form class="form-header" action="" role="form" method="post" id="#">
 							<div class="form-group">
-								<input class="form-control input-lg" name="email" id="name" type="email" placeholder="Email Address" value="<?php echo $this->email; ?>" required>
+								<input class="form-control input-lg" name="email" id="email" type="email" placeholder="Email Address" value="<?php echo $this->email; ?>" required>
 					            <?php if(isset($this->error['login']) && $this->error['login'] == 'blank'): ?>
 					            	<p class="error">* メールアドレスとパスワードをご記入ください。</p>
 					            <?php elseif(isset($this->error['login']) && $this->error['login'] == 'noexist'): ?>
@@ -44,7 +42,7 @@
 				            	<?php endif; ?>
 							</div>
 							<div class="form-group">
-								<input class="form-control input-lg" name="password" id="email" type="password" placeholder="Password (4文字以上16文字以下)" required>
+								<input class="form-control input-lg" name="password" id="password" type="password" placeholder="Password (4文字以上16文字以下)" required>
 								<?php if(isset($this->error['login']) && $this->error['login'] == 'length'): ?>
 				            		<p class="error">* パスワードは4文字以上16文字以下で入力してください。</p>
 				            	<?php endif; ?>

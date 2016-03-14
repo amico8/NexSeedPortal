@@ -1,13 +1,26 @@
 <?php
+	session_start();
 	require('models/content.php');
+	//ログインチェックを実装
+	require('function.php');
+	require('dbconnect.php');
+	//if (isset($post['email'])&&!empty($post['email'])) {
+	if (isset($_SESSION['email'])&&!empty($_SESSION['email'])) {
+		//login($post,$db);
+		login($_SESSION,$db);
+	}else if (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
+		login2($_SESSION,$db);
+	}else{
+		header('Location: /NexSeedPortal/users/login/');
+	}
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
 	//アクション名によって、呼び出すメソッドを変える
 	//$action (グローバル変数)は、routes.phpで定義されているもの
 	switch ($action) {
-		case 'index';
-		    $controller -> index($id,$post);
-		    break;
+		case 'index':
+			$controller->index($id,$post);
+			break;
 		default:
 			break;
 	}
@@ -16,15 +29,16 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
-    	public function index($id,$post){
-    	//モデルを呼び出す
-        	$content = new Content();
-            $this->viewOptions = $content->index($id,$post);
-        //アクション名を設定
-            $this->resource = 'contents';
-            $this->action = 'index';
-        //ビューを呼び出す
-            require('views/layout/application.php');
-    	}
+		private $loginaction = '';
+		public function index($id,$post){
+			//モデルを呼び出す
+			$content = new Content();
+			$this->viewOptions = $content->index($id,$post);
+			//アクション名を設定
+			$this->resource = 'contents';
+			$this->action = 'index';
+			//ビューを呼び出す
+			require('views/layout/application.php');
+		}
 	}
  ?>

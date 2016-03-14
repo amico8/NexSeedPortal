@@ -44,8 +44,6 @@
 						<h3 class="form-title text-center">Check Your Profile!</h3>
 						<form class="form-header" action="" role="form" method="POST" id="#">
         					<input type="hidden" name="action" value="submit">
-						<!-- <input type="hidden" name="u" value="503bdae81fde8612ff4944435"> -->
-						<!-- <input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">
 								<div class="insert_box">
 								    <?php echo htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES, 'UTF-8'); ?>

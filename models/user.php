@@ -5,18 +5,15 @@
 			require('dbconnect.php');
 			// DB接続の値を代入
 			$this->dbconnect = $db;
-
 		}
 		public $error = '';
 		public $rewrite = '';
-
 		public function login($post) {
 			if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
 			    $post['email'] = $_COOKIE['email'];
 			    $post['password'] = $_COOKIE['password'];
 			    $post['save'] = 'on';
 			}
-
 			if (!empty($post)) {
 		    	if ($post['email'] != '' && $post['password'] != '') {
 			    	$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
@@ -51,24 +48,19 @@
 		    	} else {
 		      		$error['login'] = 'blank';
 		    	}
-
 				$this->error = $error;
 			}
-
 		}
-
 		public function add($post) {
 			$error = array();
 			if ($post == '' && isset($_SESSION) && !empty($_SESSION)) {
 			    $this->rewrite = $_SESSION['join'];
 			    $error['rewrite'] = true;
 			}
-
 			if(isset($post) && !empty($post)) {
 			    $name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
 			    $email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');
 			    $password = htmlspecialchars($post['password1'], ENT_QUOTES, 'UTF-8');
-
 			    if($post['name']=='') {
 			    	$error['name'] = 'blank';
 			    }
@@ -82,7 +74,6 @@
 			    } elseif ($post['password1'] != $post['password2']) {
 			    	$error['password'] = 'incorrect';
 			    }
-
 			    if (empty($error)) {
 			    	//重複アカウントのチェック
 			    	$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
@@ -97,17 +88,14 @@
 				        header('Location: /NexSeedPortal/users/confirm/');
 				        exit();
 				    }
-
 			    }
 			}
-
 			if (isset($_REQUEST['action']) && $_REQUEST['action']=='rewrite') {
 			    $this->rewrite = $_SESSION['join'];
 			    $error['rewrite'] = true;
 			}
 			$this->error = $error;
 		}
-
 		public function confirm($post) {
 			if(isset($post) && !empty($post)) {
 				//$_SESSION['join'] = $post;
@@ -115,7 +103,6 @@
 				exit();
 			}
 		}
-
 		public function create() {
 			//if (!empty($post)) {
 			    //登録処理
@@ -124,7 +111,6 @@
 			    	mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['email']),
 			    	mysqli_real_escape_string($this->dbconnect, sha1($_SESSION['join']['password1']))
 			    );
-
 			    mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			    //登録したので、セッション情報を破棄
 			    unset($_SESSION['join']);
@@ -132,6 +118,5 @@
 			    exit();
 			//}
 		}
-
 	}
  ?>

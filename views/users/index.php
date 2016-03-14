@@ -31,18 +31,22 @@
 					<div class="signup-header wow fadeInUp">
 						<h3 class="form-title text-center">Get Started!</h3>
 						<form class="form-header" action="" role="form" method="POST" id="#">
-						<!-- <input type="hidden" name="u" value="503bdae81fde8612ff4944435"> -->
-						<!-- <input type="hidden" name="id" value="bfdba52708"> -->
 							<div class="form-group">
 								<!-- <h3>Name</h3> -->
-								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php echo htmlspecialchars($_SESSION['join']['name']); ?>" required>
+								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php
+								if (isset($_SESSION['join'])) {
+									echo htmlspecialchars($_SESSION['join']['name']);
+								} ?>" required>
 				            	<?php if(isset($this->error['name']) && $this->error['name']=='blank'){ ?>
 				            		<p class="error">*名前を入力してください</p>
 				            	<?php } ?>
 							</div>
 							<div class="form-group">
 								<!-- <h3>Email</h3> -->
-								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php echo htmlspecialchars($_SESSION['join']['email']); ?>" required>
+								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php
+								if (isset($_SESSION['join'])) {
+									echo htmlspecialchars($_SESSION['join']['email']);
+								} ?>" required>
 				            	<?php if(isset($this->error['email']) && $this->error['email']=='blank'){ ?>
 				            		<p class="error">*メールアドレスを入力してください</p>
 				            	<?php } elseif(isset($this->error['email']) && $this->error['email']=='duplicate') { ?>
@@ -51,7 +55,10 @@
 							</div>
 							<div class="form-group">
 								<!-- <h3>Password</h3> -->
-								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php echo htmlspecialchars($_SESSION['join']['password1']); ?>" required>
+								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php
+								if (isset($_SESSION['join'])) {
+									echo htmlspecialchars($_SESSION['join']['password1']);
+								} ?>" required>
 				            	<?php if(isset($this->error['password'])){ ?>
 				            		<?php if($this->error['password']=='blank'){ ?>
 				            			<p class="error">*パスワードを入力してください</p>
@@ -62,7 +69,10 @@
 							</div>
 							<div class="form-group">
 								<!-- <h3>Password(for check)</h3> -->
-								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php echo htmlspecialchars($_SESSION['join']['password2']); ?>" required>
+								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php
+								if (isset($_SESSION['join'])) {
+									echo htmlspecialchars($_SESSION['join']['password2']);
+								} ?>" required>
 								<?php if(isset($this->error['password'])){ ?>
 				            		<?php if($this->error['password']=='incorrect'){ ?>
 				            			<p class="error">*パスワードが一致しません</p>
