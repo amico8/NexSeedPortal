@@ -68,15 +68,19 @@
 		}
 
 		public function editConfirm($id, $post, $fileName, $files) {
-			 $content = new Content();
-			// var_dump($files);
+			if (!empty($fileName)) {
+		    	$ext = substr($fileName, -3);
+		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
+		      		$_SESSION['error'] = '1';
+		      		header('Location: /NexSeedPortal/contents/edit/'. $id);
+		    	}
+		  	}
+			$content = new Content();
 			$this->categories = $content->selectCategories();
 			$this->post = $post;
 			//ここに書く！！画像アップロード！！
 			//エラーが出たら、エラーの値をreturn値で表示し、それをedit.phpに表示する
-			//エラーの表示は番号で分ける
 			if (isset($fileName)) {
-				//エラーが無かったら処理する
 				$picture_path = date('YmdHis') . $fileName;
 				move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
 				$files = $picture_path;
@@ -97,6 +101,7 @@
 		}
 
 		public function update($id, $files, $sessionEdit) {
+			var_dump($sessionEdit);
 			$content = new Content();
 			$content->update($id, $files, $sessionEdit);
 

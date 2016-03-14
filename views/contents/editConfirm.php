@@ -63,7 +63,7 @@
                                     </tr>
                                     <tr>
                                         <td><div class="text-center">Review</div></td>
-                                        <td class="review">
+                                        <td id="review">
                                             <div class="text-center">
                                                 <?php 
                                                     $i = $_SESSION['edit']['review'];

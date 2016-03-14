@@ -39,7 +39,7 @@
 			mysqli_real_escape_string($this->dbconnect, $sessionEdit['comment']),
 			mysqli_real_escape_string($this->dbconnect, $id)
 			);
-			$result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+			// $result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			unset($_SESSION['edit']);
 		}
 

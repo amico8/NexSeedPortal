@@ -39,7 +39,7 @@
                                 </tr>
                                 <tr>
                                     <td>Review</td>
-                                    <td class="review">
+                                    <td id="review">
                                         <div class="text-center">
                                             <?php 
                                                 $i = $this->viewOptions['review'];

@@ -1143,7 +1143,11 @@ table.list tr {
 	background-color: #fff;
 }*/
 
-td.review {
+td#review {
+	color: #ffff00;
+}
+
+td#review td:hover {
 	color: #ffff00;
 }
 
@@ -1279,7 +1283,8 @@ table.list td {
 	margin-left:30px;
 }
 .abc01{
-	display:inline-flex; 
+	display:inline-flex;
+	margin-left: 30px;
 	width:200px;
 }
 .map01{
@@ -1362,3 +1367,4 @@ table.list td {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
 }
+

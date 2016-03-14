@@ -14,7 +14,7 @@
     $get = array();
     $files = '';
     $fileName = '';
-    $sessionEdit = '';
+    $sessionEdit = array();
 
     //idがあった場合idも取得する
     if (isset($params[2])) {
@@ -28,9 +28,11 @@
     }
 
     if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])) {
+        // var_dump($_SESSION['edit']);
         $sessionEdit = $_SESSION['edit'];
         
     }
+
 
 
     if(isset($_FILES['picture_path']['name']) && !empty($_FILES['picture_path']['name'])) {

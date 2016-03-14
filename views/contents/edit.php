@@ -7,7 +7,7 @@
                         <form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm/<?php echo $id; ?>" enctype="multipart/form-data">
                             <div class="btn-section dropdown01">
                                 <select name="category_id" class="category" required>
-                                        <option value="category">Category</option>
+                                        <option value="">Category</option>
                                 <?php foreach ($this->categories as $category): ?>
                                     <?php if (isset($this->session) && !empty($this->session)): ?>
                                         <?php if ($this->session['category_id'] == $category['category_id']): ?>
@@ -26,7 +26,7 @@
                                 </select>
                             </div>
                             <div class="category">
-                                <?php //var_dump($this->session); ?>
+                                <?php var_dump($this->session); ?>
                                 <?php if (isset($this->session) && !empty($this->session)): ?>
                                     <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->session['shop_name']; ?>" required/>
                                 <?php else: ?>
@@ -54,7 +54,8 @@
                                         </div>
                                     <?php endif; ?>
                                 </div>
-                                <input type="file" name="picture_path" class="form-control input-lg">
+                                </br>
+
                                 <?php //if (isset($error['picture_path']) && $error['picture_path'] == 'type') { ?>
                                   <!-- <p class="error">* 写真などは「.gif」または「.jpg」の画像を指定してください</p> -->
                                 <?php //} elseif (!empty($error)) { ?>
@@ -62,28 +63,32 @@
                                 <?php //} ?>
                             </div>
                             <div class="abc">
+                                <span>Photo:</span>
+                                <label><input type="file" name="picture_path" class="input-lg"></label>
+                                <?php if (isset($_SESSION['error']) && $_SESSION['error'] == 1): ?>
+                                    <p>※画像の拡張子は".jpg"または".png"または".gif"のファイルを選択して下さい。</p>
+                                <?php endif; ?>
+                                <br/>
                                 <span>Review:</span>
                                 <p class="abc01">
                                     <?php for ($i=1; $i<=5; $i++):?>
                                         <?php if(isset($this->session) && !empty($this->session)): ?>
                                             <?php if($i == $this->session['review']): ?>
-                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" checked required/>
+                                                <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" checked required/>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <?php else: ?>
-                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" required/>
+                                                <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" required/>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <?php endif; ?>
                                         <?php else: ?>
                                             <?php if($i == $this->viewOptions['review']): ?>
-                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" checked required/>
+                                                <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" checked required/>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <?php else: ?>
-                                                <?php echo $i; ?>&nbsp;<input type="radio" name="review" value="<?php echo $i; ?>" required/>
+                                                <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" required/>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <?php endif; ?>
                                         <?php endif; ?>
                                     <?php endfor; ?>
                                 </p>
                             </div>
                             <div class="category">
-                                <?php //var_dump($this->session); ?>
-                                <?php //var_dump($get); ?>
                                 <?php if (isset($this->session) && !empty($this->session)): ?>
                                     <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->session['comment']; ?></textarea>
                                 <?php else: ?>
