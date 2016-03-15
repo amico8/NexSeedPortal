@@ -51,7 +51,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 						<form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm">
 							<!-- カテゴリ -->
 						<div class="btn-section dropdown01">
-						 <select class="" name="category_id">
+						 <select class="" name="Category">
 							<option value="5">Category</option>
 							<option value="6">レストラン</option>
 							<option value="7">スーパー</option>
@@ -61,7 +61,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 						 </select>
 							<!-- 店の名前 -->
 						<div class="category">
-							<input type="text" name="shop_name" placeholder="Store Name" class="form-control input-lg" value="">
+							<input type="text" name="StoreName" placeholder="Store Name" class="form-control input-lg" value="">
 						</div>
 							<!-- 場所の写真 -->
 						<div class="category">
@@ -90,11 +90,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 						<div class="abc">
                 		<span>Review:</span>
                 			<p class="abc01">
-                   			<input type="radio" name="review" value="1">１
-                    		<input type="radio" name="review" value="2">２
-                    		<input type="radio" name="review" value="3" checked>３
-                    		<input type="radio" name="review" value="4">４
-                    		<input type="radio" name="review" value="5">５
+                   			<input type="radio" name="point" value="1">１
+                    		<input type="radio" name="point" value="2">２
+                    		<input type="radio" name="point" value="3" checked>３
+                    		<input type="radio" name="point" value="4">４
+                    		<input type="radio" name="point" value="5">５
                 			</p>
               			</div>
 						<!-- </tr> -->

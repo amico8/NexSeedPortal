@@ -26,6 +26,12 @@
 				$controller->editConfirm($id);
 			}
             break;
+        // メソッドを呼び出す時のみスーパーグローバル変数を使う。
+        case 'create':
+        	// var_dump($_SESSION['add']);
+			$controller->create($_SESSION['add']);
+			break;
+
 
 		default:
 			break;
@@ -39,6 +45,7 @@
 		private $viewOptions = '';
 		private $categories = '';
 		private $session = array();
+		private $creater = '';
 		// private $categories = '';
 		public function index($id,$post){
     	//モデルを呼び出す
@@ -100,6 +107,22 @@
         include('views/layout/application.php');
 
 	}
+
+    public function create($session) {
+		// 上で入れた$_SESSIONは↑ここでは$sessionに
+		// var_dump($session);
+	    $content = new Content();
+	    // echo "createきたよ";
+		$this->creater = $content->create($session);
+	    // $this->resource = 'contents';
+	    // $this->action = 'add_confirm';
+		// $this->session = $post;
+		// echo $this->session['Category'];
+	    include('views/layout/application.php');
+	    // header('Location: /NexSeedPortal/contents/index');
+
+	}
+
     public function editConfirm($id) {
 	    // $content = new Content();
 	    $this->resource = 'contents';
