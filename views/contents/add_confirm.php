@@ -7,11 +7,6 @@
                     <div class="col-sm-7 contact-right">
                         <form method="POST" id="contact-form" class="form-horizontal" action="">
 
-                <!-- <div class="container"> -->
-                  <!-- <div class="row"> -->
-                   <!-- <div class="col-sm-7 contact-right"> -->
-                          <!-- <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert('Thank you for your feedback!');"> -->
-                        <!-- <input type="hidden" name="action" value="submit"> -->
                             <div class="well">ご登録内容をご確認ください。</div>
                             
                                 <table class="table">
@@ -20,14 +15,16 @@
                                       <!-- 登録内容を表示 -->
                                         <tr class="sample1">
                                             <td><div class="text-center">Category</div></td>
-                                            <td><div class="text-center">
+                                            <td>
+                                                <div class="text-center">
                                                 <?php foreach ($this->categories as $category) {
                                                         if($_SESSION['add']['category_id'] == $category['category_id']) {
                                                             echo $category['category_name'];
                                                         }
                                                     }
                                                  ?>
-                                            </div></td>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Store Name</div></td>
@@ -50,11 +47,13 @@
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Photo</div></td>
+                                            <td>
                                                 <?php if (isset($fileName) && !empty($fileName)): ?>
-                                                    <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_SESSION['add']['picture_path']; ?>.jpg" width="500" height="370">
+                                                    <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_SESSION['add']['picture_path']; ?>" width="500" height="370">
                                                 <?php else: ?>
                                                     Image has not been selected.
                                                 <?php endif; ?>
+                                            </td>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Review</div></td>
@@ -85,7 +84,7 @@
                               <!-- 確認ボタン -->
                             <div class="col-sm-4 contact-left">
                             <a href='/NexSeedPortal/contents/create'>
-                                <input type="botton" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
+                                <input type="button" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
                             </a>
                             </div>
                         </form>

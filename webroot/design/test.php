@@ -48,70 +48,69 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 				<div class="row contact-row">
 					<!-- /.contact form -->
 					<div class="col-sm-7 contact-right">
-						<form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm">
-							<!-- カテゴリ -->
-						<div class="btn-section dropdown01">
-						 <select class="" name="category_id">
-							<option value="5">Category</option>
-							<option value="6">レストラン</option>
-							<option value="7">スーパー</option>
-							<option value="8">商業施設</option>
-							<option value="9">レジャー</option>
-						</div>
-						 </select>
-							<!-- 店の名前 -->
-						<div class="category">
-							<input type="text" name="shop_name" placeholder="Store Name" class="form-control input-lg" value="">
-						</div>
-							<!-- 場所の写真 -->
-						<div class="category">
-							<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-							<?php require('../asset/js/gmap_edit.php'); ?>
-   							<div id="gmap" style="width: 200px; height: 150px; border: 1px solid Gray;"></div>
-   							<div id="lng">
-   								<input type="hidden" name="lng" id="lng" value="123.90381932258606">
-   							</div>
-   							<div id="lat">
-   								<input type="hidden" name="lat" id="lat" value="10.329200473939935">
-   							</div>
-						</div>
-						<!-- <div align="right" style="float: right">
-							<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    						<script type="text/javascript" src="js/jquery.js"></script>
-   							<script type="text/javascript" src="js/map.js"></script>
-   							<div id="map" style="width:200px; height:200px"></div>
-   						</div> -->
-							<!-- 写真 -->
-						<div class="category">
-				           	<input type="file" name="picture_path" placeholder="Photo" class="form-control input-lg" value="">
-				        </div>
-				          </form>
-								<!-- 評価 -->
-						<div class="abc">
-                		<span>Review:</span>
-                			<p class="abc01">
-                   			<input type="radio" name="review" value="1">１
-                    		<input type="radio" name="review" value="2">２
-                    		<input type="radio" name="review" value="3" checked>３
-                    		<input type="radio" name="review" value="4">４
-                    		<input type="radio" name="review" value="5">５
-                			</p>
-              			</div>
-						<!-- </tr> -->
-							 <!-- コメント -->
+						<form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm" enctype="multipart/form-data">
+								<!-- カテゴリ -->
+							<div class="btn-section dropdown01">
+							 <select class="" name="category_id">
+								<option value="5">Category</option>
+								<option value="6">レストラン</option>
+								<option value="7">スーパー</option>
+								<option value="8">商業施設</option>
+								<option value="9">レジャー</option>
+							</div>
+							 </select>
+								<!-- 店の名前 -->
+							<div class="category">
+								<input type="text" name="shop_name" placeholder="Store Name" class="form-control input-lg" value="">
+							</div>
+								<!-- 場所の写真 -->
+							<div class="category">
+								<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+								<?php require('../asset/js/gmap_edit.php'); ?>
+	   							<div id="gmap" style="width: 500px; height: 370px; border: 1px solid Gray;"></div>
+	   							<div id="lng">
+	   								<input type="hidden" name="lng" id="lng" value="123.90381932258606">
+	   							</div>
+	   							<div id="lat">
+	   								<input type="hidden" name="lat" id="lat" value="10.329200473939935">
+	   							</div>
+							</div>
+							<!-- <div align="right" style="float: right">
+								<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	    						<script type="text/javascript" src="js/jquery.js"></script>
+	   							<script type="text/javascript" src="js/map.js"></script>
+	   							<div id="map" style="width:200px; height:200px"></div>
+	   						</div> -->
+								<!-- 写真 -->
+							<div class="category">
+					           	<input type="file" name="picture_path" class="form-control input-lg">
+					        </div>
+									<!-- 評価 -->
+							<div class="abc">
+	                		<span>Review:</span>
+	                			<p class="abc01">
+	                   			<input type="radio" name="review" value="1">１
+	                    		<input type="radio" name="review" value="2">２
+	                    		<input type="radio" name="review" value="3" checked>３
+	                    		<input type="radio" name="review" value="4">４
+	                    		<input type="radio" name="review" value="5">５
+	                			</p>
+	              			</div>
+							<!-- </tr> -->
+								 <!-- コメント -->
 
-						<div class="category">
-              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="" required></textarea>
-              			</div>
-							<!-- 戻るボタン -->
-						<div class="col-sm-4 contact-right">
-							<input type="submit" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
-						</div>
-							<!-- 確認ボタン -->
-						<div class="col-sm-4 contact-left">
-							<input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
-						</div>
-						 </form>
+							<div class="category">
+	              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="" required></textarea>
+	              			</div>
+								<!-- 戻るボタン -->
+							<div class="col-sm-4 contact-right">
+								<input type="submit" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />
+							</div>
+								<!-- 確認ボタン -->
+							<div class="col-sm-4 contact-left">
+								<input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

@@ -20,8 +20,8 @@
 			if($id == 0) {
 				// $sessionAdd = $_SESSION['add'];
 				// var_dump($_SESSION['add']);
-				$_SESSION['add'] = $post;
-				$controller->addConfirm($_SESSION['add']);
+				// $_SESSION['add'] = $post;
+				$controller->addConfirm($sessionAdd, $files, $fileName);
 			} else {
 				$controller->editConfirm($id);
 			}
@@ -29,7 +29,7 @@
         // メソッドを呼び出す時のみスーパーグローバル変数を使う。
         case 'create':
         	// var_dump($_SESSION['add']);
-			$controller->create($_SESSION['add']);
+			$controller->create($sessionAdd);
 			break;
 
 
@@ -44,8 +44,8 @@
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
-		private $session = array();
-		private $creater = '';
+		// private $session = array();
+		// private $creater = '';
 		// private $categories = '';
 		public function index($id,$post){
     	//モデルを呼び出す
@@ -96,8 +96,9 @@
 
 
 	}
-    public function addConfirm($session) {
-    	var_dump($session);
+
+    public function addConfirm($sessionAdd, $files, $fileName) {
+    	// var_dump($session);
         $content = new Content();
         $this->categories = $content->selectCategories();
         $this->resource = 'contents';
@@ -108,12 +109,12 @@
 
 	}
 
-    public function create($session) {
+    public function create($sessionAdd) {
 		// 上で入れた$_SESSIONは↑ここでは$sessionに
-		// var_dump($session);
+		var_dump($sessionAdd);
 	    $content = new Content();
 	    // echo "createきたよ";
-		$this->creater = $content->create($session);
+		$content->create($sessionAdd);
 	    // $this->resource = 'contents';
 	    // $this->action = 'add_confirm';
 		// $this->session = $post;
