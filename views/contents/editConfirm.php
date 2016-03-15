@@ -47,7 +47,7 @@
                                         <td><div class="text-center">Photo</div></td>
                                         <td>
                                             <div class="text-center">
-                                                <?php if (isset($fileName) && !empty($fileName)): ?>
+                                                <?php if (isset($this->files) && !empty($this->files)): ?>
                                                     <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->files; ?>" width="500" height="370">
                                                 <?php else: ?>
                                                     Image has not been selected.
