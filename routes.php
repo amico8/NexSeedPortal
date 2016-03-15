@@ -21,7 +21,10 @@
         $post = $_POST;
     }
     // var_dump($_POST);
+
     // $_SESSION['add'] = $post;
+
+
     // $_SESSION['edit'] = $post;
     // var_dump($SESSION['add']);
 
