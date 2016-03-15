@@ -21,7 +21,7 @@
 				// $sessionAdd = $_SESSION['add'];
 				// var_dump($_SESSION['add']);
 				// $_SESSION['add'] = $post;
-				$controller->addConfirm($sessionAdd, $files, $fileName);
+				$controller->addConfirm($files, $fileName);
 			} else {
 				$controller->editConfirm($id);
 			}
@@ -29,7 +29,7 @@
         // メソッドを呼び出す時のみスーパーグローバル変数を使う。
         case 'create':
         	// var_dump($_SESSION['add']);
-			$controller->create($sessionAdd);
+			$controller->create();
 			break;
 
 
@@ -107,7 +107,7 @@
 		include('views/layout/application.php');
 		}
 
-	public function addConfirm($sessionAdd, $files, $fileName) {
+	public function addConfirm($files, $fileName) {
         $content = new Content();
         $this->categories = $content->selectCategories();
         $this->resource = 'contents';
@@ -118,18 +118,17 @@
 
 	}
 
-    public function create($sessionAdd) {
+    public function create() {
 		// 上で入れた$_SESSIONは↑ここでは$sessionに
-		var_dump($sessionAdd);
 	    $content = new Content();
 	    // echo "createきたよ";
-		$content->create($sessionAdd);
+		$content->create();
 	    // $this->resource = 'contents';
 	    // $this->action = 'add_confirm';
 		// $this->session = $post;
 		// echo $this->session['Category'];
-	    include('views/layout/application.php');
-	    // header('Location: /NexSeedPortal/contents/index');
+	    // include('views/layout/application.php');
+	    header('Location: /NexSeedPortal/contents/index');
 
 	}
 

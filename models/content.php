@@ -126,16 +126,16 @@
 					return $categories;
 		}
 
-		public function create($sessionAdd) {
+		public function create() {
 					$sql = sprintf('INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES (%s,1,"%s",%.20f,%.20f,"%s",%s,"%s",0,now())',
-					mysqli_real_escape_string($this->dbconnect, $sessionAdd['category_id']),
-					// mysqli_real_escape_string($this->dbconnect, $sessionAdd['user_id']),
-					mysqli_real_escape_string($this->dbconnect, $sessionAdd['shop_name']),
-					mysqli_real_escape_string($this->dbconnect, $sessionAdd['lat']),
-					mysqli_real_escape_string($this->dbconnect, $sessionAdd['lng']),
-					mysqli_real_escape_string($this->dbconnect, $sessionAdd['picture_path']),
-					mysqli_real_escape_string($this->dbconnect, $sessionAdd['review']),
-					mysqli_real_escape_string($this->dbconnect, $sessionAdd['comment'])
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['category_id']),
+					// mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['user_id']),
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['shop_name']),
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['lat']),
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['lng']),
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['picture_path']),
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['review']),
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['comment'])
 					);
 					// mysqli_real_escape_string($this->dbconnect, $session['user_id']),
 					echo $sql;

@@ -12,7 +12,7 @@
     $post = array();
     $files = '';
     $fileName = '';
-    $sessionAdd = array();
+    // $sessionAdd = array();
 
     //idがあった場合idも取得する
     if (isset($params[2])) {
@@ -38,7 +38,7 @@
 
     if (isset($_SESSION['add']) && !empty($_SESSION['add'])) {
         $_SESSION['add'] += array('picture_path'=>$files);
-        $sessionAdd = $_SESSION['add'];
+        // $sessionAdd = $_SESSION['add'];
     }
 
 
