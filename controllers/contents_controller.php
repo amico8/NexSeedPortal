@@ -20,14 +20,16 @@
 			if($id == 0) {
 				// $sessionAdd = $_SESSION['add'];
 				// var_dump($_SESSION['add']);
+				$_SESSION['add'] = $post;
 				$controller->addConfirm($_SESSION['add']);
 			} else {
 				$controller->editConfirm($id);
 			}
             break;
-
+        // メソッドを呼び出す時のみスーパーグローバル変数を使う。
         case 'create':
-			$controller->create();
+        	// var_dump($_SESSION['add']);
+			$controller->create($_SESSION['add']);
 			break;
 
 
@@ -106,18 +108,19 @@
 
 	}
 
-    public function create() {
+    public function create($session) {
+		// 上で入れた$_SESSIONは↑ここでは$sessionに
 		// var_dump($session);
 	    $content = new Content();
 	    // echo "createきたよ";
 		$this->creater = $content->create();
 	    $this->resource = 'contents';
-	    $this->action = 'add_confirm';
+	    // $this->action = 'add_confirm';
 		// $this->session = $post;
 		// echo $this->session['Category'];
 	    // include('views/layout/application.php');
 	    header('Location: /NexSeedPortal/contents/index');
-	    
+
 	}
 
     public function editConfirm($id) {

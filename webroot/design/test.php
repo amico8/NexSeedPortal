@@ -1,7 +1,7 @@
 <?php 
 
 if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
-  $_POST = $_SESSION['add'];
+  $_POST = $session;
   $error['rewrite'] = true;
 }
 

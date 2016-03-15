@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row contact-row">
                     <div class="col-sm-7 contact-right">
-                        <form method="POST" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/create">
+                        <form method="POST" id="contact-form" class="form-horizontal" action="">
 
                 <!-- <div class="container"> -->
                   <!-- <div class="row"> -->
@@ -79,7 +79,9 @@
                             </div>
                               <!-- 確認ボタン -->
                             <div class="col-sm-4 contact-left">
-                                <input type="submit" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
+                            <a href='/NexSeedPortal/contents/create'>
+                                <input type="botton" name="submit" value="Post" class="btn btn-success wow fadeInUp" />
+                            </a>
                             </div>
                         </form>
                     </div>

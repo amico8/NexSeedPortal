@@ -1,0 +1,2 @@
+
+INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES (6,3,"お店の名前",10,10,"test.jpg",4,"こめんと",0,now())
