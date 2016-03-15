@@ -18,9 +18,9 @@
 
 			if (!empty($post)) {
 				if ($post['email'] != '' && $post['password'] != '') {
-					$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
-						mysqli_real_escape_string($this->dbconnect, $post['email'])
-					);
+					$sql = sprintf(format)('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
+							mysqli_real_escape_string($this->dbconnect, $post['email'])
+							);
 					$record = mysqli_query($this->dbconnect, $sql);
 					$table = mysqli_fetch_assoc($record);
 					if ($table['cnt'] == 0) {
@@ -29,9 +29,9 @@
 						$error['login'] = 'length';
 					} else {
 						$sql = sprintf('SELECT * FROM users WHERE email="%s" AND password="%s"',
-							mysqli_real_escape_string($this->dbconnect, $post['email']),
-							mysqli_real_escape_string($this->dbconnect, sha1($post['password']))
-						);
+								mysqli_real_escape_string($this->dbconnect, $post['email']),
+								mysqli_real_escape_string($this->dbconnect, sha1($post['password']))
+								);
 				  		$record = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 						if ($table = mysqli_fetch_assoc($record)) {
 							//ログイン成功
@@ -103,8 +103,8 @@
 				if (empty($error)) {
 					//重複アカウントのチェック
 					$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
-						mysqli_real_escape_string($this->dbconnect, $post['email'])
-					);
+							mysqli_real_escape_string($this->dbconnect, $post['email'])
+							);
 					$record = mysqli_query($this->dbconnect, $sql);
 					$table = mysqli_fetch_assoc($record);
 					if ($table['cnt'] > 0) {
@@ -133,10 +133,10 @@
 		public function create() {
 			//登録処理
 			$sql = sprintf('INSERT INTO users SET user_name="%s", email="%s", password="%s", created=now()',
-				mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['name']),
-				mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['email']),
-				mysqli_real_escape_string($this->dbconnect, sha1($_SESSION['join']['password1']))
-			);
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['name']),
+					mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['email']),
+					mysqli_real_escape_string($this->dbconnect, sha1($_SESSION['join']['password1']))
+					);
 			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			//登録したので、セッション情報を破棄
 			unset($_SESSION['join']);
