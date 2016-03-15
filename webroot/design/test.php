@@ -83,7 +83,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
    						</div> -->
 							<!-- 写真 -->
 						<div class="category">
-				           	<input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="">
+				           	<input type="file" name="picture_path" placeholder="Photo" class="form-control input-lg" value="">
 				        </div>
 				          </form>
 								<!-- 評価 -->

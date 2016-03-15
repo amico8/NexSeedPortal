@@ -50,7 +50,11 @@
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Photo</div></td>
-                                            <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_SESSION['add']['Photo']; ?>.jpg" width="100" height="100">
+                                                <?php if (isset($fileName) && !empty($fileName)): ?>
+                                                    <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_SESSION['add']['picture_path']; ?>.jpg" width="500" height="370">
+                                                <?php else: ?>
+                                                    Image has not been selected.
+                                                <?php endif; ?>
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Review</div></td>
