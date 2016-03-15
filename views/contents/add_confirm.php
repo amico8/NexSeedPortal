@@ -22,7 +22,7 @@
                                             <td><div class="text-center">Category</div></td>
                                             <td><div class="text-center">
                                                 <?php foreach ($this->categories as $category) {
-                                                        if($_SESSION['add']['Category'] == $category['category_id']) {
+                                                        if($_SESSION['add']['category_id'] == $category['category_id']) {
                                                             echo $category['category_name'];
                                                         }
                                                     }
@@ -31,7 +31,7 @@
                                         </tr>
                                         <tr class="sample1">
                                             <td><div class="text-center">Store Name</div></td>
-                                            <td><div class="text-center"><?php echo htmlspecialchars($_SESSION['add']['StoreName']); ?></div></td>
+                                            <td><div class="text-center"><?php echo htmlspecialchars($_SESSION['add']['shop_name']); ?></div></td>
                                         </tr>
                                         <tr class="sample1">
                                         <td><div class="text-center">Location</div></td>
@@ -44,6 +44,7 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
+                                                <?php var_dump($_SESSION['add']); ?>
                                             </div>
                                         </td>
                                         </tr>
@@ -56,7 +57,7 @@
                                             <td class="review">
                                                 <div class="text-center">
                                                     <?php 
-                                                        $i = $_SESSION['add']['point'];
+                                                        $i = $_SESSION['add']['review'];
                                                         for ($i; $i>0; $i--) {
                                                             echo "★";
                                                         }

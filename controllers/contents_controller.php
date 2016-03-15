@@ -114,12 +114,12 @@
 	    $content = new Content();
 	    // echo "createきたよ";
 		$this->creater = $content->create($session);
-	    $this->resource = 'contents';
-	    $this->action = 'add_confirm';
+	    // $this->resource = 'contents';
+	    // $this->action = 'add_confirm';
 		// $this->session = $post;
 		// echo $this->session['Category'];
-	    // include('views/layout/application.php');
-	    header('Location: /NexSeedPortal/contents/index');
+	    include('views/layout/application.php');
+	    // header('Location: /NexSeedPortal/contents/index');
 
 	}
 

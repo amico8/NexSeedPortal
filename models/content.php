@@ -127,11 +127,11 @@
 		}
 
 		public function create($session) {
-					$sql = sprintf('INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES (%d,1,"%s",%.20f,%.20f,"%s",%d,"%s",0,now())',
+					$sql = sprintf('INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES (%s,1,"%s",%.20f,%.20f,"%s",%s,"%s",0,now())',
 					
 					mysqli_real_escape_string($this->dbconnect, $session['category_id']),
 					// mysqli_real_escape_string($this->dbconnect, $session['user_id']),
-					mysqli_real_escape_string($this->dbconnect, $session['StoreName']),
+					mysqli_real_escape_string($this->dbconnect, $session['shop_name']),
 					mysqli_real_escape_string($this->dbconnect, $session['lat']),
 					mysqli_real_escape_string($this->dbconnect, $session['lng']),
 					mysqli_real_escape_string($this->dbconnect, $session['picture_path']),
