@@ -58,7 +58,7 @@
             require('views/layout/application.php');
     }
 
-	public function add(){
+	public function add($files,$fileName,$post){
 		$content = new Content();
 					// var_dump($_POST);
 		$this->categories = $content->selectCategories();
@@ -72,33 +72,42 @@
 			}
 			// var_dump($_FILES);
 			
-			$fileName = $_FILES['Photo']['name'];
-			  if (!empty($fileName)) {
-			    $ext = substr($fileName, -3);
-			    if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG') {
-			      $error['picture_path'] = 'type';
-			    }
-			  }
-			  if (empty($error)) {
-		    // エラーがなかったら処理する
-			    $picture_path = date('YmdHis') . $fileName;
-			    move_uploaded_file($_FILES['picture_path']['tmp_name'], '../member_picture/' . $picture_path);
-			    $_SESSION['join'] = $_POST;
-			    $_SESSION['join']['picture_path'] = $picture_path;
+			// $fileName = $_FILES['Photo']['name'];
+			//   if (!empty($fileName)) {
+			//     $ext = substr($fileName, -3);
+			//     if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG') {
+			//       $error['picture_path'] = 'type';
+			//     }
+			//   }
+			//   if (empty($error)) {
+		 //    // エラーがなかったら処理する
+			//     $picture_path = date('YmdHis') . $fileName;
+			//     move_uploaded_file($_FILES['picture_path']['tmp_name'], '../member_picture/' . $picture_path);
+			//     $_SESSION['join'] = $_POST;
+			//     $_SESSION['join']['picture_path'] = $picture_path;
+			if (!empty($fileName)) {
+		    	$ext = substr($fileName, -3);
+		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
+		      		$_SESSION['error'] = 'error_prefix';
+		      		header('Location: /NexSeedPortal/contents/add/'. $id);
+		    	} else {
+		    		$_SESSION['error'] = 'select_again';
+		    	}
+		  	} else {
+		  		$_SESSION['error'] = 'no_error';
+		  	}
+		$this->files = $files;
+		$this->post = $post;
 			    // check.phpへ遷移
 			    header('Location: confirm');
 			    // これより以下のコードを処理しないようにexit()で抜ける
 			    exit();
 			  }
 
-		}
 		include('views/layout/application.php');
+		}
 
 
-	}
-
-    public function addConfirm($sessionAdd, $files, $fileName) {
-    	// var_dump($session);
         $content = new Content();
         $this->categories = $content->selectCategories();
         $this->resource = 'contents';

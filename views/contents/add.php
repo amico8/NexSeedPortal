@@ -52,6 +52,16 @@
 
 							<!-- 写真 -->
 						<div class="category">
+
+				           	<input type="file" name="Photo" placeholder="Photo" class="form-control input-lg" value="" >
+                                <?php if (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'error_prefix'): ?>
+                                    <p class="danger">※画像の拡張子は".jpg"または".png"または".gif"のファイルを選択して下さい。</p>
+                                <?php elseif (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'select_again'): ?>
+                                    <p class="danger">※恐れ入りますがもう一度画像ファイルを選択して下さい。</p>
+                                <?php elseif (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'no_error'): ?>
+                                    <?php false; ?>
+                                <?php endif; ?>
+
 				           	<input type="file" name="picture_path" placeholder="Photo" class="form-control input-lg" value="" >
 				           	 <?php if (isset($error['picture_path']) && $error['picture_path'] == 'type'): ?>
 			                <p class="post">* 写真などは「.gif」「.jpg」の画像を指定してください。</p>
@@ -59,8 +69,10 @@
 			              <?php if(!empty($post)): ?>
 			                <p class="post">* 恐れ入りますが、画像を改めて指定してください。</p>
 			              <?php endif; ?>
+
 				        </div>
 				          
+                                
 								<!-- 評価 -->
 						<div class="abc">
                 		<span>Review:</span>

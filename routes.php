@@ -41,6 +41,7 @@
         $sessionAdd = $_SESSION['add'];
     }
 
+
     // echo ("routes.phpにきました。");
     //コントローラの呼び出し
     require('controllers/'.$resource.'_controller.php');
