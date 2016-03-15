@@ -20,6 +20,7 @@
 			if($id == 0) {
 				// $sessionAdd = $_SESSION['add'];
 				// var_dump($_SESSION['add']);
+				$_SESSION['add'] = $post;
 				$controller->addConfirm($_SESSION['add']);
 			} else {
 				$controller->editConfirm($id);
@@ -52,7 +53,7 @@
 
 	public function add(){
 		$content = new Content();
-					var_dump($_POST);
+					// var_dump($_POST);
 		$this->categories = $content->selectCategories();
 		$this->action='add';
 		$this->resource='contents';
@@ -62,7 +63,7 @@
 			if ($kakuninn['Store_Name']=='') {
 				$erorr['Store_Name'] = 'blank';
 			}
-			var_dump($_FILES);
+			// var_dump($_FILES);
 			
 			$fileName = $_FILES['Photo']['name'];
 			  if (!empty($fileName)) {
@@ -89,7 +90,7 @@
 
 	}
     public function addConfirm($session) {
-    	// var_dump($session);
+    	var_dump($session);
         $content = new Content();
         $this->categories = $content->selectCategories();
         $this->resource = 'contents';

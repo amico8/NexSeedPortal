@@ -56,7 +56,7 @@
 				<a class="navbar-brand site-name" href="/NexSeedPortal/contents/index"><img src="/NexSeedPortal/webroot/asset/images/nex.png" alt="logo"></a>
 				<ul class="nav navbar-nav">
 				<li>
-					<div class="navbar-brand2">a</div>
+					<div class="navbar-brand2"></div>
 				</li>
 				</ul>
 			  </div>

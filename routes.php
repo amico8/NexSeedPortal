@@ -20,7 +20,7 @@
     if(isset($_POST)&&!empty($_POST)){
         $post = $_POST;
     }
-    var_dump($_POST);
+    // var_dump($_POST);
     // $_SESSION['add'] = $post;
     // $_SESSION['edit'] = $post;
     // var_dump($SESSION['add']);
