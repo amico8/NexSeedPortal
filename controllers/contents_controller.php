@@ -13,7 +13,9 @@
 		    break;
 
 		case 'add':
-		$controller->add();
+		// $controller->add();
+		$controller->add($sessionAdd);
+
 			break;
 
 		case 'confirm':
@@ -44,6 +46,8 @@
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
+		private $files = '';
+
 		// private $session = array();
 		// private $creater = '';
 		// private $categories = '';
@@ -58,7 +62,9 @@
             require('views/layout/application.php');
     }
 
-	public function add($files,$fileName,$post){
+	// public function add($files,$fileName,$post){
+    	public function add($sessionAdd){
+
 		$content = new Content();
 					// var_dump($_POST);
 		$this->categories = $content->selectCategories();
@@ -85,17 +91,17 @@
 			//     move_uploaded_file($_FILES['picture_path']['tmp_name'], '../member_picture/' . $picture_path);
 			//     $_SESSION['join'] = $_POST;
 			//     $_SESSION['join']['picture_path'] = $picture_path;
-			if (!empty($fileName)) {
-		    	$ext = substr($fileName, -3);
-		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
-		      		$_SESSION['error'] = 'error_prefix';
-		      		header('Location: /NexSeedPortal/contents/add/'. $id);
-		    	} else {
-		    		$_SESSION['error'] = 'select_again';
-		    	}
-		  	} else {
-		  		$_SESSION['error'] = 'no_error';
-		  	}
+			// if (!empty($fileName)) {
+		 //    	$ext = substr($fileName, -3);
+		 //    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
+		 //      		$_SESSION['error'] = 'error_prefix';
+		 //      		header('Location: /NexSeedPortal/contents/add/'. $id);
+		 //    	} else {
+		 //    		$_SESSION['error'] = 'select_again';
+		 //    	}
+		 //  	} else {
+		 //  		$_SESSION['error'] = 'no_error';
+		 //  	}
 		$this->files = $files;
 		$this->post = $post;
 			    // check.phpへ遷移
