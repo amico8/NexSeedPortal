@@ -27,7 +27,7 @@
             break;
 
         case 'create':
-			$controller->create($post);
+			$controller->create();
 			break;
 
 
@@ -43,6 +43,7 @@
 		private $viewOptions = '';
 		private $categories = '';
 		private $session = array();
+		private $creater = '';
 		// private $categories = '';
 		public function index($id,$post){
     	//モデルを呼び出す
@@ -105,17 +106,18 @@
 
 	}
 
-    public function create($post) {
+    public function create() {
 		// var_dump($session);
 	    $content = new Content();
 	    // echo "createきたよ";
-		$content->create($post);
+		$this->creater = $content->create();
 	    $this->resource = 'contents';
 	    $this->action = 'add_confirm';
-		$this->session = $post;
+		// $this->session = $post;
 		// echo $this->session['Category'];
 	    // include('views/layout/application.php');
 	    header('Location: /NexSeedPortal/contents/index');
+	    
 	}
 
     public function editConfirm($id) {
