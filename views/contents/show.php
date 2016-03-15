@@ -7,15 +7,19 @@
                     <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
                         <div class="well2">
                             <p>
-                            <div class="col-xs-10 contact-left"><?php echo $this->viewOptions['shop_name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;'s Information</div>
-                            <div class="contact-right">
-                                <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>">
-                                <i class="fa fa-pencil fa-glay"></i>
-                                </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="/NexSeedPortal/contents/delete/<?php echo $id; ?>" onclick="return confirm('Are you sure you want to delete?');">
-                                <i class="fa fa-trash fa-glay"></i>
-                                </a>
+                            <div class="col-xs-10 contact-left">
+                                <?php echo $this->viewOptions['shop_name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;'s Information
                             </div>
+                            <?php //if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $this->viewOptions['user_id']): ?>
+                                <div class="contact-right">
+                                        <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>">
+                                            <i class="fa fa-pencil fa-glay"></i>
+                                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="/NexSeedPortal/contents/delete/<?php echo $id; ?>" onclick="return confirm('Are you sure you want to delete?');">
+                                            <i class="fa fa-trash fa-glay"></i>
+                                        </a>
+                                </div>
+                            <?php //endif; ?>
                             </p>
                         </div>
                             <br />

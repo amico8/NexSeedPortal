@@ -1,5 +1,17 @@
 <?php 
+	// session_start();
 	require('models/content.php');
+
+	//ログインチェックを実装
+	// require('function.php');
+	// require('dbconnect.php');
+	// if (isset($post['email']) && !empty($post['email'])) {
+	// 	login($post,$db);
+	// } elseif (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
+	// 	login2($_SESSION,$db);
+	// } else {
+	// 	header('Location: /NexSeedPortal/users/login/');
+	// }
 
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
@@ -69,13 +81,13 @@
 			if (!empty($fileName)) {
 		    	$ext = substr($fileName, -3);
 		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
-		      		$_SESSION['error'] = '1';
+		      		$_SESSION['error'] = 'error_prefix';
 		      		header('Location: /NexSeedPortal/contents/edit/'. $id);
 		    	} else {
-		    		$_SESSION['error'] = '2';
+		    		$_SESSION['error'] = 'select_again';
 		    	}
 		  	} else {
-		  		$_SESSION['error'] = '3';
+		  		$_SESSION['error'] = 'no_error';
 		  	}
 			$content = new Content();
 			$this->categories = $content->selectCategories();
