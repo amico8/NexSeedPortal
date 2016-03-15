@@ -47,7 +47,7 @@
     	        $this->action = 'index';
     	    //ビューを呼び出す
     	        require('views/layout/application.php');
-    	}
+		}
 
 
 	}
