@@ -131,7 +131,7 @@
 					
 					mysqli_real_escape_string($this->dbconnect, $session['category_id']),
 					mysqli_real_escape_string($this->dbconnect, $session['user_id']),
-					mysqli_real_escape_string($this->dbconnect, $session['shop_name']),
+					mysqli_real_escape_string($this->dbconnect, $session['StoreName']),
 					mysqli_real_escape_string($this->dbconnect, $session['lat']),
 					mysqli_real_escape_string($this->dbconnect, $session['lng']),
 					mysqli_real_escape_string($this->dbconnect, $session['picture_path']),
@@ -140,7 +140,7 @@
 
 					);
 
-					// var_dump($sql);
+					var_dump($sql);
 					mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 					// return値はいらない
 		}

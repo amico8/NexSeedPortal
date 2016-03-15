@@ -61,13 +61,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 						 </select>
 							<!-- 店の名前 -->
 						<div class="category">
-							<input type="text" name="StoreName" placeholder="Store Name" class="form-control input-lg" value="ダイコクドラッグ 寝屋川駅前店">
+							<input type="text" name="StoreName" placeholder="Store Name" class="form-control input-lg" value="">
 						</div>
 							<!-- 場所の写真 -->
 						<div class="category">
 							<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 							<?php require('../asset/js/gmap_edit.php'); ?>
-   							<div id="gmap" style="width: 100px; height: 100px; border: 1px solid Gray;"></div>
+   							<div id="gmap" style="width: 150px; height: 150px; border: 1px solid Gray;"></div>
    							<div id="lng">
    								<input type="hidden" name="lng" id="lng" value="123.90381932258606">
    							</div>
@@ -101,15 +101,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 							 <!-- コメント -->
 
 						<div class="category">
-              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required>
-              					<?php 
-              						if(isset($_POST['comment'])){
-              							echo "こめんとがあったよ！";
-              						} else {
-              							echo "こめんとないよ！";
-              						}
-              					 ?>
-              				</textarea>
+              				<textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="" required></textarea>
               			</div>
 							<!-- 戻るボタン -->
 						<div class="col-sm-4 contact-right">
