@@ -107,7 +107,7 @@
 		include('views/layout/application.php');
 		}
 
-
+	public function addConfirm($sessionAdd, $files, $fileName) {
         $content = new Content();
         $this->categories = $content->selectCategories();
         $this->resource = 'contents';
