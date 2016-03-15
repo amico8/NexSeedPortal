@@ -128,7 +128,6 @@
 
 		public function create() {
 					$sql = sprintf('INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES (%d,%d,"%s",%d,%d,"%s",%d,"%s",0,now())',
-					
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['category_id']),
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['user_id']),
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['shop_name']),
@@ -137,7 +136,6 @@
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['picture_path']),
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['review']),
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['comment'])
-
 					);
 
 					// var_dump($sql);
