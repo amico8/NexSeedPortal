@@ -1,3 +1,16 @@
+<?php
+//  if (isset($_SESSION['user_id']) && $_SESSION['time'] + 3600 > time()) {
+//   // セッションの時間を更新
+//   $_SESSION['time'] = time();
+// $sql = sprintf('SELECT * FROM `users` WHERE `user_id`=%d',
+//   mysqli_real_escape_string($db, $_SESSION['user_id']));
+// $record = mysqli_query($db, $sql) or die (mysqli_error());
+// $user = mysqli_fetch_assoc($record);
+// } else {
+//   header('Location: /NexSeedPortal/users/login/');
+//   exit();
+// } 
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -40,10 +53,10 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button> -->
-				<a class="navbar-brand site-name" href="#"><img src="/NexSeedPortal/webroot/asset/images/nex.png" alt="logo"></a>
+				<a class="navbar-brand site-name" href="/NexSeedPortal/contents/index"><img src="/NexSeedPortal/webroot/asset/images/nex.png" alt="logo"></a>
 				<ul class="nav navbar-nav">
 				<li>
-					<div class="navbar-brand2">Welcome xxxxx！</div>
+					<div class="navbar-brand2"></div>
 				</li>
 				</ul>
 			  </div>
@@ -51,7 +64,7 @@
 			  <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
 				<ul class="nav navbar-nav">
 				<li>
-					<div class="btn-section"><a href="join/index.html" button type="button" class="btn-default2">Logout</a></div>
+					<div class="btn-section"><a href="contents/index" button type="button" class="btn-default2">Logout</a></div>
 				</li>
 				</ul>
 			  </div>
