@@ -17,11 +17,6 @@
 
 <!-- Colors -->
 <link href="/NexSeedPortal/webroot/asset/css/css-index.css" rel="stylesheet" media="screen">
-<!-- <link href="css/css-index-green.css" rel="stylesheet" media="screen"> -->
-<!-- <link href="css/css-index-purple.css" rel="stylesheet" media="screen"> -->
-<!-- <link href="css/css-index-red.css" rel="stylesheet" media="screen"> -->
-<!-- <link href="css/css-index-orange.css" rel="stylesheet" media="screen"> -->
-<!-- <link href="css/css-index-yellow.css" rel="stylesheet" media="screen"> -->
 
 <!-- Google Fonts -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
@@ -48,7 +43,13 @@
 			<div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
 				<ul class="nav navbar-nav">
 				<li>
-					<div class="btn-section"><a href="/NexSeedPortal/users/logout/" button type="button" class="btn-default2">Logout</a></div>
+					<div class="btn-section">
+						<?php if (isset($_SESSION['user_id']) && $_SESSION['time'] + 3600 > time()) {
+							echo '<a href="/NexSeedPortal/users/logout/" button type="button" class="btn-default2">Logout</a>';
+						} else {
+							echo '      ';
+						} ?>
+					</div>
 				</li>
 				</ul>
 			</div>
