@@ -15,7 +15,7 @@
     }
     //POST送信されたらtitle,bodyを取得
     if(isset($_POST)&&!empty($_POST)){
-    	$post = $_POST;
+        $post = $_POST;
     }
     //コントローラの呼び出し
     require('controllers/'.$resource.'_controller.php');
