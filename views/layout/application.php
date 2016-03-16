@@ -65,12 +65,8 @@
 
 
 
-<!-- /.testimonial section -->
-<!-- <div id="testi">
-	<div class="container">	
-	</div>
-</div>
- --><!-- /.footer -->
+
+<!-- /.footer -->
 <footer id="footer">
 	<div class="container">
 		<div class="col-sm-4 col-sm-offset-4">
@@ -88,10 +84,10 @@
 </footer>
 	
 	<!-- /.javascript files -->
-    <script src="/NexSeedPortal/webroot/asset/js/jquery.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/bootstrap.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/custom.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/jquery.sticky.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/jquery.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/bootstrap.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/custom.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/jquery.sticky.js"></script>
 	<script src="/NexSeedPortal/webroot/asset/js/wow.min.js"></script>
 	<script src="/NexSeedPortal/webroot/asset/js/owl.carousel.min.js"></script>
 	<script>
