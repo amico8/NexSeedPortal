@@ -7,7 +7,7 @@
     require('dbconnect.php');
     if (isset($post['email'])&&!empty($post['email'])) {
         login($post,$db);
-    }else if (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
+    } elseif (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
         login2($_SESSION,$db);
     }else{
         header('Location: /NexSeedPortal/users/login/');

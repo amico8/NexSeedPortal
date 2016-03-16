@@ -40,8 +40,7 @@ function login2($session,$db){
             header('Location: /NexSeedPortal/users/login/');
         }
     }else{
-        header('Location: /NexSeedPortal/users/login.php');
-        // exit();
+        header('Location: /NexSeedPortal/users/login/');
     }
 }
 ?>
