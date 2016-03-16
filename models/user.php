@@ -18,7 +18,7 @@
 
 			if (!empty($post)) {
 				if ($post['email'] != '' && $post['password'] != '') {
-					$sql = sprintf(format)('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
+					$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
 							mysqli_real_escape_string($this->dbconnect, $post['email'])
 							);
 					$record = mysqli_query($this->dbconnect, $sql);

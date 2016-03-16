@@ -47,7 +47,8 @@
 						<?php if (isset($_SESSION['user_id']) && $_SESSION['time'] + 3600 > time()) {
 							echo '<a href="/NexSeedPortal/users/logout/" button type="button" class="btn-default2">Logout</a>';
 						} else {
-							echo '      ';
+							echo '<p>      </p>';
+							echo '<p>      </p>';
 						} ?>
 					</div>
 				</li>
