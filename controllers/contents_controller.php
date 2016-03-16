@@ -5,12 +5,11 @@
 	require('function.php');
 	require('dbconnect.php');
 	if (isset($post['email'])&&!empty($post['email'])) {
-		login($post,$db);
+	 	login($post,$db);
 	}else if (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
-		login2($_SESSION,$db);
+	 	login2($_SESSION,$db);
 	}else{
-            echo '関数にすら入れない!!';
-		//header('Location: /NexSeedPortal/users/login/');
+	 	header('Location: /NexSeedPortal/users/login/');
 	}
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();

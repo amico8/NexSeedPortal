@@ -12,7 +12,7 @@ function login($post,$db){
                 $_SESSION['user_id'] = $table['user_id'];
                 $_SESSION['user_name'] = $table['user_name'];
                 $_SESSION['created'] = time();
-                if ($_POST['save'] = 'on') {
+                if ($_POST['save'] = 'on' && !isset($_COOKIE)) {
                     setcookie('email',$post['email'],time() +60*60*24*14);
                     setcookie('password',$post['password'],time() +60*60*24*14);
                 }

@@ -8,6 +8,9 @@
 		case 'login':
 			$controller->login($post);
 			break;
+		case 'logout':
+			$controller->logout();
+			break;
 		case 'add':
 			$controller->add($post);
 			break;
@@ -29,6 +32,7 @@
 		private $email = '';
 		private $password = '';
 		private $error = '';
+
 		public function login($post) {
 			//ここでモデルを呼び出す
 			$user = new User();
@@ -40,6 +44,16 @@
 			    $this->email = h($post['email']);
 			    $this->password = h($post['password']);
 			}
+			//ビューを呼び出す
+			include('views/layout/application.php');
+		}
+
+		public function logout() {
+			//ここでモデルを呼び出す
+			$user = new User();
+			$this->viewOptions = $user->logout();
+			$this->resource = 'users';
+			$this->action = 'login';
 			//ビューを呼び出す
 			include('views/layout/application.php');
 		}
