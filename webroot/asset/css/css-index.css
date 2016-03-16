@@ -1143,7 +1143,11 @@ table.list tr {
 	background-color: #fff;
 }*/
 
-td.review {
+td#review {
+	color: #ffff00;
+}
+
+td#review td:hover {
 	color: #ffff00;
 }
 
@@ -1279,7 +1283,8 @@ table.list td {
 	margin-left:30px;
 }
 .abc01{
-	display:inline-flex; 
+	display:inline-flex;
+	margin-left: 30px;
 	width:200px;
 }
 .map01{
@@ -1340,9 +1345,43 @@ table.list td {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
+.well2:hover {
+	border-color: #3eb0f7;
+	transition: all 0.8s;
+}
+
 /*
 	font-awesomeの鉛筆とゴミ箱をグレーにするために使用
 */
 .fa-glay {
 	color: #888888;
+}
+
+#gmap {
+	position: relative;
+	padding-bottom: 75%; // これが縦横比
+	overflow: hidden;
+	width: 500px;
+	height: 370px;
+	border: 1px solid #e3e3e3;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.alt-table-responsive {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+}
+
+.danger {
+	font-size: 14px;
+	color: #e8383d;
+}
+
+.fa-pencil:hover, .fa-trash:hover {
+	color: #3eb0f7;
+	transition: all 0.8s;
 }
