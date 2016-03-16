@@ -9,8 +9,8 @@
 
 	switch ($action) {
 		case 'index';
-		    $controller -> index($id,$post);
-		    break;
+			$controller -> index($id,$post);
+			break;
 
 		case 'add':
 		// $controller->add();
@@ -24,9 +24,9 @@
 			} else {
 				$controller->editConfirm($id);
 			}
-            break;
-        // メソッドを呼び出す時のみスーパーグローバル変数を使う。
-        case 'create':
+			break;
+		// メソッドを呼び出す時のみスーパーグローバル変数を使う。
+		case 'create':
 			$controller->create();
 			break;
 
@@ -110,29 +110,41 @@
 		}
 
 	public function addConfirm($files, $fileName) {
-        $content = new Content();
-        $this->categories = $content->selectCategories();
-        $this->resource = 'contents';
-        $this->action = 'add_confirm';
-        include('views/layout/application.php');
+		if (!empty($fileName)) {
+			$ext = substr($fileName, -3);
+			if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
+				$_SESSION['error'] = 'error_prefix';
+				header('Location: /NexSeedPortal/contents/confirm/'. $id);
+			} else {
+				$_SESSION['error'] = 'select_again';
+			}
+		} else {
+			$_SESSION['error'] = 'no_error';
+		}
+
+		$content = new Content();
+		$this->categories = $content->selectCategories();
+		$this->resource = 'contents';
+		$this->action = 'add_confirm';
+		include('views/layout/application.php');
 
 	}
 
-    public function create() {
+	public function create() {
 		// 上で入れた$_SESSIONは↑ここでは$sessionに
-	    $content = new Content();
-	    // echo "createきたよ";
+		$content = new Content();
+		// echo "createきたよ";
 		$content->create();
 
-	    header('Location: /NexSeedPortal/contents/index');
+		header('Location: /NexSeedPortal/contents/index');
 
 	}
 
-    public function editConfirm($id) {
-	    // $content = new Content();
-	    $this->resource = 'contents';
-	    $this->action = 'edit_confirm';
-	    include('views/layout/application.php');
+	public function editConfirm($id) {
+		// $content = new Content();
+		$this->resource = 'contents';
+		$this->action = 'edit_confirm';
+		include('views/layout/application.php');
 
 	}
 	
