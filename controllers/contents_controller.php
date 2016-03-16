@@ -91,10 +91,9 @@
 		  	}
 			$content = new Content();
 			$this->categories = $content->selectCategories();
-			// $this->post = $post;
 			$this->files = $files;
 			$this->resource = 'contents';
-			$this->action = 'editConfirm';
+			$this->action = 'edit_confirm';
 
 			include('views/layout/application.php');
 		}

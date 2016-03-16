@@ -27,7 +27,7 @@
 		}
 
 		public function update($id) {
-			// 画像を上書きで消さないように、if文で分岐
+			// 画像を上書きで消さないように、if文で分岐している
 			if (isset($_SESSION['edit']['picture_path']) && !empty($_SESSION['edit']['picture_path'])) {
 				$sql = sprintf('UPDATE `contents` SET `category_id`= %d, `shop_name`="%s",`lat`=%.20f,`lng`=%.20f,`picture_path`="%s",`review`=%d,`comment`="%s" WHERE `content_id` = %d',
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['category_id']),
@@ -51,7 +51,6 @@
 					);
 			}
 			$result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			// echo $sql;
 			unset($_SESSION['edit']);
 			unset($_SESSION['error']);
 		}

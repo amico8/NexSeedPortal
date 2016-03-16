@@ -13,14 +13,12 @@
     $post = array();
     $files = '';
     $fileName = '';
-    // $sessionEdit = array();
 
     //idがあった場合idも取得する
     if (isset($params[2])) {
         $id = $params[2];
     }
     //POST送信されたらtitle,bodyを取得
-    // if (isset($_POST['title'])&&isset($_POST['body'])) {
     if (isset($_POST) && !empty($_POST)) {
     	$post = $_POST;
         $_SESSION['edit'] = $post;
@@ -38,7 +36,6 @@
 
     if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])) {
         $_SESSION['edit'] += array('picture_path'=>$files);
-        // $sessionEdit = $_SESSION['edit'];
     }
 
 
