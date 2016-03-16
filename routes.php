@@ -12,14 +12,12 @@
     $post = array();
     $files = '';
     $fileName = '';
-    // $sessionAdd = array();
 
     //idがあった場合idも取得する
     if (isset($params[2])) {
         $id = $params[2];
     }
     //POST送信されたらtitle,bodyを取得
-    // if (isset($_POST['title'])&&isset($_POST['body'])) {
     if(isset($_POST)&&!empty($_POST)){
         $post = $_POST;
         $_SESSION['add'] = $post;
@@ -33,16 +31,14 @@
                 move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
                 $files = $picture_path;
         }
-        // var_dump($files);
     }
 
     if (isset($_SESSION['add']) && !empty($_SESSION['add'])) {
         $_SESSION['add'] += array('picture_path'=>$files);
-        // $sessionAdd = $_SESSION['add'];
+
     }
 
 
-    // echo ("routes.phpにきました。");
     //コントローラの呼び出し
     require('controllers/'.$resource.'_controller.php');
 ?>

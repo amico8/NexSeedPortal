@@ -118,8 +118,6 @@
         $this->categories = $content->selectCategories();
         $this->resource = 'contents';
         $this->action = 'add_confirm';
-		// $this->session = $post;
-		// echo $this->session['Category'];
         include('views/layout/application.php');
 
 	}
@@ -129,10 +127,10 @@
 	    $content = new Content();
 	    // echo "createきたよ";
 		$content->create();
+	    
 	    // $this->resource = 'contents';
 	    // $this->action = 'add_confirm';
-		// $this->session = $post;
-		// echo $this->session['Category'];
+
 	    // include('views/layout/application.php');
 	    header('Location: /NexSeedPortal/contents/index');
 
