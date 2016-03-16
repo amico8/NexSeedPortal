@@ -41,7 +41,6 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <?php var_dump($_SESSION['add']); ?>
                                             </div>
                                         </td>
                                         </tr>

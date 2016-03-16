@@ -20,9 +20,6 @@
 
 		case 'confirm':
 			if($id == 0) {
-				// $sessionAdd = $_SESSION['add'];
-				// var_dump($_SESSION['add']);
-				// $_SESSION['add'] = $post;
 				$controller->addConfirm($files, $fileName);
 			} else {
 				$controller->editConfirm($id);
@@ -30,7 +27,6 @@
             break;
         // メソッドを呼び出す時のみスーパーグローバル変数を使う。
         case 'create':
-        	// var_dump($_SESSION['add']);
 			$controller->create();
 			break;
 
@@ -127,11 +123,7 @@
 	    $content = new Content();
 	    // echo "createきたよ";
 		$content->create();
-	    
-	    // $this->resource = 'contents';
-	    // $this->action = 'add_confirm';
 
-	    // include('views/layout/application.php');
 	    header('Location: /NexSeedPortal/contents/index');
 
 	}

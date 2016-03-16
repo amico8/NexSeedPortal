@@ -102,14 +102,12 @@
     				}
     			}
     	    }
-    	    // else{
-    	    	// $return['comment'][] = "該当する結果は存在しません。";
+
     	    // }
     	    //状況確認ように$returnに$postを入れておく
     	    $return['post'] = $post;
     		return $return;
 		}
-		// ↓ 修正中
 
 		public function selectCategories() {
 					$sql = 'SELECT * FROM `categories` WHERE 1';
@@ -137,7 +135,6 @@
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['review']),
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['comment'])
 					);
-					// mysqli_real_escape_string($this->dbconnect, $session['user_id']),
 					echo $sql;
 					mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 					// return値はいらない
