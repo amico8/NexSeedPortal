@@ -83,11 +83,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
 	   						</div> -->
 								<!-- 写真 -->
 							<div class="category">
-					           	<input type="file" name="picture_path" class="form-control input-lg">
-					        </div>
-									<!-- 評価 -->
-							<div class="abc">
-	                		<span>Review:</span>
+                                <span>Photo:</span>
+                                <label><input type="file" name="picture_path" class="input-lg"></label>
+                                <?php if (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'error_prefix'): ?>
+                                    <p class="danger">※画像の拡張子は".jpg"または".png"または".gif"のファイルを選択して下さい。</p>
+                                <?php elseif (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'select_again'): ?>
+                                    <p class="danger">※恐れ入りますがもう一度画像ファイルを選択して下さい。</p>
+                                <?php elseif (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'no_error'): ?>
+                                    <?php false; ?>
+                                <?php endif; ?>
+                                <br/>
+                                <span>Review:</span>
 	                			<p class="abc01">
 	                   			<input type="radio" name="review" value="1">１
 	                    		<input type="radio" name="review" value="2">２
