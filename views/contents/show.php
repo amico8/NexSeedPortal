@@ -7,9 +7,10 @@
                     <?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
                         <div class="well2">
                             <p>
-                            <div class="col-xs-10 contact-left">
-                                <?php echo $this->viewOptions['shop_name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;'s Information
-                            </div>
+                                <div class="col-xs-10 contact-left">
+                                    <?php echo $this->viewOptions['shop_name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;'s Information
+                                </div>
+                            <!-- ここはログインユーザーIDとコンテンツユーザーIDが一致した場合にのみ表示される -->
                             <?php //if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $this->viewOptions['user_id']): ?>
                                 <div class="contact-right">
                                         <a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>">
@@ -45,7 +46,7 @@
                                     <td>Review</td>
                                     <td id="review">
                                         <div class="text-center">
-                                            <?php 
+                                            <?php
                                                 $i = $this->viewOptions['review'];
                                                 for ($i; $i>0; $i--) {
                                                     echo "★";
@@ -67,7 +68,7 @@
                                     <td>
                                         <div class="text-center">
                                             <?php if (isset($this->viewOptions['picture_path']) && !empty($this->viewOptions['picture_path'])): ?>
-                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="" alt="写真" >
+                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="img-thumbnail img-responsive" alt="写真" >
                                             <?php else: ?>
                                                 No Image
                                             <?php endif; ?>

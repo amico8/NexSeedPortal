@@ -25,7 +25,7 @@
 			break;
 
 		case 'edit':
-			$controller->edit($id, $sessionEdit);
+			$controller->edit($id);
 			break;
 
 		case 'delete':
@@ -33,11 +33,11 @@
 			break;
 
 		case 'confirm':
-			$controller->editConfirm($id, $post, $fileName, $files, $sessionEdit);
+			$controller->editConfirm($id, $fileName, $files);
 			break;
 
 		case 'update':
-			$controller->update($id, $sessionEdit);
+			$controller->update($id);
 			break;
 
 		default:
@@ -50,7 +50,7 @@
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
-		private $files = '';
+		// private $files = '';
 		private $post = array();
 
 
@@ -67,7 +67,7 @@
 			include('views/layout/application.php');
 		}
 
-		public function edit($id, $sessionEdit) {
+		public function edit($id) {
 			$content = new Content();
 			$this->viewOptions = $content->selectContents($id);
 			$this->categories = $content->selectCategories();
@@ -77,7 +77,7 @@
 			include('views/layout/application.php');
 		}
 
-		public function editConfirm($id, $post, $fileName, $files, $sessionEdit) {
+		public function editConfirm($id, $fileName, $files) {
 			if (!empty($fileName)) {
 		    	$ext = substr($fileName, -3);
 		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
@@ -91,27 +91,17 @@
 		  	}
 			$content = new Content();
 			$this->categories = $content->selectCategories();
-			$this->post = $post;
+			// $this->post = $post;
 			$this->files = $files;
-			//ここに書く！！画像アップロード！！
-			//エラーが出たら、エラーの値をreturn値で表示し、それをedit.phpに表示する
-			// if (isset($fileName)) {
-			// 	$picture_path = date('YmdHis') . $fileName;
-			// 	move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
-			// 	$files = $picture_path;
-			// 	$this->files = $files;
-			// }
-
 			$this->resource = 'contents';
 			$this->action = 'editConfirm';
 
 			include('views/layout/application.php');
 		}
 
-		public function update($id, $sessionEdit) {
-			var_dump($sessionEdit);
+		public function update($id) {
 			$content = new Content();
-			$content->update($id, $sessionEdit);
+			$content->update($id);
 
 			header('Location: /NexSeedPortal/contents/show/'.$id);
 		}

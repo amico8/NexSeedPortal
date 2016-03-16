@@ -2,9 +2,9 @@
     google.maps.event.addDomListener(window, 'load', function()
         {
             // La Guardia Flats2の経緯度
-            <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
-                var lng = <?php echo $sessionEdit['lng']; ?>;
-                var lat = <?php echo $sessionEdit['lat']; ?>;
+            <?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
+                var lng = <?php echo $_SESSION['edit']['lng']; ?>;
+                var lat = <?php echo $_SESSION['edit']['lat']; ?>;
             <?php else: ?>
                 var lng = <?php echo $this->viewOptions['lng']; ?>;
                 var lat = <?php echo $this->viewOptions['lat']; ?>;

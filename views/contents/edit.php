@@ -9,9 +9,9 @@
                                 <select name="category_id" class="category" required>
                                         <option value="">Category</option>
                                 <?php foreach ($this->categories as $category): ?>
-                                    <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
-                                        <?php if ($sessionEdit['category_id'] == $category['category_id']): ?>
-                                            <option value="<?php echo $sessionEdit['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
+                                    <?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
+                                        <?php if ($_SESSION['edit']['category_id'] == $category['category_id']): ?>
+                                            <option value="<?php echo $_SESSION['edit']['category_id'];?>" selected><?php echo $category['category_name']; ?></option>
                                         <?php else: ?>
                                             <option value="<?php echo $category['category_id'];?>"><?php echo $category['category_name']; ?></option>
                                         <?php endif; ?>
@@ -26,9 +26,8 @@
                                 </select>
                             </div>
                             <div class="category">
-                                <?php var_dump($sessionEdit); ?>
-                                <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
-                                    <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $sessionEdit['shop_name']; ?>" required/>
+                                <?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
+                                    <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $_SESSION['edit']['shop_name']; ?>" required/>
                                 <?php else: ?>
                                     <input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
                                 <?php endif; ?>
@@ -38,12 +37,12 @@
                                     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
                                     <?php require('webroot/asset/js/gmap_edit.php'); ?>
                                     <div id="gmap"></div>
-                                    <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
+                                    <?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
                                         <div id="lng">
-                                            <input type="hidden" name="lng" id="lng" value="<?php echo $sessionEdit['lng']; ?>">
+                                            <input type="hidden" name="lng" id="lng" value="<?php echo $_SESSION['edit']['lng']; ?>">
                                         </div>
                                         <div id="lat">
-                                            <input type="hidden" name="lat" id="lat" value="<?php echo $sessionEdit['lat']; ?>">
+                                            <input type="hidden" name="lat" id="lat" value="<?php echo $_SESSION['edit']['lat']; ?>">
                                         </div>
                                     <?php else: ?>
                                         <div id="lng">
@@ -55,12 +54,6 @@
                                     <?php endif; ?>
                                 </div>
                                 </br>
-
-                                <?php //if (isset($error['picture_path']) && $error['picture_path'] == 'type') { ?>
-                                  <!-- <p class="error">* 写真などは「.gif」または「.jpg」の画像を指定してください</p> -->
-                                <?php //} elseif (!empty($error)) { ?>
-                                  <!-- <p class="error">* 恐れ入りますが画像を改めて指定してください</p> -->
-                                <?php //} ?>
                             </div>
                             <div class="abc">
                                 <span>Photo:</span>
@@ -76,8 +69,8 @@
                                 <span>Review:</span>
                                 <p class="abc01">
                                     <?php for ($i=1; $i<=5; $i++):?>
-                                        <?php if(isset($sessionEdit) && !empty($sessionEdit)): ?>
-                                            <?php if($i == $sessionEdit['review']): ?>
+                                        <?php if(isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
+                                            <?php if($i == $_SESSION['edit']['review']): ?>
                                                 <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" checked required/>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <?php else: ?>
                                                 <label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" required/>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -93,8 +86,8 @@
                                 </p>
                             </div>
                             <div class="category">
-                                <?php if (isset($sessionEdit) && !empty($sessionEdit)): ?>
-                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $sessionEdit['comment']; ?></textarea>
+                                <?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
+                                    <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $_SESSION['edit']['comment']; ?></textarea>
                                 <?php else: ?>
                                     <textarea name="comment" rows="5" cols="10" id="comment" class="form-control input-message wow fadeInUp"  placeholder="Comment" required><?php echo $this->viewOptions['comment']; ?></textarea>
                                 <?php endif; ?>

@@ -39,7 +39,7 @@
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <?php var_dump($sessionEdit); ?>
+                                                <?php var_dump($_SESSION['edit']); ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -48,7 +48,7 @@
                                         <td>
                                             <div class="text-center">
                                                 <?php if (isset($fileName) && !empty($fileName)): ?>
-                                                    <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->files; ?>" width="500" height="370">
+                                                    <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_SESSION['edit']['picture_path']; ?>" width="500" height="370">
                                                 <?php else: ?>
                                                     Image has not been selected.
                                                 <?php endif; ?>
