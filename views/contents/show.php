@@ -66,9 +66,9 @@
                                 <tr>
                                     <td>Photo</td>
                                     <td>
-                                        <div class="text-center">
+                                        <div class="col-xs-12 col-sm-12">
                                             <?php if (isset($this->viewOptions['picture_path']) && !empty($this->viewOptions['picture_path'])): ?>
-                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="img-thumbnail img-responsive" alt="写真" >
+                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="img-thumbnail img-responsive center-block"/>
                                             <?php else: ?>
                                                 No Image
                                             <?php endif; ?>
@@ -81,7 +81,7 @@
                                         <!-- goolgle map API -->
                                         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
                                         <?php require('webroot/asset/js/gmap.php'); ?>
-                                        <div id="gmap"></div>
+                                        <div id="gmap" class="img-thumbnail center-block"></div>
                                     </td>
                                 </tr>
                                 <tr>
