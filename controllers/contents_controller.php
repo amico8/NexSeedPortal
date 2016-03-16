@@ -13,9 +13,7 @@
 			break;
 
 		case 'add':
-		// $controller->add();
-		$controller->add($sessionAdd);
-
+			$controller->add();
 			break;
 
 		case 'confirm':
@@ -28,8 +26,10 @@
 		// メソッドを呼び出す時のみスーパーグローバル変数を使う。
 		case 'create':
 			$controller->create();
+            unset($_SESSION['add']);
+            unset($_SESSION['error']);
+       		header('Location: /NexSeedPortal/contents/index');
 			break;
-
 
 		default:
 			break;
@@ -56,32 +56,15 @@
             $this->action = 'index';
         //ビューを呼び出す
             require('views/layout/application.php');
-    }
+    	}
 
-	// public function add($files,$fileName,$post){
-    	public function add($sessionAdd){
+		public function add(){
+			$content = new Content();
+			$this->categories = $content->selectCategories();
+			$this->action='add';
+			$this->resource='contents';
 
-		$content = new Content();
-					// var_dump($_POST);
-		$this->categories = $content->selectCategories();
-		$this->action='add';
-		$this->resource='contents';
-		if (!empty($_POST)) {
-			$kakuninn = $_POST;
-
-			if ($kakuninn['Store_Name']=='') {
-				$erorr['Store_Name'] = 'blank';
-			}
-			
-		$this->files = $files;
-		$this->post = $post;
-			    // check.phpへ遷移
-			    header('Location: confirm');
-			    // これより以下のコードを処理しないようにexit()で抜ける
-			    exit();
-			  }
-
-		include('views/layout/application.php');
+			include('views/layout/application.php');
 		}
 
 	public function addConfirm($files, $fileName) {
@@ -110,9 +93,6 @@
 		$content = new Content();
 		// echo "createきたよ";
 		$content->create();
-
-		header('Location: /NexSeedPortal/contents/index');
-
 	}
 
 	public function editConfirm($id) {
