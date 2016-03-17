@@ -49,6 +49,9 @@
                             <div id="lat">
                                 <input type="hidden" name="lat" id="lat" value="<?php echo $_SESSION['add']['lat']; ?>">
                             </div>
+                            <?php else: ?>
+                             <div id="lng"></div>
+                             <div id="lat"></div>
                         <?php endif; ?>
                         </div>
 							<!-- 写真 -->
