@@ -103,6 +103,7 @@
                     }
                 }
             }
+            $return['post'] = $post;
             return $return;
         }
 
