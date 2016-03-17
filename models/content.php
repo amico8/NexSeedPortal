@@ -17,7 +17,6 @@
 			//DBからカテゴリを取得
 			$sql = 'SELECT * FROM `categories` WHERE 1';
 			$record = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
-			$categories = array();
 			while ($result = mysqli_fetch_assoc($record)) {
 				$return['category'][] = $result;
 			}
