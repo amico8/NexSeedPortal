@@ -51,7 +51,7 @@
 			  <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
 				<ul class="nav navbar-nav">
 				<li>
-					<div class="btn-section"><a href="join/index.html" button type="button" class="btn-default2">Logout</a></div>
+					<div class="btn-section"><a href="" button type="button" class="btn-default2">Logout</a></div>
 				</li>
 				</ul>
 			  </div>

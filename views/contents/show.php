@@ -66,13 +66,15 @@
 								<tr>
 									<td>Photo</td>
 									<td>
-										<div class="col-xs-12 col-sm-12">
-											<?php if (isset($this->viewOptions['picture_path']) && !empty($this->viewOptions['picture_path'])): ?>
-												<img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="img-thumbnail img-responsive center-block"/>
-											<?php else: ?>
+										<?php if (isset($this->viewOptions['picture_path']) && !empty($this->viewOptions['picture_path'])): ?>
+											<div class="col-xs-12 col-sm-12">
+                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="img-thumbnail img-responsive center-block"/>
+											</div>
+                                        <?php else: ?>
+                                        	<div class="text-center">
 												No Image
-											<?php endif; ?>
-										</div>
+											</div>
+										<?php endif; ?>
 									</td>
 								</tr>
 								<tr>
