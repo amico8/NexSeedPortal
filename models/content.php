@@ -19,8 +19,6 @@
 			);
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			$result = mysqli_fetch_assoc($results);
-			unset($_SESSION['edit']);
-			unset($_SESSION['error']);
 			//取得結果を返す
 			return $result;
 
@@ -51,8 +49,6 @@
 					);
 			}
 			$result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			unset($_SESSION['edit']);
-			unset($_SESSION['error']);
 		}
 
 		public function delete($id) {

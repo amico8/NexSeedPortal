@@ -22,6 +22,8 @@
 	switch ($action) {
 		case 'show':
 			$controller->show($id);
+			unset($_SESSION['edit']);
+			unset($_SESSION['error']);
 			break;
 
 		case 'edit':
@@ -39,6 +41,8 @@
 
 		case 'update':
 			$controller->update($id);
+			unset($_SESSION['edit']);
+			unset($_SESSION['error']);
 			break;
 
 		default:
@@ -121,9 +125,6 @@
 
 			header('Location: /NexSeedPortal/contents/index');
 		}
-
-		
-
 
 	}
 
