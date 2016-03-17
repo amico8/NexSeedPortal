@@ -101,10 +101,10 @@
 </footer>
 	
 	<!-- /.javascript files -->
-    <script src="/NexSeedPortal/webroot/asset/js/jquery.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/bootstrap.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/custom.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/jquery.sticky.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/jquery.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/bootstrap.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/custom.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/jquery.sticky.js"></script>
 	<script src="/NexSeedPortal/webroot/asset/js/wow.min.js"></script>
 	<script src="/NexSeedPortal/webroot/asset/js/owl.carousel.min.js"></script>
 	<script>
