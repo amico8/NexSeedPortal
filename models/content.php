@@ -45,15 +45,13 @@
                     $sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE `delete_flag`=0 AND `category_id`=%s',
                           mysqli_real_escape_string($this->dbconnect,$post['category']));
                 }
-            }
-            //あいまい検索したときの件数取得のSQL文
-            elseif(isset($post['search'])&&!empty($post['search'])){
+            }elseif(isset($post['search'])&&!empty($post['search'])){
+                    //あいまい検索したときの件数取得のSQL文
                     $sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
                           mysqli_real_escape_string($this->dbconnect,$post['search']),
                           mysqli_real_escape_string($this->dbconnect,$post['search']));
-            }
-            //検索しないときの件数取得(デフォルト)のSQL文
-            else{
+            }else{
+                //検索しないときの件数取得(デフォルト)のSQL文
                 $sq = 'SELECT COUNT(*) AS cnt FROM `contents` WHERE `delete_flag`=0';
             }
             $records = mysqli_query($this->dbconnect,$sq) or die(mysqli_error($this->dbconnect));
@@ -65,7 +63,6 @@
             $start = ($page-1)*5;
             $start = max(0,$start);
 
-            // $contents = array();
             if(isset($post['category'])&&!empty($post['category'])){
                 if (isset($post['search'])&&!empty($post['search'])) {
                     //カテゴリ検索とあいまい検索の両方を行うときの投稿取得SQL文
