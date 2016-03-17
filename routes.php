@@ -13,7 +13,7 @@
     if (isset($params[2])) {
         $id = $params[2];
     }
-    //POST送信されたらtitle,bodyを取得
+    //POST送信データがあれば取得する
     if(isset($_POST)&&!empty($_POST)){
         $post = $_POST;
     }
