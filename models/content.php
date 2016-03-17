@@ -90,16 +90,6 @@
 				$recordsets['review'] = str_repeat("★", $recordsets['review']);
 				$return['contents'][] = $recordsets;
 			}
-			if(isset($return['contents'])&&!empty($return['contents'])){
-				$numbers = count($return['contents']);
-				for ($i = 0; $i < $numbers ; $i++) {
-					$number = $return['contents'][$i]['review'];
-					$return['contents'][$i]['review'] = "";
-					for ($j = 0; $j < $number ; $j++) {
-						$return['contents'][$i]['review'] = $return['contents'][$i]['review']."★";
-					}
-				}
-			}
 			//検索した時に検索結果を保持するために検索結果を連想配列に追加
 			$return['post'] = $post;
 			return $return;
