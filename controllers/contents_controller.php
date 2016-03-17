@@ -5,11 +5,11 @@
 	require('function.php');
 	require('dbconnect.php');
 	if (isset($post['email'])&&!empty($post['email'])) {
-	 	login($post,$db);
+		login($post,$db);
 	}else if (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
-	 	login2($_SESSION,$db);
+		login2($_SESSION,$db);
 	}else{
-	 	header('Location: /NexSeedPortal/users/login/');
+		header('Location: /NexSeedPortal/users/login/');
 	}
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
@@ -87,16 +87,16 @@
 
 		public function editConfirm($id, $fileName, $files) {
 			if (!empty($fileName)) {
-		    	$ext = substr($fileName, -3);
-		    	if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
-		      		$_SESSION['error'] = 'error_prefix';
-		      		header('Location: /NexSeedPortal/contents/edit/'. $id);
-		    	} else {
-		    		$_SESSION['error'] = 'select_again';
-		    	}
-		  	} else {
-		  		$_SESSION['error'] = 'no_error';
-		  	}
+				$ext = substr($fileName, -3);
+				if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
+					$_SESSION['error'] = 'error_prefix';
+					header('Location: /NexSeedPortal/contents/edit/'. $id);
+				} else {
+					$_SESSION['error'] = 'select_again';
+				}
+			} else {
+				$_SESSION['error'] = 'no_error';
+			}
 			$content = new Content();
 			$this->categories = $content->selectCategories();
 			$this->files = $files;
