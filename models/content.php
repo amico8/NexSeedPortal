@@ -42,10 +42,10 @@
 						  mysqli_real_escape_string($this->dbconnect,$post['category']));
 				}
 			}elseif(isset($post['search'])&&!empty($post['search'])){
-					//あいまい検索したときの件数取得のSQL文
-					$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
-						  mysqli_real_escape_string($this->dbconnect,$post['search']),
-						  mysqli_real_escape_string($this->dbconnect,$post['search']));
+				//あいまい検索したときの件数取得のSQL文
+				$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
+					  mysqli_real_escape_string($this->dbconnect,$post['search']),
+					  mysqli_real_escape_string($this->dbconnect,$post['search']));
 			}else{
 				//検索しないときの件数取得(デフォルト)のSQL文
 				$sq = 'SELECT COUNT(*) AS cnt FROM `contents` WHERE `delete_flag`=0';
@@ -79,14 +79,15 @@
 										   WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag` = 0 ORDER BY created DESC LIMIT %d,5',
 						mysqli_real_escape_string($this->dbconnect,$post['search']),
 						mysqli_real_escape_string($this->dbconnect,$post['search']),$start);
-			}
-			else{
+			}else{
 				//何も検索するときの投稿取得SQL文
 				$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents`
 										   WHERE `delete_flag`=0 ORDER BY created DESC LIMIT %d,5',$start);
 			}
 			$recordset = mysqli_query($this->dbconnect,$sqls) or die(mysqli_error($this->dbconnect));
 			while ($recordsets = mysqli_fetch_assoc($recordset)) {
+				// reviewの数値を「★」に変換する
+				$recordsets['review'] = str_repeat("★", $recordsets['review']);
 				$return['contents'][] = $recordsets;
 			}
 			if(isset($return['contents'])&&!empty($return['contents'])){
@@ -103,10 +104,5 @@
 			$return['post'] = $post;
 			return $return;
 		}
-
-
-
 	}
-
-
 ?>
