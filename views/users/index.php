@@ -3,7 +3,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax top-image">
+<div class="fullscreen landing parallax top-image" data-img-width="2000" data-img-height="1333" data-diff="100">
 	<div class="overlay">
 		<div class="container">
 			<div class="row">
@@ -15,7 +15,7 @@
 					</h1>
 
 					<!-- /.header paragraph -->
-					<div class="landing-text wow fadeInUp" data-img-width="2000" data-img-height="1333" data-diff="100">
+					<div class="landing-text wow fadeInUp">
 						<p>留学生活を有意義にするために、是非このサイトをご活用下さい。<br>
 						皆さんが作り上げていくポータルサイトです。<br>
 						使い方は自由自在！！<br>
@@ -33,7 +33,7 @@
 						<form class="form-header" action="" role="form" method="POST" id="#">
 							<div class="form-group">
 								<input class="form-control input-lg" name="name" type="text" placeholder="Name" value="<?php
-								if (isset($_SESSION['join'])) {
+								if (isset($_SESSION['join']['name'])) {
 									echo htmlspecialchars($_SESSION['join']['name']);
 								} ?>" required>
 								<?php if(isset($this->error['name']) && $this->error['name']=='blank'){ ?>
@@ -42,7 +42,7 @@
 							</div>
 							<div class="form-group">
 								<input class="form-control input-lg" name="email" type="email" placeholder="Email address" value="<?php
-								if (isset($_SESSION['join'])) {
+								if (isset($_SESSION['join']['email'])) {
 									echo htmlspecialchars($_SESSION['join']['email']);
 								} ?>" required>
 								<?php if(isset($this->error['email']) && $this->error['email']=='blank'){ ?>
@@ -53,7 +53,7 @@
 							</div>
 							<div class="form-group">
 								<input class="form-control input-lg" name="password1" type="password" placeholder="Password" value="<?php
-								if (isset($_SESSION['join'])) {
+								if (isset($_SESSION['join']['password1'])) {
 									echo htmlspecialchars($_SESSION['join']['password1']);
 								} ?>" required>
 								<?php if(isset($this->error['password'])){ ?>
@@ -66,7 +66,7 @@
 							</div>
 							<div class="form-group">
 								<input class="form-control input-lg" name="password2" type="password" placeholder="Password(for check)" value="<?php
-								if (isset($_SESSION['join'])) {
+								if (isset($_SESSION['join']['password2'])) {
 									echo htmlspecialchars($_SESSION['join']['password2']);
 								} ?>" required>
 								<?php if(isset($this->error['password'])){ ?>

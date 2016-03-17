@@ -20,7 +20,7 @@ function login($post,$db){
                 $error['login'] = 'failed';
                 header('Location: /NexSeedPortal/users/login/');
             }
-        }else {
+        }else{
             $error['login'] = 'blank';
             header('Location: /NexSeedPortal/users/login/');
         }
@@ -31,7 +31,7 @@ function login2($session,$db){
     //複数回数目以降のログインでログイン処理を行う関数
     if (isset($session['user_id']) && $session['created'] + 3600 > time()) {
         $sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d AND `user_name` = "%s"',
-                       mysqli_real_escape_string($db,$session['user_id']),
+                    mysqli_real_escape_string($db,$session['user_id']),
                     mysqli_real_escape_string($db,$session['user_name']));
         $record = mysqli_query($db,$sql) or die(mysqli_error($db));
         if($member = mysqli_fetch_assoc($record)){

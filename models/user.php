@@ -60,7 +60,6 @@
 			$_SESSION = array();
 			if (ini_get('session.use_cookies')) {
 				$params = session_get_cookie_params();
-				var_dump($params);
 				setcookie(session_name(), '', time() - 42000,
 				$params['path'], $params['domain'],
 				$params['secure'], $params['httponly']
@@ -115,6 +114,7 @@
 						exit();
 					}
 				}
+				$_SESSION['join'] = $post;
 			}
 			if (isset($_REQUEST['action']) && $_REQUEST['action']=='rewrite') {
 				$this->rewrite = $_SESSION['join'];

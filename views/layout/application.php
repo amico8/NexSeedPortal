@@ -33,7 +33,7 @@
 				<li>
 					<div class="navbar-brand2">
 						<?php if (isset($_SESSION['user_id']) && $_SESSION['time'] + 3600 > time()) {
-							echo 'Welcome '.$_SESSION['user_name'];
+							echo 'Welcome '.$_SESSION['user_name'].'!';
 						} ?>
 					</div>
 				</li>
