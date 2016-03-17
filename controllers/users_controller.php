@@ -40,6 +40,11 @@
 			$this->resource = 'users';
 			$this->action = 'login';
 			$this->error = $user->error;
+
+			if($this->viewOptions == true) {
+				header('Location: /NexSeedPortal/contents/index');
+				exit();
+			}
 			if(isset($post) && !empty($post)) {
 			    $this->email = h($post['email']);
 			    $this->password = h($post['password']);
@@ -49,13 +54,24 @@
 		}
 
 		public function logout() {
-			//ここでモデルを呼び出す
-			$user = new User();
-			$this->viewOptions = $user->logout();
-			$this->resource = 'users';
-			$this->action = 'login';
-			//ビューを呼び出す
-			include('views/layout/application.php');
+			//セッション情報を削除
+			$_SESSION = array();
+			if (ini_get('session.use_cookies')) {
+				$params = session_get_cookie_params();
+				setcookie(session_name(), '', time() - 42000,
+				$params['path'], $params['domain'],
+				$params['secure'], $params['httponly']
+				);
+		 	}
+			session_destroy();
+
+			//Cookie情報も削除
+			$_COOKIE = array();
+			setcookie('email', '', time()-42000);
+			setcookie('password', '', time()-42000);
+
+			header('Location: /NexSeedPortal/users/login/');
+			exit();
 		}
 
 		public function add($post) {
@@ -65,6 +81,12 @@
 			$this->resource = 'users';
 			$this->action = 'index';
 			$this->error = $user->error;
+
+			if($this->viewOptions == true) {
+				header('Location: /NexSeedPortal/users/confirm/');
+				exit();
+			}
+
 			if (isset($user->rewrite) && !empty($user->rewrite)) {
 				$post = $user->rewrite;
 			}
@@ -81,9 +103,14 @@
 		public function confirm($post) {
 			//ここでモデルを呼び出す
 			$user = new User();
-			$this->viewOptions = $user->confirm($post);
 			$this->resource = 'users';
 			$this->action = 'check';
+
+			if(isset($post) && !empty($post)) {
+				header('Location: /NexSeedPortal/users/create/');
+				exit();
+			}
+
 			//ビューを呼び出す
 			include('views/layout/application.php');
 		}
@@ -94,8 +121,11 @@
 			$this->viewOptions = $user->create($post);
 			$this->resource = 'users';
 			$this->action = 'login';
-			//ビューを呼び出す
-			include('views/layout/application.php');
+
+			//登録したので、セッション情報を破棄
+			unset($_SESSION['join']);
+			header('Location: /NexSeedPortal/users/login/');
+			exit();
 		}
 	}
  ?>

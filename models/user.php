@@ -42,8 +42,7 @@
 							  	setcookie('password', $post['password'], time()+60*60*24*14);
 							}
 							$_SESSION['post'] = $post;
-							header('Location: /NexSeedPortal/contents/index');
-							exit();
+							return true;
 					  	} else {
 							$error['login'] = 'failed';
 					  	}
@@ -52,28 +51,8 @@
 			  		$error['login'] = 'blank';
 				}
 				$this->error = $error;
+				return false;
 			}
-		}
-
-		public function logout() {
-			//セッション情報を削除
-			$_SESSION = array();
-			if (ini_get('session.use_cookies')) {
-				$params = session_get_cookie_params();
-				setcookie(session_name(), '', time() - 42000,
-				$params['path'], $params['domain'],
-				$params['secure'], $params['httponly']
-				);
-		 	}
-			session_destroy();
-
-			//Cookie情報も削除
-			$_COOKIE = array();
-			setcookie('email', '', time()-42000);
-			setcookie('password', '', time()-42000);
-
-			header('Location: /NexSeedPortal/users/login/');
-			exit();
 		}
 
 		public function add($post) {
@@ -110,8 +89,7 @@
 						$error['email'] = 'duplicate';
 					} else {
 						$_SESSION['join'] = $post;
-						header('Location: /NexSeedPortal/users/confirm/');
-						exit();
+						return true;
 					}
 				}
 				$_SESSION['join'] = $post;
@@ -121,13 +99,7 @@
 				$error['rewrite'] = true;
 			}
 			$this->error = $error;
-		}
-
-		public function confirm($post) {
-			if(isset($post) && !empty($post)) {
-				header('Location: /NexSeedPortal/users/create/');
-				exit();
-			}
+			return false;
 		}
 
 		public function create() {
@@ -138,10 +110,6 @@
 					mysqli_real_escape_string($this->dbconnect, sha1($_SESSION['join']['password1']))
 					);
 			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			//登録したので、セッション情報を破棄
-			unset($_SESSION['join']);
-			header('Location: /NexSeedPortal/users/login/');
-			exit();
 		}
 	}
  ?>
