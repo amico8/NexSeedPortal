@@ -115,7 +115,8 @@
                 </div>
                 <div class="btn-section">
                     <?php if ($this->viewOptions['maxpage'][0] > 1) {?>
-                        <?php if(isset($this->viewOptions['post']['category'])&&!empty($this->viewOptions['post']['category'])){ ?>
+                        <?php if((isset($this->viewOptions['post']['category'])&&!empty($this->viewOptions['post']['category']))||
+                                    (isset($this->viewOptions['post']['search'])&&!empty($this->viewOptions['post']['search']))){ ?>
                         <!-- 検索中のページング -->
                             <?php if($this->viewOptions['page'][0] == 1) {?>
                                 <form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
