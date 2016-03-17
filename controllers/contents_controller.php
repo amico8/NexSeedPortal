@@ -1,7 +1,5 @@
 <?php
 	require('models/content.php');
-	// unset($_SESSION['add']);
-	// unset($_SESSION['error']);
 
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
