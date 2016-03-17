@@ -68,7 +68,7 @@
 					$ext = substr($fileName, -3);
 					if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
 						$_SESSION['error'] = 'error_prefix';
-						header('Location: /NexSeedPortal/contents/confirm/'. $id);
+						header('Location: /NexSeedPortal/contents/add/');
 					} else {
 						$_SESSION['error'] = 'select_again';
 						$picture_path = date('YmdHis') . $fileName;
