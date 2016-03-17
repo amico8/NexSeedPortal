@@ -22,12 +22,9 @@
 			}
 
 			//ページング
-			$page = '';
-			if(isset($id)){
+			$page = 1;
+			if ($id != 0){
 				$page = $id;
-			}
-			if($page == ''){
-				$page = 1;
 			}
 			$page = max($page,1);
 			$return['page'][] = $page;
