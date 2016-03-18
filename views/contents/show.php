@@ -27,7 +27,7 @@
 						<div class="wow fadeInUp alt-table-responsive">
 							<table class="table table-hover table-condensed col-xs-10">
 								<tr>
-									<td>Store Name</td>
+									<td>Shop Name</td>
 									<td>
 										<div class="text-center">
 											<?php echo $this->viewOptions['shop_name']; ?>

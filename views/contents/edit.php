@@ -27,16 +27,16 @@
 							</div>
 							<div class="category">
 								<?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
-									<input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $_SESSION['edit']['shop_name']; ?>" required/>
+									<input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Shop Name" value="<?php echo $_SESSION['edit']['shop_name']; ?>" required/>
 								<?php else: ?>
-									<input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Store Name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
+									<input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Shop Name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
 								<?php endif; ?>
 								<div class="abc">
 									<span>Please Select Your Favorite Location!!</span>
 									<!-- goolgle map API -->
 									<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 									<?php require('webroot/asset/js/gmap_edit.php'); ?>
-									<div id="gmap"></div>
+									<div id="gmap" class="img-thumbnail center-block"></div>
 									<?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
 										<div id="lng">
 											<input type="hidden" name="lng" id="lng" value="<?php echo $_SESSION['edit']['lng']; ?>">

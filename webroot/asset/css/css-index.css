@@ -1231,6 +1231,11 @@ table.list td {
 		font-weight:bold;
 	}
 
+	#gmap {
+		width: 50%;
+		height: auto;
+	}
+
 
 }
 
@@ -1358,9 +1363,6 @@ table.list td {
 }
 
 #gmap {
-	position: relative;
-	padding-bottom: 75%; // これが縦横比
-	overflow: hidden;
 	width: 500px;
 	height: 370px;
 	border: 1px solid #e3e3e3;

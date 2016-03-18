@@ -5,8 +5,9 @@
 				<div class="wow fadeInUp row contact-row">
 					<div class="col-md-8 contact-right">
 						<form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/update/<?php echo $id; ?>">
-						<div class="wow fadeInUp well">ご登録内容をご確認ください。</div>
-							<table class="wow fadeInUp table table-condensed">
+						<div class="wow fadeInUp well">※ご登録内容をご確認ください。</div>
+                        <div class="wow fadeInUp alt-table-responsive">
+							<table class="table table-hover table-condensed col-xs-10">
 								<tbody>
 									<tr>
 										<td><div class="text-center">Category</div></td>
@@ -22,7 +23,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td><div class="text-center">Store Name</div></td>
+										<td><div class="text-center">Shop Name</div></td>
 										<td>
 											<div class="text-center">
 												<?php echo htmlspecialchars($_SESSION['edit']['shop_name'], ENT_QUOTES, 'UTF-8'); ?>
@@ -35,7 +36,7 @@
 											<!-- goolgle map API -->
 											<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 											<?php require('webroot/asset/js/gmap.php'); ?>
-											<div id="gmap"></div>
+											<div id="gmap" class="img-thumbnail center-block"></div>
 										</td>
 									</tr>
 									<tr>
@@ -73,6 +74,7 @@
 									</tr>
 								</tbody>
 							</table>
+                        </div>
 						<!-- 戻るボタン -->
 						<div class="col-sm-4 contact-right">
 							<a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>"><input type="button" name="submit" value="Back" class="btn01 btn-success wow fadeInUp" /></a>
