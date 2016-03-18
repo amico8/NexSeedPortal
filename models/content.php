@@ -31,23 +31,23 @@
 
 			if(isset($post['category'])&&!empty($post['category'])){
 				if (isset($post['search'])&&!empty($post['search'])) {
-					//カテゴリ検索とあいまい検索の両方を行うときのSQL文
-					$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`category_id`=%s OR `shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
+					//カテゴリ検索とあいまい検索の両方を行うときの投稿件数取得SQL文
+					$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`category_id`=%s) AND (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
 						  mysqli_real_escape_string($this->dbconnect,$post['category']),
 						  mysqli_real_escape_string($this->dbconnect,$post['search']),
 						  mysqli_real_escape_string($this->dbconnect,$post['search']));
 				}else{
-					//カテゴリ検索のみを行うときのSQL文
+					//カテゴリ検索のみを行うときの投稿件数取得SQL文
 					$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE `delete_flag`=0 AND `category_id`=%s',
 						  mysqli_real_escape_string($this->dbconnect,$post['category']));
 				}
 			}elseif(isset($post['search'])&&!empty($post['search'])){
-				//あいまい検索したときの件数取得のSQL文
+				//あいまい検索したときの件数取得の投稿件数取得SQL文
 				$sq = sprintf('SELECT COUNT(*) AS cnt FROM `contents` WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0',
 					  mysqli_real_escape_string($this->dbconnect,$post['search']),
 					  mysqli_real_escape_string($this->dbconnect,$post['search']));
 			}else{
-				//検索しないときの件数取得(デフォルト)のSQL文
+				//検索しないときの件数取得(デフォルト)の投稿件数取得SQL文
 				$sq = 'SELECT COUNT(*) AS cnt FROM `contents` WHERE `delete_flag`=0';
 			}
 			$records = mysqli_query($this->dbconnect,$sq) or die(mysqli_error($this->dbconnect));
@@ -63,7 +63,7 @@
 				if (isset($post['search'])&&!empty($post['search'])) {
 					//カテゴリ検索とあいまい検索の両方を行うときの投稿取得SQL文
 					$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment` FROM `contents` WHERE 
-									 (`category_id`=%s OR `shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0 ORDER BY created DESC LIMIT %d,5',
+									 (`category_id`=%s) AND (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0 ORDER BY created DESC LIMIT %d,5',
 							mysqli_real_escape_string($this->dbconnect,$post['category']),
 							mysqli_real_escape_string($this->dbconnect,$post['search']),
 							mysqli_real_escape_string($this->dbconnect,$post['search']),$start);
