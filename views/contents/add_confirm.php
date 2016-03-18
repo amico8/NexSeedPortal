@@ -27,7 +27,7 @@
 											</td>
 										</tr>
 										<tr class="sample1">
-											<td><div class="text-center">Store Name</div></td>
+											<td><div class="text-center">Shop Name</div></td>
 											<td><div class="text-center"><?php echo htmlspecialchars($_SESSION['add']['shop_name']); ?></div></td>
 										</tr>
 										<tr class="sample1">
