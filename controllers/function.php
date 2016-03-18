@@ -28,7 +28,7 @@ function login($post,$db){
 }
 
 //ログイン後にページ遷移したときにログインチェックを行う関数
-function login2($session,$db){
+function loginCheck($session,$db){
 	if (isset($session['user_id']) && $session['created'] + 3600 > time()) {
 		$sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d AND `user_name` = "%s"',
 					   mysqli_real_escape_string($db,$session['user_id']),
