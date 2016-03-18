@@ -141,11 +141,48 @@
 			);
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			$result = mysqli_fetch_assoc($results);
-			unset($_SESSION['edit']);
-			unset($_SESSION['error']);
 			//取得結果を返す
 			return $result;
 
+		}
+
+		public function edit($id) {
+			$content = new Content();
+			$this->viewOptions = $content->selectContents($id);
+			$this->categories = $content->selectCategories();
+			$this->resource = 'contents';
+			$this->action = 'edit';
+
+			include('views/layout/application.php');
+		}
+
+		public function editConfirm($id, $fileName, $files) {
+			if (isset($_FILES['picture_path']['name']) && !empty($_FILES['picture_path']['name'])) {
+				$fileName = $_FILES['picture_path']['name'];
+				$files = $_FILES['picture_path'];
+				if (!empty($fileName)) {
+					$ext = substr($fileName, -3);
+					if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
+						$_SESSION['error'] = 'error_prefix';
+						header('Location: /NexSeedPortal/contents/edit/'. $id);
+					} else {
+						$_SESSION['error'] = 'select_again';
+						$picture_path = date('YmdHis') . $fileName;
+						move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
+						$files = $picture_path;
+					}
+				} else {
+					$_SESSION['error'] = 'no_error';
+				}
+				$_SESSION['edit'] += array('picture_path'=>$files);
+			}
+			$content = new Content();
+			$this->categories = $content->selectCategories();
+			$this->files = $files;
+			$this->resource = 'contents';
+			$this->action = 'edit_confirm';
+
+			include('views/layout/application.php');
 		}
 
 		public function update($id) {
@@ -173,8 +210,6 @@
 					);
 			}
 			$result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			unset($_SESSION['edit']);
-			unset($_SESSION['error']);
 		}
 
 		public function delete($id) {
