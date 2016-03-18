@@ -5,13 +5,6 @@
 	//ログインチェックを実装
 	// require('function.php');
 	// require('dbconnect.php');
-	// if (isset($post['email']) && !empty($post['email'])) {
-	// 	login($post,$db);
-	// } elseif (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
-	// 	login2($_SESSION,$db);
-	// } else {
-	// 	header('Location: /NexSeedPortal/users/login/');
-	// }
 
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
