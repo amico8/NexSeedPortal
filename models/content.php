@@ -62,26 +62,26 @@
 			if(isset($post['category'])&&!empty($post['category'])){
 				if (isset($post['search'])&&!empty($post['search'])) {
 					//カテゴリ検索とあいまい検索の両方を行うときの投稿取得SQL文
-					$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents` WHERE 
+					$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment` FROM `contents` WHERE 
 									 (`category_id`=%s OR `shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag`=0 ORDER BY created DESC LIMIT %d,5',
 							mysqli_real_escape_string($this->dbconnect,$post['category']),
 							mysqli_real_escape_string($this->dbconnect,$post['search']),
 							mysqli_real_escape_string($this->dbconnect,$post['search']),$start);
 				}else{
 					//カテゴリのみ検索するときの投稿取得SQL文
-					$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents`
+					$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment` FROM `contents`
 										   WHERE `delete_flag`=0 AND `category_id`=%s ORDER BY created DESC LIMIT %d,5',
 							mysqli_real_escape_string($this->dbconnect,$post['category']),$start);
 				}
 			}elseif(isset($post['search'])&&!empty($post['search'])){
 				//あいまい検索のみするときの投稿取得SQL文
-				$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents`
+				$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment` FROM `contents`
 										   WHERE (`shop_name` LIKE "%%%s%%" OR `comment` LIKE "%%%s%%") AND `delete_flag` = 0 ORDER BY created DESC LIMIT %d,5',
 						mysqli_real_escape_string($this->dbconnect,$post['search']),
 						mysqli_real_escape_string($this->dbconnect,$post['search']),$start);
 			}else{
 				//何も検索するときの投稿取得SQL文
-				$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment`,`delete_flag` FROM `contents`
+				$sqls = sprintf('SELECT `content_id`,`shop_name`, `review`, `comment` FROM `contents`
 										   WHERE `delete_flag`=0 ORDER BY created DESC LIMIT %d,5',$start);
 			}
 			$recordset = mysqli_query($this->dbconnect,$sqls) or die(mysqli_error($this->dbconnect));
