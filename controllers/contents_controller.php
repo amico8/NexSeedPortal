@@ -8,7 +8,7 @@
 	if (isset($post['email'])&&!empty($post['email'])) {
 		login($post,$db);
 	} elseif (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
-		login2($_SESSION,$db);
+		loginCheck($_SESSION,$db);
 	}else{
 		header('Location: /NexSeedPortal/users/login/');
 	}
@@ -17,14 +17,10 @@
 
 	//アクション名によって、呼び出すメソッドを変える
 	//$action (グローバル変数)は、routes.phpで定義されているもの
-
 	switch ($action) {
 		case 'index':
 			$controller->index($id,$post);
 			break;
-
-
-
 		default:
 			break;
 	}
@@ -35,16 +31,16 @@
 		private $resource = '';
 		private $viewOptions = '';
 
-		private $loginaction = '';
-
+		public function __construct(){
+			//モデルを呼び出す
+			$content = new Content();
+		}
 
 		public function index($id,$post){
-			//モデルを呼び出す
-				$content = new Content();
-				$this->viewOptions = $content->index($id,$post);
+			$this->viewOptions = $content->index($id,$post);
 			//アクション名を設定
-				$this->resource = 'contents';
-				$this->action = 'index';
+			$this->resource = 'contents';
+			$this->action = 'index';
 			//ビューを呼び出す
 				require('views/layout/application.php');
 		}
