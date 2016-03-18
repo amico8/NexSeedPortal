@@ -30,19 +30,21 @@
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
+		private $content = '';
 
 		public function __construct(){
 			//モデルを呼び出す
-			$content = new Content();
+			$this->content = new Content();
 		}
 
 		public function index($id,$post){
-			$this->viewOptions = $content->index($id,$post);
+			//indexメソッドを呼び出す
+			$this->viewOptions = $this->content->index($id,$post);
 			//アクション名を設定
 			$this->resource = 'contents';
 			$this->action = 'index';
 			//ビューを呼び出す
-				require('views/layout/application.php');
+			require('views/layout/application.php');
 		}
 
 
