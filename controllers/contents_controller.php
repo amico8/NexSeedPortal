@@ -43,32 +43,29 @@
 	}
 
 	class ContentsController {
-		//プロパティ
+		private $content = '';
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
-		// private $files = '';
 		private $post = array();
 
 
-		public function show($id) {
-			// モデルを呼び出す
-			$content = new Content();
-			$this->viewOptions = $content->show($id);
+		public function __construct() {
+			$this->content = new Content();
+		}
 
-			// アクション名を設定する
+		public function show($id) {
+			$this->viewOptions = $this->content->show($id);
 			$this->resource = 'contents';
 			$this->action = 'show';
 
-			// ビューを呼び出す
 			include('views/layout/application.php');
 		}
 
 		public function edit($id) {
-			$content = new Content();
-			$this->viewOptions = $content->selectContents($id);
-			$this->categories = $content->selectCategories();
+			$this->viewOptions = $this->content->selectContents($id);
+			$this->categories = $this->content->selectCategories();
 			$this->resource = 'contents';
 			$this->action = 'edit';
 
@@ -95,8 +92,7 @@
 				}
 				$_SESSION['edit'] += array('picture_path'=>$files);
 			}
-			$content = new Content();
-			$this->categories = $content->selectCategories();
+			$this->categories = $this->content->selectCategories();
 			$this->files = $files;
 			$this->resource = 'contents';
 			$this->action = 'edit_confirm';
@@ -105,16 +101,14 @@
 		}
 
 		public function update($id) {
-			$content = new Content();
-			$content->update($id);
+			$this->content->update($id);
 
 			header('Location: /NexSeedPortal/contents/show/'.$id);
 		}
 
 
 		public function delete($id) {
-			$content = new content();
-			$content->delete($id);
+			$this->content->delete($id);
 
 			header('Location: /NexSeedPortal/contents/index');
 		}

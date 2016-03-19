@@ -27,9 +27,9 @@
 							</div>
 							<div class="category">
 								<?php if (isset($_SESSION['edit']) && !empty($_SESSION['edit'])): ?>
-									<input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Shop Name" value="<?php echo $_SESSION['edit']['shop_name']; ?>" required/>
+									<input type="text" name="shop_name" id="shop_name" class="form-control input-lg" placeholder="Shop Name" value="<?php echo $_SESSION['edit']['shop_name']; ?>" required/>
 								<?php else: ?>
-									<input type="text" name="shop_name" id="storename" class="form-control input-lg" placeholder="Shop Name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
+									<input type="text" name="shop_name" id="shop_name" class="form-control input-lg" placeholder="Shop Name" value="<?php echo $this->viewOptions['shop_name']; ?>" required/>
 								<?php endif; ?>
 								<div class="abc">
 									<span>Please Select Your Favorite Location!!</span>

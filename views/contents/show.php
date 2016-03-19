@@ -3,7 +3,7 @@
 		<div class="overlay02">
 			<div class="container">
 				<div class="wow fadeInUp row contact-row">
-					<div class="col-md-9 contact-right">
+					<div class="col-xs-9 contact-right">
 					<?php if (isset($this->viewOptions) && !empty($this->viewOptions)): ?>
 						<div class="well2">
 							<p>
@@ -68,10 +68,10 @@
 									<td>
 										<?php if (isset($this->viewOptions['picture_path']) && !empty($this->viewOptions['picture_path'])): ?>
 											<div class="col-xs-12 col-sm-12">
-                                                <img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="img-thumbnail img-responsive center-block"/>
+												<img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $this->viewOptions['picture_path']; ?>" class="img-thumbnail img-responsive center-block"/>
 											</div>
-                                        <?php else: ?>
-                                        	<div class="text-center">
+										<?php else: ?>
+											<div class="text-center">
 												No Image
 											</div>
 										<?php endif; ?>

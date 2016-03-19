@@ -15,8 +15,8 @@
 
 		public function show($id) {
 			$sql = sprintf('SELECT c.category_name, u.user_name, co.* FROM `categories` c, `users` u, `contents` co WHERE `delete_flag` = 0 AND c.category_id=co.category_id AND u.user_id = co.user_id AND co.content_id=%d',
-			mysqli_real_escape_string($this->dbconnect, $id)
-			);
+				   mysqli_real_escape_string($this->dbconnect, $id)
+				   );
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			$result = mysqli_fetch_assoc($results);
 			//取得結果を返す
@@ -28,25 +28,25 @@
 			// 画像を上書きで消さないように、if文で分岐している
 			if (isset($_SESSION['edit']['picture_path']) && !empty($_SESSION['edit']['picture_path'])) {
 				$sql = sprintf('UPDATE `contents` SET `category_id`= %d, `shop_name`="%s",`lat`=%.20f,`lng`=%.20f,`picture_path`="%s",`review`=%d,`comment`="%s" WHERE `content_id` = %d',
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['category_id']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['shop_name']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lat']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lng']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['picture_path']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['review']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['comment']),
-					mysqli_real_escape_string($this->dbconnect, $id)
-					);
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['category_id']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['shop_name']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lat']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lng']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['picture_path']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['review']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['comment']),
+					   mysqli_real_escape_string($this->dbconnect, $id)
+					   );
 			} else {
 				$sql = sprintf('UPDATE `contents` SET `category_id`= %d, `shop_name`="%s",`lat`=%.20f,`lng`=%.20f,`review`=%d,`comment`="%s" WHERE `content_id` = %d',
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['category_id']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['shop_name']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lat']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lng']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['review']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['comment']),
-					mysqli_real_escape_string($this->dbconnect, $id)
-					);
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['category_id']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['shop_name']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lat']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['lng']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['review']),
+					   mysqli_real_escape_string($this->dbconnect, $_SESSION['edit']['comment']),
+					   mysqli_real_escape_string($this->dbconnect, $id)
+					   );
 			}
 			$result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 		}
@@ -58,11 +58,10 @@
 
 		public function selectContents($id) {
 			$sql = sprintf('SELECT c.category_name, co.* FROM `categories` c, `contents` co WHERE `delete_flag` = 0 AND c.category_id=co.category_id AND co.content_id=%d',
-			mysqli_real_escape_string($this->dbconnect, $id)
-			);
+				   mysqli_real_escape_string($this->dbconnect, $id)
+				   );
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 			$result = mysqli_fetch_assoc($results);
-			//取得結果を返す
 			return $result;
 		}
 
@@ -77,7 +76,6 @@
 					}
 					$categories[] = $result;
 			}
-			//取得結果を返す
 			return $categories;
 		}
 

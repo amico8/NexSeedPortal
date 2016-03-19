@@ -6,7 +6,7 @@
 					<div class="col-md-8 contact-right">
 						<form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/update/<?php echo $id; ?>">
 						<div class="wow fadeInUp well">※ご登録内容をご確認ください。</div>
-                        <div class="wow fadeInUp alt-table-responsive">
+						<div class="wow fadeInUp alt-table-responsive">
 							<table class="table table-hover table-condensed col-xs-10">
 								<tbody>
 									<tr>
@@ -74,7 +74,7 @@
 									</tr>
 								</tbody>
 							</table>
-                        </div>
+						</div>
 						<!-- 戻るボタン -->
 						<div class="col-sm-4 contact-right">
 							<a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>"><input type="button" name="submit" value="Back" class="btn01 btn-success wow fadeInUp" /></a>
