@@ -87,10 +87,6 @@
 			}
 			$this->error = $this->user->getError();
 
-			// if (!empty($this->user->getRewrite())) {
-			// 	$post = $this->user->getRewrite();
-			// }
-
 			if(isset($post) && !empty($post)) {
 			    $this->name = h($post['name']);
 			    $this->email = h($post['email']);

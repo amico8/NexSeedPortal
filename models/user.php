@@ -2,7 +2,6 @@
 	class User {
 		private $dbconnect = '';
 		private $error = '';
-		private $rewrite = '';
 
 		public function __construct() {
 			require('dbconnect.php');
@@ -16,14 +15,6 @@
 
 		public function setError($error) {
 			$this->error = $error;
-		}
-
-		public function getRewrite(){
-			return $this->rewrite;
-		}
-
-		public function setRewrite($rewrite) {
-			$this->rewrite = $rewrite;
 		}
 
 		public function login($post) {
@@ -75,10 +66,6 @@
 
 		public function add($post) {
 			$error = array();
-			// if ($post == '' && isset($_SESSION) && !empty($_SESSION)) {
-			// 	$this->rewrite = $_SESSION['join'];
-			// 	$error['rewrite'] = true;
-			// }
 			if(isset($post) && !empty($post)) {
 				$name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
 				$email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');
@@ -111,10 +98,6 @@
 				}
 				$_SESSION['join'] = $post;
 			}
-			// if (isset($_REQUEST['action']) && $_REQUEST['action']=='rewrite') {
-			// 	$this->rewrite = $_SESSION['join'];
-			// 	$error['rewrite'] = true;
-			// }
 			$this->error = $error;
 			return false;
 		}
