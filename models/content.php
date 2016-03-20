@@ -126,16 +126,16 @@
 
 		public function create() {
 					$sql = sprintf('INSERT INTO `contents`(`category_id`, `user_id`, `shop_name`, `lat`, `lng`, `picture_path`, `review`, `comment`, `delete_flag`, `created`) VALUES (%s,2,"%s",%.20f,%.20f,"%s",%s,"%s",0,now())',
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['category_id']),
-					// mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['user_id']),
-					// ↑ ソースレビューの為user_idを暫定的に 2 に設定しています。
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['shop_name']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['lat']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['lng']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['picture_path']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['review']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['comment'])
-					);
+						   mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['category_id']),
+						   // mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['user_id']),
+						   // ↑ ソースレビューの為user_idを暫定的に 2 に設定しています。
+						   mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['shop_name']),
+						   mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['lat']),
+						   mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['lng']),
+						   mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['picture_path']),
+						   mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['review']),
+						   mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['comment'])
+						   );
 					mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 		}
 
