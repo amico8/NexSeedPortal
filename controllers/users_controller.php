@@ -2,8 +2,7 @@
 	require('models/user.php');
 	require('function.php');
 	$controller = new UsersController();
-	//アクションによって呼び出すメソッドを変える
-	//$actionはroutes.phpで定義されているもの
+
 	switch ($action) {
 		case 'login':
 			$controller->login($post);
@@ -18,7 +17,7 @@
 			$controller->confirm($post);
 			break;
 		case 'create':
-			$controller->create($post);
+			$controller->create($_SESSION['join']);
 			break;
 		default:
 			break;
@@ -40,18 +39,18 @@
 		}
 
 		public function login($post) {
-			$this->viewOptions = $this->user->login($post);
 			$this->resource = 'users';
 			$this->action = 'login';
-			$this->error = $this->user->error;
 
-			if($this->viewOptions == true) {
-				header('Location: /NexSeedPortal/contents/index');
-				exit();
-			}
-			if(isset($post) && !empty($post)) {
-			    $this->email = h($post['email']);
-			    $this->password = h($post['password']);
+			if (isset($post) && !empty($post)) {
+				if($this->user->login($post)) {
+					// ログイン成功
+					header('Location: /NexSeedPortal/contents/index');
+					exit();
+				}
+				$this->error = $this->user->getError();
+				$this->email = h($post['email']);
+				$this->password = h($post['password']);
 			}
 			//ビューを呼び出す
 			include('views/layout/application.php');
@@ -79,19 +78,18 @@
 		}
 
 		public function add($post) {
-			$this->viewOptions = $this->user->add($post);
 			$this->resource = 'users';
 			$this->action = 'index';
-			$this->error = $this->user->error;
 
-			if($this->viewOptions == true) {
+			if($this->user->add($post)) {
 				header('Location: /NexSeedPortal/users/confirm/');
 				exit();
 			}
+			$this->error = $this->user->getError();
 
-			if (isset($this->user->rewrite) && !empty($this->user->rewrite)) {
-				$post = $this->user->rewrite;
-			}
+			// if (!empty($this->user->getRewrite())) {
+			// 	$post = $this->user->getRewrite();
+			// }
 
 			if(isset($post) && !empty($post)) {
 			    $this->name = h($post['name']);
@@ -116,7 +114,7 @@
 		}
 
 		public function create($post) {
-			$this->viewOptions = $this->user->create($post);
+			$this->user->create($post);
 			$this->resource = 'users';
 			$this->action = 'login';
 
