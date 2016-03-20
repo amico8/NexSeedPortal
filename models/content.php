@@ -136,9 +136,7 @@
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['review']),
 					mysqli_real_escape_string($this->dbconnect, $_SESSION['add']['comment'])
 					);
-					// echo $sql;
 					mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-					// return値はいらない
 		}
 
 
