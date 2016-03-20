@@ -1,6 +1,6 @@
 <?php
+//最初にログインするときにログイン処理を行う関数
 function login($post,$db){
-    //indexページで最初のログイン処理を行うための関数
     $error = array();
     if (isset($post)&&!empty($post)) {
         if ($post['email'] !='' && $post['password'] != '') {
@@ -11,8 +11,8 @@ function login($post,$db){
             if ($table = mysqli_fetch_assoc($record)) {
                 $_SESSION['user_id'] = $table['user_id'];
                 $_SESSION['user_name'] = $table['user_name'];
-                $_SESSION['created'] = time();
-                if ($_POST['save'] = 'on' && !isset($_COOKIE)) {
+                $_SESSION['time'] = time();
+                if ($_POST['save'] = 'on') {
                     setcookie('email',$post['email'],time() +60*60*24*14);
                     setcookie('password',$post['password'],time() +60*60*24*14);
                 }
@@ -20,27 +20,26 @@ function login($post,$db){
                 $error['login'] = 'failed';
                 header('Location: /NexSeedPortal/users/login/');
             }
-        }else{
+        }else {
             $error['login'] = 'blank';
             header('Location: /NexSeedPortal/users/login/');
         }
     }
 }
-
-function login2($session,$db){
-    //複数回数目以降のログインでログイン処理を行う関数
-    if (isset($session['user_id']) && $session['created'] + 3600 > time()) {
+//ログイン後にページ遷移したときにログインチェックを行う関数
+function loginCheck($session,$db){
+    if (isset($session['user_id']) && $session['time'] + 3600 > time()) {
         $sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d AND `user_name` = "%s"',
-                    mysqli_real_escape_string($db,$session['user_id']),
+                       mysqli_real_escape_string($db,$session['user_id']),
                     mysqli_real_escape_string($db,$session['user_name']));
         $record = mysqli_query($db,$sql) or die(mysqli_error($db));
         if($member = mysqli_fetch_assoc($record)){
-            $_SESSION['created'] = time();
+            $_SESSION['time'] = time();
         }else{
             header('Location: /NexSeedPortal/users/login/');
         }
     }else{
-        header('Location: /NexSeedPortal/users/login');
+        header('Location: /NexSeedPortal/users/login/');
     }
 }
 

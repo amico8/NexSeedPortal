@@ -1,13 +1,21 @@
 <?php
 	class User {
 		private $dbconnect = '';
+		private $error = '';
+
 		public function __construct() {
 			require('dbconnect.php');
 			// DB接続の値を代入
 			$this->dbconnect = $db;
 		}
-		public $error = '';
-		public $rewrite = '';
+
+		public function getError(){
+			return $this->error;
+		}
+
+		public function setError($error) {
+			$this->error = $error;
+		}
 
 		public function login($post) {
 			if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
@@ -33,13 +41,13 @@
 						$record = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 						if ($table = mysqli_fetch_assoc($record)) {
 							//ログイン成功
+							$_SESSION['user_name'] = $table['user_name'];
 							$_SESSION['user_id'] = $table['user_id'];
 							$_SESSION['time'] = time();
 							if ($post['save'] == 'on' && !isset($_COOKIE)) {
 							  	setcookie('email', $post['email'], time()+60*60*24*14);
 							  	setcookie('password', $post['password'], time()+60*60*24*14);
 							}
-							$_SESSION['post'] = $post;
 							return true;
 					  	} else {
 							$error['login'] = 'failed';
@@ -48,16 +56,16 @@
 				} else {
 			  		$error['login'] = 'blank';
 				}
-				$this->error = $error;
-				return false;
 			}
+
+			$this->error = $error;
+			return false;
 		}
 
 		public function add($post) {
 			$error = array();
 			if ($post == '' && isset($_SESSION) && !empty($_SESSION)) {
 				$this->rewrite = $_SESSION['join'];
-				$error['rewrite'] = true;
 			}
 			if(isset($post) && !empty($post)) {
 				$name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
@@ -93,18 +101,17 @@
 			}
 			if (isset($_REQUEST['action']) && $_REQUEST['action']=='rewrite') {
 				$this->rewrite = $_SESSION['join'];
-				$error['rewrite'] = true;
 			}
 			$this->error = $error;
 			return false;
 		}
 
-		public function create() {
+		public function create($post) {
 			//登録処理
 			$sql = sprintf('INSERT INTO users SET user_name="%s", email="%s", password="%s", created=now()',
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['name']),
-					mysqli_real_escape_string($this->dbconnect, $_SESSION['join']['email']),
-					mysqli_real_escape_string($this->dbconnect, sha1($_SESSION['join']['password1'])));
+					mysqli_real_escape_string($this->dbconnect, $post['name']),
+					mysqli_real_escape_string($this->dbconnect, $post['email']),
+					mysqli_real_escape_string($this->dbconnect, sha1($post['password1'])));
 			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 		}
 	}
