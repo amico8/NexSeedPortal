@@ -9,9 +9,6 @@
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
 
-	//アクション名によって、呼び出すメソッドを変える
-	//$action (グローバル変数)は、routes.phpで定義されているもの
-
 	switch ($action) {
 		case 'show':
 			$controller->show($id);

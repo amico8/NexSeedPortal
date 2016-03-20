@@ -18,10 +18,7 @@
 				   mysqli_real_escape_string($this->dbconnect, $id)
 				   );
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			$result = mysqli_fetch_assoc($results);
-			//取得結果を返す
-			return $result;
-
+			return mysqli_fetch_assoc($results);
 		}
 
 		public function update($id) {
@@ -48,7 +45,7 @@
 					   mysqli_real_escape_string($this->dbconnect, $id)
 					   );
 			}
-			$result = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 		}
 
 		public function delete($id) {
@@ -61,8 +58,7 @@
 				   mysqli_real_escape_string($this->dbconnect, $id)
 				   );
 			$results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
-			$result = mysqli_fetch_assoc($results);
-			return $result;
+			return mysqli_fetch_assoc($results);
 		}
 
 		public function selectCategories() {
@@ -78,7 +74,6 @@
 			}
 			return $categories;
 		}
-
 	}
 
 
