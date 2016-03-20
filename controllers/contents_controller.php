@@ -83,7 +83,7 @@
 					$_SESSION['error'] = 'no_error';
 				}
 			}
-			if(empty($session['catefory_id'])) {
+			if(empty($session['category_id'])) {
 				$_SESSION['error'] = 'category';
 				header('Location: /NexSeedPortal/contents/add/');
 			}
