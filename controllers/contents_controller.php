@@ -35,28 +35,30 @@
 
 	class ContentsController {
 		//プロパティ
+		private $cnntent = '';
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
 		private $files = '';
 
+		public function __construct() {
+			$this->content = new Content();
+		}
+
 		public function index($id,$post){
-			//モデルを呼び出す
-			$content = new Content();
-			$this->viewOptions = $content->index($id,$post);
-			//アクション名を設定
+			$this->viewOptions = $this->content->index($id,$post);
 			$this->resource = 'contents';
 			$this->action = 'index';
-			//ビューを呼び出す
+
 			require('views/layout/application.php');
 		}
 
 		public function add(){
- 			$content = new Content();
- 			$this->categories = $content->selectCategories();
+ 			$this->categories = $this->content->selectCategories();
  			$this->action='add';
  			$this->resource='contents';
+
 			include('views/layout/application.php');
 		}
 
@@ -65,8 +67,6 @@
 				$fileName = $_FILES['picture_path']['name'];
 				$files = $_FILES['picture_path'];
 				if (!empty($fileName)) {
-
-					
 					$ext = substr($fileName, -3);
 					if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
 						$_SESSION['error'] = 'error_prefix';
@@ -82,24 +82,15 @@
 				}
 				$_SESSION['add'] += array('picture_path'=>$files);
 			}
-			$content = new Content();
-			$this->categories = $content->selectCategories();
+			$this->categories = $this->content->selectCategories();
 			$this->files = $files;
 			$this->resource = 'contents';
 			$this->action = 'add_confirm';
+
 			include('views/layout/application.php');
 		}
 		public function create() {
-			$content = new Content();
-			$content->create();
-			// include('views/layout/application.php');
+			$this->content->create();
 		}
-		public function editConfirm($id) {
-			$this->resource = 'contents';
-			$this->action = 'edit_confirm';
-			include('views/layout/application.php');
-
-		}
-
 	}
  ?>
