@@ -6,7 +6,7 @@
 					<div class="col-sm-7 contact-right">
 						<form method="post" id="contact-form" class="form-horizontal" action="/NexSeedPortal/contents/confirm"  enctype="multipart/form-data">
 							<div class="btn-section dropdown01">
-								<select class="category" name="category_id">
+								<select class="category" name="category_id" required>
 									<option value="">Category</option>
 									<?php foreach ($this->categories as $category): ?>
 										<?php if (isset($_SESSION['add']) && !empty($_SESSION['add'])): ?>
