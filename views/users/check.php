@@ -23,7 +23,7 @@
 
 					<!-- /.main title -->
 					<h1 class="wow fadeInLeft">
-					NexSeed Portal Site New Open!!
+						NexSeed Portal Site<br>New Open!!
 					</h1>
 
 					<!-- /.header paragraph -->
