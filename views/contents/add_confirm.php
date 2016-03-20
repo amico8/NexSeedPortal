@@ -36,7 +36,7 @@
 										<tr class="sample1">
 											<td><div class="text-center">Photo</div></td>
 											<td>
-												<?php if (isset($fileName) && !empty($fileName)): ?>
+												<?php if (isset($_SESSION['add']['picture_path']) && !empty($_SESSION['add']['picture_path'])): ?>
 													<img src="/NexSeedPortal/webroot/asset/images/post_images/<?php echo $_SESSION['add']['picture_path']; ?>" width="500" height="370">
 												<?php else: ?>
 													Image has not been selected.

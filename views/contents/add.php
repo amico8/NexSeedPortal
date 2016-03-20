@@ -25,6 +25,12 @@
 									<?php endforeach; ?>
 								</select>
 							</div>
+							<?php if (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'category'): ?>
+								<div class="abc">
+									<br>
+									<p class="danger">※カテゴリが選択されていません。</p>
+								</div>
+							<?php endif; ?>
 							<!-- 店の名前 -->
 							<div class="category">
 								<?php if (isset($_SESSION['add']) && !empty($_SESSION['add'])): ?>
