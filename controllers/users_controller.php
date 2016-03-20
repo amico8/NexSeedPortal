@@ -36,14 +36,14 @@
 
 		public function __construct() {
 			//ここでモデルを呼び出す
-			$user = new User();
+			$this->user = new User();
 		}
 
 		public function login($post) {
 			$this->viewOptions = $this->user->login($post);
 			$this->resource = 'users';
 			$this->action = 'login';
-			$this->error = $user->error;
+			$this->error = $this->user->error;
 
 			if($this->viewOptions == true) {
 				header('Location: /NexSeedPortal/contents/index');
