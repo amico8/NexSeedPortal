@@ -3,7 +3,7 @@
 	require('models/content.php');
 
 	//ログインチェックを実装
-	require('function.php');
+	require('controllers/function.php');
 	require('dbconnect.php');
 	if (isset($post['email'])&&!empty($post['email'])) {
 		login($post,$db);
