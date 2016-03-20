@@ -25,6 +25,12 @@
 									<?php endforeach; ?>
 								</select>
 							</div>
+							<?php if (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] == 'category'): ?>
+								<div class="abc">
+									<br>
+									<p class="danger">※カテゴリが選択されていません。</p>
+								</div>
+							<?php endif; ?>
 							<!-- 店の名前 -->
 							<div class="category">
 								<?php if (isset($_SESSION['add']) && !empty($_SESSION['add'])): ?>
@@ -43,8 +49,12 @@
 									<input type="hidden" name="lat" id="lat" value="<?php echo $_SESSION['add']['lat']; ?>">
 								</div>
 								<?php else: ?>
-								 <div id="lng"></div>
-								 <div id="lat"></div>
+								 <div id="lng">
+								 	<input type="hidden" name="lng" id="lng" value="123.90381932258606">
+								 </div>
+								 <div id="lat">
+								 	<input type="hidden" name="lat" id="lat" value="10.329200473939935">
+								 </div>
 							<?php endif; ?>
 							</div>
 								<!-- 写真 -->
