@@ -32,7 +32,7 @@
 				<ul class="nav navbar-nav">
 				<li>
 					<div class="navbar-brand2">
-						<?php if (isset($_SESSION['user_id']) && $_SESSION['time'] + 3600 > time()) {
+						<?php if (isset($_SESSION['user_id']) && isset($_SESSION['time']) && $_SESSION['time'] + 3600 > time()) {
 							echo 'Welcome '.$_SESSION['user_name'].'!';
 						} ?>
 					</div>
@@ -44,7 +44,7 @@
 				<ul class="nav navbar-nav">
 				<li>
 					<div class="btn-section">
-						<?php if (isset($_SESSION['user_id']) && $_SESSION['time'] + 3600 > time()) {
+						<?php if (isset($_SESSION['user_id']) && isset($_SESSION['time']) && $_SESSION['time'] + 3600 > time()) {
 							echo '<a href="/NexSeedPortal/users/logout/" button type="button" class="btn-default2">Logout</a>';
 						} else {
 							echo '<p>      </p>';
