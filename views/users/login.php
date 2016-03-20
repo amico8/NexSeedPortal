@@ -4,7 +4,6 @@
 
 <!-- /.parallax full screen background image -->
 <div class="fullscreen landing parallax top-image" data-img-width="2000" data-img-height="1333" data-diff="100">
-
 	<div class="overlay">
 		<div class="container">
 			<div class="row">

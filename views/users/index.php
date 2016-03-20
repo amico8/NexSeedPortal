@@ -8,7 +8,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7">
-
 					<!-- /.main title -->
 					<h1 class="wow fadeInLeft">
 						NexSeed Portal Site<br>New Open!!

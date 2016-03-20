@@ -19,7 +19,6 @@
     //POST送信されたら値を取得
     if(isset($_POST)&&!empty($_POST)){
         $post = $_POST;
-        $_SESSION['add'] = $post;
     } else if (isset($_SESSION['post']) && !empty($_SESSION['post'])) {
         //セッションでpostを引き渡す場合
         $post = $_SESSION['post'];
