@@ -49,8 +49,12 @@
 									<input type="hidden" name="lat" id="lat" value="<?php echo $_SESSION['add']['lat']; ?>">
 								</div>
 								<?php else: ?>
-								 <div id="lng"></div>
-								 <div id="lat"></div>
+								<div id="lng">
+									<input type="hidden" name="lng" id="lng" value="123.90381932258606">
+								</div>
+								<div id="lat">
+									<input type="hidden" name="lat" id="lat" value="10.329200473939935">
+								</div>
 							<?php endif; ?>
 							</div>
 								<!-- 写真 -->
