@@ -32,6 +32,7 @@
 		private $email = '';
 		private $password = '';
 		private $error = '';
+		private $user = '';
 
 		public function __construct() {
 			//ここでモデルを呼び出す
