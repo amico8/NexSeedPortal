@@ -1,74 +1,58 @@
 <?php
+
 	require('models/user.php');
+
 	$controller = new UsersController();
 	//アクションによって呼び出すメソッドを変える
 	//$actionはroutes.phpで定義されているもの
 	switch ($action) {
-		case 'login':
-			$controller->login($post);
-			break;
 		case 'add':
-			$controller->add($post);
-			break;
-		case 'confirm':
-			$controller->confirm($post);
+			$controller->add();
 			break;
 		case 'create':
-			$controller->create($post);
+			$controller->create();
+			break;
+		case 'confirm':
+			$controller->confirm();
 			break;
 		default:
 			break;
 	}
-	class UsersController {
-			private $action = '';
-			private $resource = '';
-			private $viewOptions = '';
-			private $name = '';
-			private $email = '';
-			private $password = '';
-			private $error = '';
 
-		public function login($post) {
-			//ここでモデルを呼び出す
-			$user = new User();
-			$this->viewOptions = $user->login($post);
-			$this->resource = 'users';
-			$this->action = 'login';
+	class UsersController {
+		private $action = '';
+		private $resource = '';
+		private $viewOptions = '';
+
+		public function add() {
+			$this->action = 'add';
+
 			//ビューを呼び出す
 			include('views/layout/application.php');
 		}
-		public function add($post) {
+
+		public function create() {
 			//ここでモデルを呼び出す
 			$user = new User();
-			$this->viewOptions = $user->add($post);
-			$this->resource = 'users';
-			$this->action = 'index';
-			$this->error = $user->error;
-			if(isset($post) && !empty($post)) {
-				$this->name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
-				$this->email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');
-				$this->password = htmlspecialchars($post['password1'], ENT_QUOTES, 'UTF-8');
-			}
+			$this->viewOptions = $user->create();
+
+			$this->action = 'create';
+
 			//ビューを呼び出す
 			include('views/layout/application.php');
 		}
-		public function confirm($post) {
+
+		public function confirm() {
 			//ここでモデルを呼び出す
 			$user = new User();
-			$this->viewOptions = $user->confirm($post);
-			$this->resource = 'users';
-			$this->action = 'check';
+			$this->viewOptions = $user->confirm();
+
+			$this->action = 'confirm';
+
 			//ビューを呼び出す
 			include('views/layout/application.php');
 		}
-		public function create($post) {
-			//ここでモデルを呼び出す
-			$user = new User();
-			$this->viewOptions = $user->create($post);
-			$this->resource = 'users';
-			$this->action = 'login';
-			//ビューを呼び出す
-			include('views/layout/application.php');
-		}
+
 	}
+
 ?>
