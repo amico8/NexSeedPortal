@@ -1194,10 +1194,6 @@ table.list td {
 	-o-text-overflow: ellipsis;
 	}
 
-
-
-
-
 @media screen and (max-width: 600px) {
 
 	table.list {
@@ -1231,6 +1227,10 @@ table.list td {
 		font-weight:bold;
 	}
 
+	#gmap {
+		width: 50%;
+		height: auto;
+	}
 
 }
 
@@ -1246,9 +1246,8 @@ table.list td {
 	padding: 3px;
 	cursor: pointer;
 	float: left;
-
-
 }
+
 .dropdown01 select {
 	position: relative;
 	width: 50%;
@@ -1261,8 +1260,6 @@ table.list td {
 	float: left;
 	margin: 30px;
 	height: 55px;
-	
-
 
 }
 
@@ -1288,8 +1285,11 @@ table.list td {
 	width:200px;
 }
 .map01{
-	width:200px; height:200px;
+	/*width:200px; height:200px;*/
 	margin-left:30px;
+	width: 500px; 
+	height: 370px;
+	border: 1px solid Gray;
 }
 .insert_box{
 	font-size:18px !important;
@@ -1376,9 +1376,6 @@ table.list td {
 }
 
 #gmap {
-	position: relative;
-	padding-bottom: 75%; // これが縦横比
-	overflow: hidden;
 	width: 500px;
 	height: 370px;
 	border: 1px solid #e3e3e3;

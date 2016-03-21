@@ -78,16 +78,18 @@
 					$error['email'] = 'blank';
 				}
 				if($post['password1']=='') {
-				 	$error['password'] = 'blank';
+					$error['password'] = 'blank';
 				} elseif (strlen($post['password1']) < 4 || strlen($post['password1']) > 16) {
 					$error['password'] = 'length';
 				} elseif ($post['password1'] != $post['password2']) {
 					$error['password'] = 'incorrect';
 				}
+
 				if (empty($error)) {
 					//重複アカウントのチェック
 					$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
 							mysqli_real_escape_string($this->dbconnect, $post['email']));
+
 					$record = mysqli_query($this->dbconnect, $sql);
 					$table = mysqli_fetch_assoc($record);
 					if ($table['cnt'] > 0) {
@@ -114,5 +116,7 @@
 					mysqli_real_escape_string($this->dbconnect, sha1($post['password1'])));
 			mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 		}
+
 	}
- ?>
+
+?>

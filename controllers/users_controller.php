@@ -1,6 +1,6 @@
 <?php
 	require('models/user.php');
-	require('function.php');
+	require('controllers/function.php');
 	$controller = new UsersController();
 
 	switch ($action) {
@@ -121,4 +121,5 @@
 			exit();
 		}
 	}
- ?>
+
+?>

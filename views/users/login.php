@@ -23,7 +23,7 @@
 						よろしくお願いします！</p>
 					</div>
 
-				</div> 
+				</div>
 
 				<!-- /.signup form -->
 				<div class="col-md-5">
