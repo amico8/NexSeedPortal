@@ -8,6 +8,8 @@
 	$action = $params[1];
 	$id = 0;
 	$post = array();
+	$files = '';
+	$fileName = '';
 
 	//idがあった場合idも取得する
 	if (isset($params[2])) {
