@@ -1194,6 +1194,10 @@ table.list td {
 	-o-text-overflow: ellipsis;
 	}
 
+
+
+
+
 @media screen and (max-width: 600px) {
 
 	table.list {
@@ -1232,6 +1236,7 @@ table.list td {
 		height: auto;
 	}
 
+
 }
 
 /*ドロップダウンリスト編集*/
@@ -1246,8 +1251,9 @@ table.list td {
 	padding: 3px;
 	cursor: pointer;
 	float: left;
-}
 
+
+}
 .dropdown01 select {
 	position: relative;
 	width: 50%;
@@ -1260,6 +1266,8 @@ table.list td {
 	float: left;
 	margin: 30px;
 	height: 55px;
+	
+
 
 }
 
@@ -1355,24 +1363,6 @@ table.list td {
 */
 .fa-glay {
 	color: #888888;
-}
-
-/*
-	背景画像使用時
-*/
-.top-image {
-	background-image: url('../images/top_image.jpg');
-}
-
-/*
-	ログイン、ユーザ登録関連のボタン設定
-*/
-.btn-reg-l {
-	margin-left:5px;
-	float:left;
-}
-.btn-reg-r {
-	float:right;
 }
 
 #gmap {

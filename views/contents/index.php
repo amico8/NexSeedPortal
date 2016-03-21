@@ -27,10 +27,6 @@
 		</div>
 	</div>
 </div>
-
-
-
-
 <!-- /.intro section -->
 <div id="intro">
 	<div class="container">
