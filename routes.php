@@ -1,6 +1,4 @@
 <?php
-
-	session_start();
 	//$GETパラメータ取得
 	//explode関数:第二引数の文字列を第一引数で分割し、配列で返す関数
 	$params = explode('/', $_GET['url']);
@@ -10,12 +8,16 @@
 	$action = $params[1];
 	$id = 0;
 	$post = array();
+	$files = '';
+	$fileName = '';
 
 	//idがあった場合idも取得する
 	if (isset($params[2])) {
 		$id = $params[2];
 	}
-	if (isset($_POST) && !empty($_POST)) {
+
+	//POST送信された内容を$post変数に代入
+	if(isset($_POST)&&!empty($_POST)){
 		$post = $_POST;
 	}
 	//コントローラの呼び出し

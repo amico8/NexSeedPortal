@@ -1,12 +1,23 @@
 <?php
+	session_start();
 	require('models/content.php');
 
+	//ログインチェックを実装
+	require('controllers/function.php');
+	require('dbconnect.php');
+	if (isset($post['email'])&&!empty($post['email'])) {
+		login($post,$db);
+	} elseif (isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])) {
+		loginCheck($_SESSION,$db);
+	}else{
+		header('Location: /NexSeedPortal/users/login/');
+	}
 	//コントローラのクラスをインスタンス化
 	$controller = new ContentsController();
 
 	switch ($action) {
 		case 'index';
-			$controller -> index($id,$post);
+			$controller->index($id,$post);
 			break;
 
 		case 'add':
@@ -19,15 +30,36 @@
 				$_SESSION['add'] = $post;
 				$controller->addConfirm($_SESSION['add']);
 			} else {
-				$controller->editConfirm($id);
+				$_SESSION['edit'] = $post;
+				$controller->editConfirm($id, $fileName, $files);
 			}
 			break;
-		// メソッドを呼び出す時のみスーパーグローバル変数を使う。
+
 		case 'create':
 			$controller->create();
 			unset($_SESSION['add']);
 			unset($_SESSION['error']);
 	   		header('Location:/NexSeedPortal/contents/index');
+	   		break;
+
+		case 'show':
+			$controller->show($id);
+			unset($_SESSION['edit']);
+			unset($_SESSION['error']);
+			break;
+
+		case 'edit':
+			$controller->edit($id);
+			break;
+
+		case 'delete':
+			$controller->delete($id);
+			break;
+
+		case 'update':
+			$controller->update($id);
+			unset($_SESSION['edit']);
+			unset($_SESSION['error']);
 			break;
 
 		default:
@@ -35,23 +67,25 @@
 	}
 
 	class ContentsController {
-		//プロパティ
-		private $cnntent = '';
+		private $content = '';
 		private $action = '';
 		private $resource = '';
 		private $viewOptions = '';
 		private $categories = '';
 		private $files = '';
+		private $post = array();
 
 		public function __construct() {
 			$this->content = new Content();
 		}
 
 		public function index($id,$post){
+			//indexメソッドを呼び出す
 			$this->viewOptions = $this->content->index($id,$post);
+			//アクション名を設定
 			$this->resource = 'contents';
 			$this->action = 'index';
-
+			//ビューを呼び出す
 			require('views/layout/application.php');
 		}
 
@@ -97,6 +131,63 @@
 
 		public function create() {
 			$this->content->create();
+		}
+
+		public function show($id) {
+			$this->viewOptions = $this->content->show($id);
+			$this->resource = 'contents';
+			$this->action = 'show';
+
+			include('views/layout/application.php');
+		}
+
+		public function edit($id) {
+			$this->viewOptions = $this->content->selectContents($id);
+			$this->categories = $this->content->selectCategories();
+			$this->resource = 'contents';
+			$this->action = 'edit';
+
+			include('views/layout/application.php');
+		}
+
+		public function editConfirm($id, $fileName, $files) {
+			if (isset($_FILES['picture_path']['name']) && !empty($_FILES['picture_path']['name'])) {
+				$fileName = $_FILES['picture_path']['name'];
+				$files = $_FILES['picture_path'];
+				if (!empty($fileName)) {
+					$ext = substr($fileName, -3);
+					if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png' && $ext != 'JPG' && $ext != 'GIF' && $ext != 'PNG'){
+						$_SESSION['error'] = 'error_prefix';
+						header('Location: /NexSeedPortal/contents/edit/'. $id);
+					} else {
+						$_SESSION['error'] = 'select_again';
+						$picture_path = date('YmdHis') . $fileName;
+						move_uploaded_file($_FILES['picture_path']['tmp_name'], 'webroot/asset/images/post_images/'. $picture_path);
+						$files = $picture_path;
+					}
+				} else {
+					$_SESSION['error'] = 'no_error';
+				}
+				$_SESSION['edit'] += array('picture_path'=>$files);
+			}
+			$this->categories = $this->content->selectCategories();
+			$this->files = $files;
+			$this->resource = 'contents';
+			$this->action = 'edit_confirm';
+
+			include('views/layout/application.php');
+		}
+
+		public function update($id) {
+			$this->content->update($id);
+
+			header('Location: /NexSeedPortal/contents/show/'.$id);
+		}
+
+		public function delete($id) {
+			$this->content->delete($id);
+
+			header('Location: /NexSeedPortal/contents/index');
 		}
 	}
  ?>

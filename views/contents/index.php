@@ -21,18 +21,12 @@
 						おすすめレストラン、ローカル情報、レジャー情報<br>
 						特に日常生活に関連する情報満載です！<br>
 						よろしくお願いします！</p>
-						<?php var_dump($this->viewOptions); ?>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
-
-
 <!-- /.intro section -->
 <div id="intro">
 	<div class="container">
@@ -60,7 +54,7 @@
 							<?php } ?>
 						</select>
 						<?php if (isset($this->viewOptions['post']['search'])&&!empty($this->viewOptions['post']['search'])) { ?>
-							<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="Search word:<?php echo $this->viewOptions['post']['search']; ?>">
+							<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="<?php echo $this->viewOptions['post']['search']; ?>">
 						<?php }else{ ?>
 							<input type="text" name="search" placeholder="Search Word" class="form-control input-lg" value="">
 						<?php } ?>
@@ -104,7 +98,7 @@
 								<tbody class="list-body text-overflow">
 									<?php if (isset($this->viewOptions['contents'])&&!empty($this->viewOptions['contents'])) {
 									foreach ($this->viewOptions['contents'] as $content) {?>
-									<tr data-href="/nexseedportal/contents/show/<?php echo $content['content_id']; ?>">
+									<tr data-href="/NexSeedPortal/contents/show/<?php echo $content['content_id']; ?>">
 										<td data-label="shop"><?php echo $content['shop_name']; ?></td>
 										<td class="review" data-label="review"><?php echo $content['review']; ?></td>
 										<td data-label="comment"><?php echo $content['comment']; ?></td>
@@ -116,40 +110,43 @@
 					</div>
 				</div>
 				<div class="btn-section">
-					<?php if(isset($this->viewOptions['post'])&&!empty($this->viewOptions['post'])){ ?>
-					<!-- 検索中のページング -->
-						<?php if($this->viewOptions['page'][0] == 1) {?>
-							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
-								<input type="submit" class="btn-default" style="float:right" value="&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-							</form>
-						<?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
-							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" role="form" name="post">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
-								<input type="submit" class="btn-default" style="float:right" value="Previous">
-							</form>
+					<?php if ($this->viewOptions['maxpage'][0] > 1) {?>
+						<?php if((isset($this->viewOptions['post']['category'])&&!empty($this->viewOptions['post']['category']))||
+									(isset($this->viewOptions['post']['search'])&&!empty($this->viewOptions['post']['search']))){ ?>
+						<!-- 検索中のページング -->
+							<?php if($this->viewOptions['page'][0] == 1) {?>
+								<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+									<input type="submit" class="btn-default" style="float:right" value="&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+								</form>
+							<?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
+								<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" role="form" name="post">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+									<input type="submit" class="btn-default" style="float:right" value="Previous">
+								</form>
+							<?php }else{ ?>
+								<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+									<input type="submit" class="btn-default" style="float:right" value="&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+								</form>
+								<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" role="form" name="post">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
+									<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
+									<input type="submit" class="btn-default" style="float:right" value="Previous">
+								</form>
+							<?php } ?>
 						<?php }else{ ?>
-							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" role="form" name="post">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
-								<input type="submit" class="btn-default" style="float:right" value="&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-							</form>
-							<form method="post" action="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" role="form" name="post">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['category']; ?>" name="category">
-								<input type="hidden" value="<?php echo $this->viewOptions['post']['search']; ?>" name="search">
-								<input type="submit" class="btn-default" style="float:right" value="Previous">
-							</form>
-						<?php } ?>
-					<?php }else{ ?>
-						<?php if($this->viewOptions['page'][0] == 1) {?>
-							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-				    	<?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
-							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
-						<?php }else{ ?>
-							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-							<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+							<?php if($this->viewOptions['page'][0] == 1) {?>
+								<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							<?php }elseif($this->viewOptions['page'][0] == $this->viewOptions['maxpage'][0]){ ?>
+								<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+							<?php }else{ ?>
+								<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] + 1; ?>" class="btn-default" style="float:right">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+								<a href="/NexSeedPortal/contents/index/<?php echo $this->viewOptions['page'][0] - 1; ?>" class="btn-default" style="float:right">Previous</a>
+							<?php } ?>
 						<?php } ?>
 					<?php } ?>
 				</div>
