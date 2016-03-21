@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
 
 </head>
-  
+
 <body data-spy="scroll" data-target="#navbar-scroll">
 	<!-- さとしさん担当 -->
 <div id="menu">
@@ -47,7 +47,7 @@
 				</li>
 				</ul>
 			  </div>
-	 		<!-- NAVIGATION -->
+			 <!-- NAVIGATION -->
 			  <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
 				<ul class="nav navbar-nav">
 				<li>
@@ -67,7 +67,7 @@
 
 <!-- /.testimonial section -->
 <!-- <div id="testi">
-	<div class="container">	
+	<div class="container">
 	</div>
 </div>
  --><!-- /.footer -->
@@ -88,10 +88,10 @@
 </footer>
 	
 	<!-- /.javascript files -->
-    <script src="/NexSeedPortal/webroot/asset/js/jquery.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/bootstrap.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/custom.js"></script>
-    <script src="/NexSeedPortal/webroot/asset/js/jquery.sticky.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/jquery.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/bootstrap.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/custom.js"></script>
+	<script src="/NexSeedPortal/webroot/asset/js/jquery.sticky.js"></script>
 	<script src="/NexSeedPortal/webroot/asset/js/wow.min.js"></script>
 	<script src="/NexSeedPortal/webroot/asset/js/owl.carousel.min.js"></script>
 	<script>
