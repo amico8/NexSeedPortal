@@ -50,7 +50,7 @@
 				</li>
 				</ul>
 			  </div>
-	 		<!-- NAVIGATION -->
+			 <!-- NAVIGATION -->
 			  <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
 				<ul class="nav navbar-nav">
 				<li>
@@ -67,9 +67,6 @@
  ?>
 
 
-
-
-<!-- /.footer -->
 <footer id="footer">
 	<div class="container">
 		<div class="col-sm-4 col-sm-offset-4">
