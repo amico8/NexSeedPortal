@@ -84,7 +84,7 @@
 									<?php endfor; ?>
 								<?php else: ?>
 									<?php for($i=1; $i<=5; $i++): ?>
-										<label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" checked required/>&nbsp;&nbsp;&nbsp;&nbsp;
+										<label for="<?php echo $i;?>"><?php echo $i; ?>&nbsp;</label><input type="radio" id="<?php echo $i;?>" name="review" value="<?php echo $i; ?>" required/>&nbsp;&nbsp;&nbsp;&nbsp;
 									<?php endfor; ?>
 								<?php endif; ?>
 								</p>
