@@ -100,7 +100,7 @@
 									foreach ($this->viewOptions['contents'] as $content) {?>
 									<tr data-href="/NexSeedPortal/contents/show/<?php echo $content['content_id']; ?>">
 										<td data-label="shop"><?php echo $content['shop_name']; ?></td>
-										<td class="review" data-label="review"><?php echo $content['review']; ?></td>
+										<td id="review" data-label="review"><?php echo $content['review']; ?></td>
 										<td data-label="comment"><?php echo $content['comment']; ?></td>
 									</tr>
 									<?php }} ?>

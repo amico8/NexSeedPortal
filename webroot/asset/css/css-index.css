@@ -1143,11 +1143,11 @@ table.list tr {
 	background-color: #fff;
 }*/
 
-td.review {
+td#review {
 	color: #ffff00;
 }
 
-td.review td:hover {
+td#review td:hover {
 	color: #ffff00;
 }
 
