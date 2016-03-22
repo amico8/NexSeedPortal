@@ -35,8 +35,8 @@
 			<form method="post" action="/NexSeedPortal/contents/index/" role="form" name="search">
 				<div class="new-post col-md-6 wow slideInRight">
 					<h2>Let's Post Your Idea!</h2>
-					<div class="download-cta wow fadeInLeft">
-					<a class="btn-secondary" href="/NexSeedPortal/contents/add">New Post</a>
+					<div class="download-cta wow">
+					<a class="btn-secondary slideInRight" href="/NexSeedPortal/contents/add">New Post</a>
 					</div>
 				</div>
 				<div class="search col-md-6 wow slideInRight">
