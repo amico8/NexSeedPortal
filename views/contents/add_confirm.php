@@ -2,13 +2,14 @@
 	<div class="contact fullscreen parallax">
 		<div class="overlay02">
 			<div class="container">
-				<div class="row contact-row">
-					<div class="col-sm-7 contact-right">
-						<form method="POST" id="contact-form" class="form-horizontal" action="">
-							<div class="well">ご登録内容をご確認ください。</div>
-								<table class="table">
+				<div class="wow fadeInUp row contact-row">
+					<div class="col-md-8 contact-right">
+						<form method="post" id="contact-form" class="form-horizontal" action="">
+							<div class="wow fadeInUp wellwell">ご登録内容をご確認ください。</div>
+							<div class="wow fadeInUp alt-table-responsive">
+								<table class="table table-hover table-condensed col-xs-10">
 									<tbody>
-										<tr class="sample1">
+										<tr>
 											<td><div class="text-center">Category</div></td>
 											<td>
 												<div class="text-center">
@@ -21,19 +22,19 @@
 												</div>
 											</td>
 										</tr>
-										<tr class="sample1">
+										<tr>
 											<td><div class="text-center">Shop Name</div></td>
 											<td><div class="text-center"><?php echo htmlspecialchars($_SESSION['add']['shop_name']); ?></div></td>
 										</tr>
-										<tr class="sample1">
+										<tr>
 										<td><div class="text-center">Location</div></td>
 										<td>
 											<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 											<?php require('webroot/asset/js/gmap.php'); ?>
-											<div id="gmap" class="img-thumbnail center-block;"></div>
+											<div id="gmap" class="img-thumbnail center-block"></div>
 										</td>
 										</tr>
-										<tr class="sample1">
+										<tr>
 											<td><div class="text-center">Photo</div></td>
 											<td>
 												<?php if (isset($_SESSION['add']['picture_path']) && !empty($_SESSION['add']['picture_path'])): ?>
@@ -43,9 +44,9 @@
 												<?php endif; ?>
 											</td>
 										</tr>
-										<tr class="sample1">
+										<tr>
 											<td><div class="text-center">Review</div></td>
-											<td class="review">
+											<td id="review">
 												<div class="text-center">
 													<?php
 														$i = $_SESSION['add']['review'];
@@ -56,12 +57,13 @@
 												</div>
 											</td>
 										</tr>
-										<tr class="sample1">
+										<tr>
 											<td><div class="text-center">Comment</div></td>
 											<td><div class="text-center"><?php echo htmlspecialchars($_SESSION['add']['comment']); ?></div></td>
 										</tr>
 									</tbody>
 								</table>
+							</div>
 							<div class="col-sm-4 contact-right">
 								<a href='/NexSeedPortal/contents/add'>
 									<input type="button" name="submit" value="Back"class="btn01 btn-success wow fadeInUp" />

@@ -15,6 +15,15 @@
 
 	switch ($action) {
 		case 'index';
+			if(isset($_SESSION['add'])){
+				unset($_SESSION['add']);
+			}
+			if (isset($_SESSION['edit'])) {
+				unset($_SESSION['edit']);
+			}
+			if (isset($_SESSION['error'])) {
+				unset($_SESSION['errot']);
+			}
 			$controller->index($id,$post);
 			break;
 
