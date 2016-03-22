@@ -38,24 +38,27 @@
 								<?php else: ?>
 									<input type="text" name="shop_name" class="form-control input-lg" placeholder="Shop Name" value="" required/>
 								<?php endif; ?>
-	   						<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-							<?php require('webroot/asset/js/gmap_add.php'); ?>
-							<div id="gmap" class="img-thumbnail center-block;" style=""></div>
-							 <?php if (isset($_SESSION['add']) && !empty($_SESSION['add'])): ?>
-								<div id="lng">
-									<input type="hidden" name="lng" id="lng" value="<?php echo $_SESSION['add']['lng']; ?>">
-								</div>
-								<div id="lat">
-									<input type="hidden" name="lat" id="lat" value="<?php echo $_SESSION['add']['lat']; ?>">
-								</div>
+							<div class="abc">
+								<span>Please Select Your Favorite Location!!</span>
+								<!-- goolgle map API -->
+		   						<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+								<?php require('webroot/asset/js/gmap_add.php'); ?>
+								<div id="gmap" class="img-thumbnail center-block"></div>
+								<?php if (isset($_SESSION['add']) && !empty($_SESSION['add'])): ?>
+									<div id="lng">
+										<input type="hidden" name="lng" id="lng" value="<?php echo $_SESSION['add']['lng']; ?>">
+									</div>
+									<div id="lat">
+										<input type="hidden" name="lat" id="lat" value="<?php echo $_SESSION['add']['lat']; ?>">
+									</div>
 								<?php else: ?>
-								 <div id="lng">
-								 	<input type="hidden" name="lng" id="lng" value="123.90381932258606">
-								 </div>
-								 <div id="lat">
-								 	<input type="hidden" name="lat" id="lat" value="10.329200473939935">
-								 </div>
-							<?php endif; ?>
+									 <div id="lng">
+									 	<input type="hidden" name="lng" id="lng" value="123.90381932258606">
+									 </div>
+									 <div id="lat">
+									 	<input type="hidden" name="lat" id="lat" value="10.329200473939935">
+									 </div>
+								<?php endif; ?>
 							</div>
 								<!-- 写真 -->
 							 <div class="abc">
