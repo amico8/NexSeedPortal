@@ -64,9 +64,7 @@
 
 		public function add($post) {
 			$error = array();
-			if ($post == '' && isset($_SESSION) && !empty($_SESSION)) {
-				$this->rewrite = $_SESSION['join'];
-			}
+
 			if(isset($post) && !empty($post)) {
 				$name = htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8');
 				$email = htmlspecialchars($post['email'], ENT_QUOTES, 'UTF-8');
@@ -101,9 +99,7 @@
 				}
 				$_SESSION['join'] = $post;
 			}
-			if (isset($_REQUEST['action']) && $_REQUEST['action']=='rewrite') {
-				$this->rewrite = $_SESSION['join'];
-			}
+
 			$this->error = $error;
 			return false;
 		}
