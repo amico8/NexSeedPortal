@@ -30,7 +30,7 @@
 										<td>
 											<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 											<?php require('webroot/asset/js/gmap.php'); ?>
-											<div id="gmap" style="width: 200px; height: 150px; border: 1px solid Gray;"></div>
+											<div id="gmap" class="img-thumbnail center-block;"></div>
 										</td>
 										</tr>
 										<tr class="sample1">

@@ -40,7 +40,7 @@
 								<?php endif; ?>
 	   						<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 							<?php require('webroot/asset/js/gmap_add.php'); ?>
-							<div id="gmap" class="map01" style=""></div>
+							<div id="gmap" class="img-thumbnail center-block;" style=""></div>
 							 <?php if (isset($_SESSION['add']) && !empty($_SESSION['add'])): ?>
 								<div id="lng">
 									<input type="hidden" name="lng" id="lng" value="<?php echo $_SESSION['add']['lng']; ?>">
