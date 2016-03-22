@@ -11,7 +11,7 @@
 									<?php echo $this->viewOptions['shop_name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;'s Information
 								</div>
 							<!-- ここはログインユーザーIDとコンテンツユーザーIDが一致した場合にのみ表示される -->
-							<?php //if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $this->viewOptions['user_id']): ?>
+							<?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $this->viewOptions['user_id']): ?>
 								<div class="contact-right">
 										<a href="/NexSeedPortal/contents/edit/<?php echo $id; ?>">
 											<i class="fa fa-pencil fa-glay"></i>
@@ -20,7 +20,7 @@
 											<i class="fa fa-trash fa-glay"></i>
 										</a>
 								</div>
-							<?php //endif; ?>
+							<?php endif; ?>
 							</p>
 						</div>
 							<br />
