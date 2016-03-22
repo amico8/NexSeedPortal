@@ -18,12 +18,6 @@
 		}
 
 		public function login($post) {
-			if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
-				$post['email'] = $_COOKIE['email'];
-				$post['password'] = $_COOKIE['password'];
-				$post['save'] = 'on';
-			}
-
 			if (!empty($post)) {
 				if ($post['email'] != '' && $post['password'] != '') {
 					$sql = sprintf('SELECT COUNT(*) AS cnt FROM users WHERE email="%s"',
@@ -44,7 +38,7 @@
 							$_SESSION['user_name'] = $table['user_name'];
 							$_SESSION['user_id'] = $table['user_id'];
 							$_SESSION['time'] = time();
-							if ($post['save'] == 'on' && !isset($_COOKIE)) {
+							if ($post['save'] == 'on' && !isset($_COOKIE['email']) && !isset($_COOKIE['password'])) {
 							  	setcookie('email', $post['email'], time()+60*60*24*14);
 							  	setcookie('password', $post['password'], time()+60*60*24*14);
 							}

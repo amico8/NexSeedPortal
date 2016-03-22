@@ -42,6 +42,11 @@
 		public function login($post) {
 			$this->resource = 'users';
 			$this->action = 'login';
+			if (isset($_COOKIE['email']) && $_COOKIE['email'] != '' && isset($_SESSION['user_id'])) {
+				$post['email'] = $_COOKIE['email'];
+				$post['password'] = $_COOKIE['password'];
+				$post['save'] = 'on';
+			}
 
 			if (isset($post) && !empty($post)) {
 				if($this->user->login($post)) {
